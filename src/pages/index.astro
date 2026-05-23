@@ -6,7 +6,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Natur Stellplatz Gampel – Wohnmobil & Camping im Wallis</title>
-  <meta name="description" content="Naturnaher Wohnmobilstellplatz in Gampel, Wallis. Ohne Reservation, CHF 29 pro Nacht, 365 Tage geöffnet. Direkt an der Rhone." />
+  <meta name="description" content="Naturnaher Wohnmobilstellplatz in Gampel, Wallis. Ohne Reservation, ab CHF 26 pro Nacht, 365 Tage geöffnet. Direkt an der Rhone." />
   <meta property="og:title" content="Natur Stellplatz Gampel" />
   <meta property="og:description" content="Ihr naturnaher Wohnmobilstellplatz im Herzen des Wallis. Ohne Reservation, freie Platzwahl." />
   <meta property="og:image" content="https://static.wixstatic.com/media/fddf3e_a6f2f6440d024ab8aa82dfba7ace26fe~mv2.jpg" />
@@ -145,7 +145,13 @@
       background: var(--bg2); border-radius: 8px; padding: 1.75rem;
       border-left: 4px solid var(--gruen);
     }
-    .feat-icon { font-size: 2rem; margin-bottom: .75rem; }
+    .feat-icon-box {
+      width: 50px; height: 50px; border-radius: 8px; background: #EDE9E0;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: .9rem; flex-shrink: 0;
+      box-shadow: inset 0 1px 3px rgba(0,0,0,.06);
+    }
+    .feat-icon-box svg { width: 24px; height: 24px; color: var(--rot); stroke: var(--rot); fill: none; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
     .feat h3 { font-size: 1.05rem; color: var(--gruen); margin-bottom: .45rem; }
     .feat p { font-size: .875rem; color: #5a5650; line-height: 1.65; }
 
@@ -337,7 +343,7 @@
     <p class="hero-sub">Ihr naturnaher Wohnmobilstellplatz im Herzen des Wallis – direkt an der Rhone</p>
     <div>
       <a href="https://park4campers.payrexx.com/de/pay?tid=c86b941c" target="_blank" rel="noopener" class="btn">
-        Jetzt buchen – CHF 29
+        Jetzt buchen – ab CHF 26
       </a>
       <a href="#how" class="btn btn-outline">Mehr erfahren</a>
     </div>
@@ -379,7 +385,7 @@
       <div class="stat-label">Stellplätze</div>
     </div>
     <div class="stat">
-      <div class="stat-num">CHF 29</div>
+      <div class="stat-num">CHF 26</div>
       <div class="stat-label">ab pro Nacht</div>
     </div>
     <div class="stat">
@@ -400,36 +406,61 @@
     <h2 class="sec-title">Was Sie erwartet</h2>
     <p class="sec-lead">Alles was Sie für einen komfortablen Aufenthalt im Wallis brauchen.</p>
     <div class="feat-grid">
+
       <div class="feat">
-        <div class="feat-icon">🚐</div>
-        <h3>Grosszügige Stellplätze</h3>
-        <p>Über 100 Stellplätze auf weitläufiger Grünfläche, freie Platzwahl ohne Voranmeldung. Perfekt für Wohnmobile jeder Grösse.</p>
+        <div class="feat-icon-box">
+          <!-- van / camper -->
+          <svg viewBox="0 0 24 24"><path d="M1 10.5V17a1 1 0 0 0 1 1h1m16 0h1a1 1 0 0 0 1-1v-5.5L17 5H5a2 2 0 0 0-2 2v4.5M6 18a2 2 0 1 0 4 0 2 2 0 0 0-4 0Zm8 0a2 2 0 1 0 4 0 2 2 0 0 0-4 0Z"/><path d="M3 10.5h18M14 5v5.5"/></svg>
+        </div>
+        <h3>Über 100 Stellplätze</h3>
+        <p>Freie Platzwahl auf weitläufiger Grünfläche – im Schatten oder in der Sonne. Ohne Voranmeldung, jederzeit verfügbar.</p>
       </div>
+
       <div class="feat">
-        <div class="feat-icon">🚿</div>
-        <h3>Sanitäranlagen</h3>
-        <p>Sauberer Dusch- und WC-Container mit warmen Duschen. Regelmässig gereinigt und gepflegt.</p>
+        <div class="feat-icon-box">
+          <!-- shower drop -->
+          <svg viewBox="0 0 24 24"><path d="M12 2a5 5 0 0 0-5 5v1H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-9a2 2 0 0 0-2-2h-2V7a5 5 0 0 0-5-5Z"/><circle cx="12" cy="14" r="2"/></svg>
+        </div>
+        <h3>Moderne Sanitäranlagen</h3>
+        <p>3 Duschen, 3 WC, 3 Lavabos – sauber, gepflegt und jederzeit zugänglich. Warmes Wasser inklusive.</p>
       </div>
+
       <div class="feat">
-        <div class="feat-icon">⚡</div>
-        <h3>Infrastruktur</h3>
-        <p>Stromanschlüsse verfügbar, vollständige Entsorgungsstation für Frischwasser, Abwasser und Chemietoiletten.</p>
+        <div class="feat-icon-box">
+          <!-- bolt / lightning -->
+          <svg viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z"/></svg>
+        </div>
+        <h3>Vollständige Infrastruktur</h3>
+        <p>48 CEE-Steckdosen (16 A), Frischwasseranschlüsse, Grau- und Schwarzwasser-Entsorgungsstation.</p>
       </div>
+
       <div class="feat">
-        <div class="feat-icon">📍</div>
-        <h3>Zentrale Lage</h3>
-        <p>Mitten in Gampel – zu Fuss ins Dorf einkaufen, direkt an der Rhone für Spaziergänge und Velotouren.</p>
+        <div class="feat-icon-box">
+          <!-- map pin -->
+          <svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        </div>
+        <h3>Perfekte Lage</h3>
+        <p>Direkt an der Rhone, 10 Minuten zu Fuss ins Dorf Gampel. Rundum Bergpanorama – mitten im Herzen des Wallis.</p>
       </div>
+
       <div class="feat">
-        <div class="feat-icon">🌿</div>
-        <h3>Natur pur</h3>
-        <p>Mitten in der Walliser Landschaft – umgeben von Bergen, Rhone und der typischen Walliser Flora und Fauna.</p>
+        <div class="feat-icon-box">
+          <!-- tree / nature -->
+          <svg viewBox="0 0 24 24"><path d="M12 2 6 10h3l-3 5h4v5h4v-5h4l-3-5h3L12 2Z"/></svg>
+        </div>
+        <h3>Naturerlebnis</h3>
+        <p>Rhone-Radweg von Gampel bis Brig oder Sion, Mountainbike-Trails, Wasserfall Turtmann, Bähnli Jeizinen auf 1500 m.</p>
       </div>
+
       <div class="feat">
-        <div class="feat-icon">🎶</div>
-        <h3>Open Air Gampel</h3>
-        <p>Idealer Ausgangspunkt für das legendäre Open Air Gampel – direkt vor der Haustür. Spezialpreise für Festival-Besucher.</p>
+        <div class="feat-icon-box">
+          <!-- users / group -->
+          <svg viewBox="0 0 24 24"><circle cx="9" cy="7" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="7" r="3"/><path d="M21 20c0-3.3-2.7-6-6-6"/></svg>
+        </div>
+        <h3>Club-freundlich</h3>
+        <p>Ideal für jährliche Wohnmobil-Clubtreffen und Vereinsausflüge jeder Grösse – grosszügig Platz für alle.</p>
       </div>
+
     </div>
   </div>
 </section>
@@ -439,19 +470,17 @@
 <section class="preise" id="preise">
   <div class="wrap">
     <h2 class="sec-title">Preise</h2>
-    <p class="sec-lead">Transparente Preise, keine versteckten Kosten. Kurtaxe immer inbegriffen.</p>
+    <p class="sec-lead">Transparente Preise, keine versteckten Kosten.</p>
     <div class="preise-grid">
 
       <div class="preis-card">
         <div class="preis-label">Ohne Strom</div>
-        <div class="preis-num">CHF 29</div>
+        <div class="preis-num">CHF 26.–</div>
         <div class="preis-unit">pro Fahrzeug / Nacht</div>
         <ul class="incl">
           <li>Freie Platzwahl</li>
           <li>Duschen & WC</li>
           <li>Entsorgungsstation</li>
-          <li>WLAN</li>
-          <li>Kurtaxe inbegriffen</li>
         </ul>
         <a href="https://park4campers.payrexx.com/de/pay?tid=c86b941c" target="_blank" rel="noopener" class="btn-book">
           Jetzt buchen
@@ -460,16 +489,14 @@
 
       <div class="preis-card pop">
         <div class="pop-badge">Beliebt</div>
-        <div class="preis-label">Mit Strom</div>
-        <div class="preis-num">CHF 35</div>
+        <div class="preis-label">Mit Strom (16A)</div>
+        <div class="preis-num">CHF 29.–</div>
         <div class="preis-unit">pro Fahrzeug / Nacht</div>
         <ul class="incl">
           <li>Freie Platzwahl</li>
           <li>Duschen & WC</li>
           <li>Entsorgungsstation</li>
-          <li>WLAN</li>
-          <li>Kurtaxe inbegriffen</li>
-          <li>Stromanschluss 16 A</li>
+          <li>Stromanschluss 16 A (CEE)</li>
         </ul>
         <a href="https://park4campers.payrexx.com/de/pay?tid=c86b941c" target="_blank" rel="noopener" class="btn-book">
           Jetzt buchen
@@ -523,25 +550,25 @@
 <section class="akt" id="aktivitaeten">
   <div class="wrap">
     <h2 class="sec-title">Aktivitäten</h2>
-    <p class="sec-lead">Dr Wallis – e schöni Gegend wos vill z'erlebe git.</p>
+    <p class="sec-lead">Das Wallis bietet rund um Gampel unzählige Möglichkeiten für aktive und erholsame Aufenthalte.</p>
     <div class="akt-grid">
       <div class="akt-item">
         <div class="akt-icon">🚴</div>
-        <h3>Velo & Wandere</h3>
-        <p>D'Rhone entlang velo fahre oder uf d'Bärg go wandere – dr Wallis isch es Paradies für Outdoorfreunde und Naturliebhaber.</p>
-      </div>
-      <div class="akt-item">
-        <div class="akt-icon">🍷</div>
-        <h3>Walliser Wii</h3>
-        <p>D'Rebu im Wallis sin legendär. Entdeckit d'lokale Winzer und geniessit en guete Fendant oder en krüftigen Cornalin.</p>
+        <h3>Velo & Wandern</h3>
+        <p>Der Rhone-Radweg führt von Gampel bis nach Brig oder Sion – flach und traumhaft schön. Dazu Mountainbike-Wege, der Wasserfall Turtmann und das Bähnli Jeizinen auf 1500 m.</p>
       </div>
       <div class="akt-item">
         <div class="akt-icon">🏔️</div>
-        <h3>Bärg & Natur</h3>
-        <p>Vo Gampel uss ereichit dir schnell d'Alpu, d'Gletscher und d'grossartigschti Bergwelt vom ganzu Wallis.</p>
+        <h3>Bergpanorama</h3>
+        <p>Inmitten der schönen Walliser Berge – Ruhe und Natur pur. Die beeindruckende Bergwelt des Wallis liegt direkt vor der Türe und lädt zum Entdecken ein.</p>
+      </div>
+      <div class="akt-item">
+        <div class="akt-icon">🏕️</div>
+        <h3>Ideal für Clubs</h3>
+        <p>Perfekt für jährliche Wohnmobil-Clubtreffen und Vereinsausflüge jeder Grösse. Grosszügig Platz, unkomplizierte Anreise und herzliche Gastfreundschaft.</p>
       </div>
     </div>
-    <div class="akt-gruss">Viel Gfreidds!</div>
+    <div class="akt-gruss">Lass dich einfach überraschen — Viel Gfreidds!</div>
   </div>
 </section>
 
