@@ -2,14 +2,706 @@
 ---
 <!DOCTYPE html>
 <html lang="de">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Natur Stellplatz Gampel</title>
-  </head>
-  <body class="bg-green-50 text-gray-900">
-    <main class="min-h-screen flex items-center justify-center">
-      <h1 class="text-4xl font-bold text-green-800">Hello World</h1>
-    </main>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Natur Stellplatz Gampel – Wohnmobil & Camping im Wallis</title>
+  <meta name="description" content="Naturnaher Wohnmobilstellplatz in Gampel, Wallis. Ohne Reservation, CHF 29 pro Nacht, 365 Tage geöffnet. Direkt an der Rhone." />
+  <meta property="og:title" content="Natur Stellplatz Gampel" />
+  <meta property="og:description" content="Ihr naturnaher Wohnmobilstellplatz im Herzen des Wallis. Ohne Reservation, freie Platzwahl." />
+  <meta property="og:image" content="https://static.wixstatic.com/media/fddf3e_a6f2f6440d024ab8aa82dfba7ace26fe~mv2.jpg" />
+  <link rel="preconnect" href="https://static.wixstatic.com" />
+  <style>
+    :root {
+      --rot:   #8B2020;
+      --gruen: #2D5016;
+      --bg:    #FAF8F4;
+      --bg2:   #EDE9E0;
+      --text:  #1A1A18;
+      --serif: 'Palatino Linotype', Palatino, Georgia, serif;
+      --sans:  system-ui, Helvetica, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: var(--sans); line-height: 1.6; }
+    h1, h2, h3 { font-family: var(--serif); line-height: 1.25; }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; }
+
+    /* ── NAV ─────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      background: rgba(250,248,244,0.96); backdrop-filter: blur(10px);
+      border-bottom: 1px solid #d9d4c8;
+      height: 62px; padding: 0 2rem;
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    }
+    .nav-logo {
+      font-family: var(--serif); font-size: 1.05rem; font-weight: bold;
+      color: var(--rot); text-decoration: none; white-space: nowrap; flex-shrink: 0;
+    }
+    .nav-links {
+      display: flex; gap: 1.75rem; list-style: none; flex: 1; justify-content: center;
+    }
+    .nav-links a {
+      text-decoration: none; font-size: 0.875rem; font-weight: 500;
+      color: var(--text); transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--rot); }
+    .lang-switcher { display: flex; gap: .25rem; flex-shrink: 0; }
+    .lang-btn {
+      border: 1px solid #ccc; background: none; padding: .2rem .55rem;
+      font-size: .72rem; font-weight: 600; letter-spacing: .04em;
+      cursor: pointer; border-radius: 3px; color: var(--text);
+      font-family: var(--sans); transition: all .18s;
+    }
+    .lang-btn.active { background: var(--rot); color: #fff; border-color: var(--rot); }
+    .lang-btn:not(.active):hover { border-color: var(--rot); color: var(--rot); }
+
+    /* ── HERO ────────────────────────────────── */
+    .hero {
+      position: relative; height: 100vh; min-height: 580px; overflow: hidden;
+      padding-top: 62px;
+    }
+    .hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(170deg, rgba(0,0,0,.18) 0%, rgba(0,0,0,.55) 100%);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; padding: 2rem 1.5rem;
+    }
+    .badge {
+      display: inline-block;
+      background: var(--gruen); color: #fff;
+      font-size: .75rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+      padding: .35rem 1.1rem; border-radius: 2rem; margin-bottom: 1.25rem;
+    }
+    .hero h1 {
+      font-size: clamp(2.1rem, 5.5vw, 3.8rem); color: #fff;
+      text-shadow: 0 2px 16px rgba(0,0,0,.45); margin-bottom: .5rem;
+    }
+    .hero-sub {
+      color: rgba(255,255,255,.9); font-size: clamp(.95rem, 2vw, 1.2rem);
+      text-shadow: 0 1px 8px rgba(0,0,0,.4); margin-bottom: 2rem; max-width: 540px;
+    }
+    .btn {
+      display: inline-block; text-decoration: none;
+      background: var(--rot); color: #fff;
+      padding: .85rem 2.4rem; border-radius: 4px;
+      font-size: 1rem; font-weight: 700; font-family: var(--sans);
+      border: none; cursor: pointer; transition: background .2s, transform .12s;
+    }
+    .btn:hover { background: #a02828; transform: translateY(-2px); }
+    .btn-outline {
+      background: transparent; color: #fff;
+      border: 2px solid rgba(255,255,255,.8); margin-left: .75rem;
+    }
+    .btn-outline:hover { background: rgba(255,255,255,.15); transform: translateY(-2px); }
+
+    /* ── SHARED SECTION ──────────────────────── */
+    section { padding: 5rem 1.5rem; }
+    .wrap { max-width: 1120px; margin: 0 auto; }
+    .sec-title {
+      font-family: var(--serif); font-size: clamp(1.55rem, 3vw, 2.1rem);
+      color: var(--rot); text-align: center; margin-bottom: .65rem;
+    }
+    .sec-lead {
+      text-align: center; color: #5a5650; font-size: 1.02rem; max-width: 600px;
+      margin: 0 auto 3rem; line-height: 1.7;
+    }
+
+    /* ── SO EINFACH GEHT'S ───────────────────── */
+    .steps { background: var(--bg2); }
+    .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.75rem; }
+    .step {
+      background: #fff; border-radius: 8px; padding: 2rem 1.75rem; text-align: center;
+      box-shadow: 0 2px 14px rgba(0,0,0,.06);
+    }
+    .step-num {
+      width: 52px; height: 52px; border-radius: 50%; background: var(--rot); color: #fff;
+      font-family: var(--serif); font-size: 1.45rem; font-weight: bold;
+      display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;
+    }
+    .step h3 { font-size: 1.15rem; margin-bottom: .5rem; color: var(--text); }
+    .step p { font-size: .9rem; color: #5a5650; line-height: 1.65; }
+
+    /* ── STATS ───────────────────────────────── */
+    .stats { background: var(--rot); padding: 2.75rem 1.5rem; }
+    .stats-grid {
+      max-width: 1120px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: .5rem; text-align: center;
+    }
+    .stat { padding: 1rem; }
+    .stat-num {
+      font-family: var(--serif); font-size: 2.6rem; font-weight: bold;
+      color: #fff; line-height: 1;
+    }
+    .stat-label { color: rgba(255,255,255,.8); font-size: .875rem; margin-top: .35rem; }
+
+    /* ── FEATURES ────────────────────────────── */
+    .feat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 1.4rem; }
+    .feat {
+      background: var(--bg2); border-radius: 8px; padding: 1.75rem;
+      border-left: 4px solid var(--gruen);
+    }
+    .feat-icon { font-size: 2rem; margin-bottom: .75rem; }
+    .feat h3 { font-size: 1.05rem; color: var(--gruen); margin-bottom: .45rem; }
+    .feat p { font-size: .875rem; color: #5a5650; line-height: 1.65; }
+
+    /* ── PREISE ──────────────────────────────── */
+    .preise { background: var(--bg2); }
+    .preise-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+    .preis-card {
+      background: #fff; border-radius: 10px; padding: 2rem;
+      box-shadow: 0 2px 18px rgba(0,0,0,.08); position: relative;
+    }
+    .preis-card.pop { border: 2px solid var(--rot); }
+    .pop-badge {
+      position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
+      background: var(--rot); color: #fff;
+      font-size: .72rem; font-weight: 700; letter-spacing: .06em;
+      padding: .22rem .9rem; border-radius: 2rem; white-space: nowrap;
+    }
+    .preis-label { font-size: .8rem; color: #999; text-transform: uppercase; letter-spacing: .06em; margin-bottom: .4rem; }
+    .preis-num { font-family: var(--serif); font-size: 3rem; color: var(--rot); font-weight: bold; line-height: 1; }
+    .preis-unit { font-size: .85rem; color: #999; margin-bottom: 1.6rem; }
+    .incl { list-style: none; margin-bottom: 2rem; }
+    .incl li {
+      padding: .4rem 0; font-size: .875rem; color: #555;
+      border-bottom: 1px solid #f0ebe0;
+      display: flex; align-items: center; gap: .6rem;
+    }
+    .incl li::before { content: '✓'; color: var(--gruen); font-weight: bold; flex-shrink: 0; }
+    .btn-book {
+      display: block; width: 100%; background: var(--rot); color: #fff;
+      border: none; padding: .875rem; font-size: .95rem; font-weight: 700;
+      border-radius: 4px; cursor: pointer; text-decoration: none; text-align: center;
+      font-family: var(--sans); transition: background .2s;
+    }
+    .btn-book:hover { background: #a02828; }
+
+    /* ── GALERIE ─────────────────────────────── */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: 300px 260px;
+      gap: 8px; margin-top: 3rem; border-radius: 8px; overflow: hidden;
+    }
+    .gallery-grid img { width: 100%; height: 100%; object-fit: cover; }
+    .g1 { grid-column: 1 / span 7; grid-row: 1; }
+    .g2 { grid-column: 8 / span 5; grid-row: 1; }
+    .g3 { grid-column: 1 / span 4; grid-row: 2; }
+    .g4 { grid-column: 5 / span 4; grid-row: 2; }
+    .g5 { grid-column: 9 / span 4; grid-row: 2; }
+
+    /* ── OPEN AIR ────────────────────────────── */
+    .openair { background: var(--gruen); padding: 4.5rem 1.5rem; }
+    .openair-inner {
+      max-width: 1120px; margin: 0 auto;
+      display: flex; flex-wrap: wrap; align-items: center;
+      justify-content: space-between; gap: 2.5rem;
+    }
+    .openair-text h2 { font-size: clamp(1.4rem, 3vw, 2rem); color: #fff; margin-bottom: .5rem; }
+    .openair-text .openair-date { color: rgba(255,255,255,.8); font-size: 1rem; margin-bottom: .35rem; }
+    .openair-text .openair-desc { color: rgba(255,255,255,.75); font-size: .9rem; max-width: 480px; }
+    .openair-cta { text-align: center; flex-shrink: 0; }
+    .openair-price { font-family: var(--serif); font-size: 2.8rem; color: #fff; font-weight: bold; line-height: 1; }
+    .openair-nights { color: rgba(255,255,255,.7); font-size: .85rem; margin: .35rem 0 1.5rem; }
+    .btn-white {
+      display: inline-block; background: #fff; color: var(--gruen);
+      padding: .85rem 2rem; border-radius: 4px;
+      font-size: .95rem; font-weight: 700; font-family: var(--sans);
+      text-decoration: none; transition: background .2s;
+    }
+    .btn-white:hover { background: var(--bg2); }
+
+    /* ── AKTIVITÄTEN ─────────────────────────── */
+    .akt { background: var(--bg2); }
+    .akt-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2rem; }
+    .akt-item { text-align: center; }
+    .akt-icon { font-size: 3rem; margin-bottom: 1rem; }
+    .akt-item h3 { font-size: 1.1rem; color: var(--gruen); margin-bottom: .5rem; }
+    .akt-item p { font-size: .875rem; color: #5a5650; line-height: 1.65; }
+    .akt-gruss {
+      text-align: center; margin-top: 3rem; font-family: var(--serif);
+      font-size: 1.4rem; color: var(--rot); font-style: italic;
+    }
+
+    /* ── BEWERTUNGEN ─────────────────────────── */
+    .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 1.5rem; }
+    .review {
+      background: var(--bg2); border-radius: 8px; padding: 1.75rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,.05);
+    }
+    .review-stars { color: #F4B400; font-size: 1.1rem; margin-bottom: .75rem; }
+    .review-text { font-size: .875rem; color: #444; line-height: 1.75; font-style: italic; margin-bottom: 1.1rem; }
+    .review-author { font-weight: 700; font-size: .85rem; }
+    .review-meta { font-size: .75rem; color: #888; margin-top: .15rem; }
+
+    /* ── KONTAKT ─────────────────────────────── */
+    .kontakt { background: var(--bg2); }
+    .kontakt-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+    .k-title { font-size: 1.2rem; color: var(--rot); margin-bottom: 1.5rem; }
+    .k-line { display: flex; gap: .8rem; align-items: flex-start; margin-bottom: 1.1rem; font-size: .92rem; line-height: 1.55; }
+    .k-icon { flex-shrink: 0; font-size: 1.1rem; margin-top: .05rem; }
+    .k-line a { text-decoration: none; transition: color .18s; }
+    .k-line a:hover { color: var(--rot); }
+    .k-divider { border: none; border-top: 1px solid #d4cfc4; margin: 1.5rem 0; }
+    .k-hours { font-size: .82rem; color: #777; margin-top: .25rem; }
+    .map-placeholder {
+      background: #fff; border-radius: 8px; height: 360px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: .6rem; border: 2px dashed #ccc; color: #888;
+    }
+    .map-placeholder svg { width: 48px; height: 48px; opacity: .4; }
+    .map-placeholder p { font-size: .875rem; }
+    .map-link { color: var(--rot); text-decoration: none; font-size: .85rem; font-weight: 600; }
+    .map-link:hover { text-decoration: underline; }
+
+    /* ── FOOTER ──────────────────────────────── */
+    footer { background: #1A1A18; color: rgba(255,255,255,.7); padding: 3.5rem 1.5rem 2rem; }
+    .footer-grid {
+      max-width: 1120px; margin: 0 auto;
+      display: flex; flex-wrap: wrap; gap: 2.5rem; justify-content: space-between; align-items: flex-start;
+      padding-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,.1);
+    }
+    .footer-brand h3 { font-family: var(--serif); font-size: 1.05rem; color: #fff; margin-bottom: .3rem; }
+    .footer-brand p { font-size: .82rem; color: rgba(255,255,255,.45); }
+    .footer-nav { list-style: none; display: flex; flex-direction: column; gap: .45rem; }
+    .footer-nav a { text-decoration: none; font-size: .85rem; color: rgba(255,255,255,.65); transition: color .18s; }
+    .footer-nav a:hover { color: #fff; }
+    .footer-social-label { font-size: .75rem; color: rgba(255,255,255,.4); text-transform: uppercase; letter-spacing: .07em; margin-bottom: .75rem; }
+    .social-links { display: flex; gap: .6rem; }
+    .social-link {
+      display: flex; align-items: center; justify-content: center;
+      width: 38px; height: 38px; border-radius: 50%;
+      background: rgba(255,255,255,.1); color: #fff;
+      text-decoration: none; font-size: .75rem; font-weight: 700;
+      transition: background .2s;
+    }
+    .social-link:hover { background: var(--rot); }
+    .footer-copy {
+      text-align: center; font-size: .75rem;
+      color: rgba(255,255,255,.35); margin-top: 2rem;
+      max-width: 1120px; margin-left: auto; margin-right: auto;
+    }
+
+    /* ── RESPONSIVE ──────────────────────────── */
+    @media (max-width: 840px) {
+      .nav-links { display: none; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+      .g1, .g2, .g3, .g4, .g5 { grid-column: span 1 !important; grid-row: auto !important; height: 200px; }
+      .kontakt-grid { grid-template-columns: 1fr; }
+      .openair-inner { flex-direction: column; text-align: center; }
+      .openair-text .openair-desc { margin: 0 auto; }
+    }
+    @media (max-width: 480px) {
+      section { padding: 3.5rem 1.1rem; }
+      .stats { padding: 2rem 1.1rem; }
+      .openair { padding: 3rem 1.1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── 1. NAVIGATION ──────────────────────────────────────────── -->
+<nav>
+  <a href="#" class="nav-logo">Natur Stellplatz Gampel</a>
+  <ul class="nav-links">
+    <li><a href="#how">So geht's</a></li>
+    <li><a href="#preise">Preise</a></li>
+    <li><a href="#galerie">Galerie</a></li>
+    <li><a href="#openair">Open Air</a></li>
+    <li><a href="#kontakt">Kontakt</a></li>
+  </ul>
+  <div class="lang-switcher">
+    <button class="lang-btn active" data-lang="de">DE</button>
+    <button class="lang-btn" data-lang="fr">FR</button>
+    <button class="lang-btn" data-lang="en">EN</button>
+  </div>
+</nav>
+
+
+<!-- ─── 2. HERO ────────────────────────────────────────────────── -->
+<section class="hero" id="top">
+  <img
+    src="https://static.wixstatic.com/media/fddf3e_a6f2f6440d024ab8aa82dfba7ace26fe~mv2.jpg"
+    alt="Natur Stellplatz Gampel – Drohnenaufnahme"
+    class="hero-img"
+    fetchpriority="high"
+  />
+  <div class="hero-overlay">
+    <span class="badge">Ohne Reservation</span>
+    <h1>Natur Stellplatz<br/>Gampel</h1>
+    <p class="hero-sub">Ihr naturnaher Wohnmobilstellplatz im Herzen des Wallis – direkt an der Rhone</p>
+    <div>
+      <a href="https://park4campers.payrexx.com/de/pay?tid=c86b941c" target="_blank" rel="noopener" class="btn">
+        Jetzt buchen – CHF 29
+      </a>
+      <a href="#how" class="btn btn-outline">Mehr erfahren</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ─── 3. SO EINFACH GEHT'S ──────────────────────────────────── -->
+<section class="steps" id="how">
+  <div class="wrap">
+    <h2 class="sec-title">So einfach geht's</h2>
+    <p class="sec-lead">Kein Stress, keine Reservation – einfach ankommen und geniessen.</p>
+    <div class="steps-grid">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Bezahlen</h3>
+        <p>Online via Payrexx oder direkt vor Ort beim Betreiber. Einfach, schnell und unkompliziert.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Parkieren</h3>
+        <p>Freie Platzwahl – suche dir deinen Lieblingsplatz auf der grünen Wiese direkt an der Rhone aus.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Geniessen</h3>
+        <p>Entspanne in der Walliser Natur, entdecke das Dorf Gampel und erlebe das echte, ursprüngliche Wallis.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ─── 4. STATS-LEISTE ────────────────────────────────────────── -->
+<div class="stats">
+  <div class="stats-grid">
+    <div class="stat">
+      <div class="stat-num">100+</div>
+      <div class="stat-label">Stellplätze</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">CHF 29</div>
+      <div class="stat-label">ab pro Nacht</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">∞</div>
+      <div class="stat-label">Freie Platzwahl</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">365</div>
+      <div class="stat-label">Tage geöffnet</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ─── 5. FEATURES ───────────────────────────────────────────── -->
+<section id="features">
+  <div class="wrap">
+    <h2 class="sec-title">Was Sie erwartet</h2>
+    <p class="sec-lead">Alles was Sie für einen komfortablen Aufenthalt im Wallis brauchen.</p>
+    <div class="feat-grid">
+      <div class="feat">
+        <div class="feat-icon">🚐</div>
+        <h3>Grosszügige Stellplätze</h3>
+        <p>Über 100 Stellplätze auf weitläufiger Grünfläche, freie Platzwahl ohne Voranmeldung. Perfekt für Wohnmobile jeder Grösse.</p>
+      </div>
+      <div class="feat">
+        <div class="feat-icon">🚿</div>
+        <h3>Sanitäranlagen</h3>
+        <p>Sauberer Dusch- und WC-Container mit warmen Duschen. Regelmässig gereinigt und gepflegt.</p>
+      </div>
+      <div class="feat">
+        <div class="feat-icon">⚡</div>
+        <h3>Infrastruktur</h3>
+        <p>Stromanschlüsse verfügbar, vollständige Entsorgungsstation für Frischwasser, Abwasser und Chemietoiletten.</p>
+      </div>
+      <div class="feat">
+        <div class="feat-icon">📍</div>
+        <h3>Zentrale Lage</h3>
+        <p>Mitten in Gampel – zu Fuss ins Dorf einkaufen, direkt an der Rhone für Spaziergänge und Velotouren.</p>
+      </div>
+      <div class="feat">
+        <div class="feat-icon">🌿</div>
+        <h3>Natur pur</h3>
+        <p>Mitten in der Walliser Landschaft – umgeben von Bergen, Rhone und der typischen Walliser Flora und Fauna.</p>
+      </div>
+      <div class="feat">
+        <div class="feat-icon">🎶</div>
+        <h3>Open Air Gampel</h3>
+        <p>Idealer Ausgangspunkt für das legendäre Open Air Gampel – direkt vor der Haustür. Spezialpreise für Festival-Besucher.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ─── 6. PREISE ─────────────────────────────────────────────── -->
+<section class="preise" id="preise">
+  <div class="wrap">
+    <h2 class="sec-title">Preise</h2>
+    <p class="sec-lead">Transparente Preise, keine versteckten Kosten. Kurtaxe immer inbegriffen.</p>
+    <div class="preise-grid">
+
+      <div class="preis-card">
+        <div class="preis-label">Ohne Strom</div>
+        <div class="preis-num">CHF 29</div>
+        <div class="preis-unit">pro Fahrzeug / Nacht</div>
+        <ul class="incl">
+          <li>Freie Platzwahl</li>
+          <li>Duschen & WC</li>
+          <li>Entsorgungsstation</li>
+          <li>WLAN</li>
+          <li>Kurtaxe inbegriffen</li>
+        </ul>
+        <a href="https://park4campers.payrexx.com/de/pay?tid=c86b941c" target="_blank" rel="noopener" class="btn-book">
+          Jetzt buchen
+        </a>
+      </div>
+
+      <div class="preis-card pop">
+        <div class="pop-badge">Beliebt</div>
+        <div class="preis-label">Mit Strom</div>
+        <div class="preis-num">CHF 35</div>
+        <div class="preis-unit">pro Fahrzeug / Nacht</div>
+        <ul class="incl">
+          <li>Freie Platzwahl</li>
+          <li>Duschen & WC</li>
+          <li>Entsorgungsstation</li>
+          <li>WLAN</li>
+          <li>Kurtaxe inbegriffen</li>
+          <li>Stromanschluss 16 A</li>
+        </ul>
+        <a href="https://park4campers.payrexx.com/de/pay?tid=c86b941c" target="_blank" rel="noopener" class="btn-book">
+          Jetzt buchen
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ─── 7. GALERIE ────────────────────────────────────────────── -->
+<section id="galerie">
+  <div class="wrap">
+    <h2 class="sec-title">Galerie</h2>
+    <p class="sec-lead">Bilder sagen mehr als tausend Worte.</p>
+    <div class="gallery-grid">
+      <img class="g1" src="https://static.wixstatic.com/media/fddf3e_4afdeb9b639742ae9770bc5d6510e061~mv2.jpg" alt="Stellplatz Gampel Übersicht" loading="lazy" />
+      <img class="g2" src="https://static.wixstatic.com/media/fddf3e_3fffbede36ad48b0b11e989dc0572936~mv2.jpg" alt="Wiese am Stellplatz" loading="lazy" />
+      <img class="g3" src="https://static.wixstatic.com/media/fddf3e_73ba52efd39049bca601c3f1aef5b8d7~mv2.jpg" alt="Sanitäranlagen" loading="lazy" />
+      <img class="g4" src="https://static.wixstatic.com/media/fddf3e_1881f45152784c0792e4deeb89aad6e4~mv2.jpg" alt="Rhone und Umgebung" loading="lazy" />
+      <img class="g5" src="https://static.wixstatic.com/media/fddf3e_ccca6b0604c044d7a6a2e474acb0e7d7~mv2.jpg" alt="Walliser Bergpanorama" loading="lazy" />
+    </div>
+  </div>
+</section>
+
+
+<!-- ─── 8. OPEN AIR BANNER ─────────────────────────────────────── -->
+<div class="openair" id="openair">
+  <div class="openair-inner">
+    <div class="openair-text">
+      <h2>Open Air Gampel 2026</h2>
+      <p class="openair-date">19.–23. August 2026 &middot; Direkt nebenan</p>
+      <p class="openair-desc">
+        Schlafen im Wohnmobil, feiern im Festival. Der kürzeste Weg zum Konzert –
+        einfach rüber und die beste Musik des Wallis geniessen.
+      </p>
+    </div>
+    <div class="openair-cta">
+      <div class="openair-price">CHF 240.–</div>
+      <div class="openair-nights">5 Nächte inkl. Stellplatz</div>
+      <a href="https://park4campers.payrexx.com/de/pay?tid=909479a2" target="_blank" rel="noopener" class="btn-white">
+        Open Air Ticket buchen
+      </a>
+    </div>
+  </div>
+</div>
+
+
+<!-- ─── 9. AKTIVITÄTEN ────────────────────────────────────────── -->
+<section class="akt" id="aktivitaeten">
+  <div class="wrap">
+    <h2 class="sec-title">Aktivitäten</h2>
+    <p class="sec-lead">Dr Wallis – e schöni Gegend wos vill z'erlebe git.</p>
+    <div class="akt-grid">
+      <div class="akt-item">
+        <div class="akt-icon">🚴</div>
+        <h3>Velo & Wandere</h3>
+        <p>D'Rhone entlang velo fahre oder uf d'Bärg go wandere – dr Wallis isch es Paradies für Outdoorfreunde und Naturliebhaber.</p>
+      </div>
+      <div class="akt-item">
+        <div class="akt-icon">🍷</div>
+        <h3>Walliser Wii</h3>
+        <p>D'Rebu im Wallis sin legendär. Entdeckit d'lokale Winzer und geniessit en guete Fendant oder en krüftigen Cornalin.</p>
+      </div>
+      <div class="akt-item">
+        <div class="akt-icon">🏔️</div>
+        <h3>Bärg & Natur</h3>
+        <p>Vo Gampel uss ereichit dir schnell d'Alpu, d'Gletscher und d'grossartigschti Bergwelt vom ganzu Wallis.</p>
+      </div>
+    </div>
+    <div class="akt-gruss">Viel Gfreidds!</div>
+  </div>
+</section>
+
+
+<!-- ─── 10. BEWERTUNGEN ───────────────────────────────────────── -->
+<section id="bewertungen">
+  <div class="wrap">
+    <h2 class="sec-title">Was Gäste sagen</h2>
+    <p class="sec-lead">Echte Bewertungen von Google – direkt von unseren Gästen.</p>
+    <div class="reviews-grid">
+
+      <div class="review">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">
+          «Schöner Platz an der Rhone. Ruhig, viel Wiese, zentral gelegen um im Dorf einzukaufen,
+          an der Rhone entlang spazieren zu gehen oder Velo zu fahren. Der Dusch- und WC-Container
+          ist sauber und der Betreiber ein netter urchiger Herr.»
+        </p>
+        <div class="review-author">ChrisTine</div>
+        <div class="review-meta">Local Guide &middot; 211 Rezensionen &middot; Google</div>
+      </div>
+
+      <div class="review">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">
+          «Super Campingplatz, tolle Lage, freie Platzwahl, man benötigt keine Reservierung,
+          sehr freundliches und hilfsbereites Personal, auch das Preis-Leistungs-Verhältnis
+          ist super. Wir kommen sehr gerne wieder.»
+        </p>
+        <div class="review-author">Mike</div>
+        <div class="review-meta">Local Guide &middot; 35 Rezensionen &middot; Google</div>
+      </div>
+
+      <div class="review">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">
+          «Ein schöner grosszügiger Stellplatz mit vielen Plätzen. Man muss also keine Angst haben,
+          auf einen vollen Platz zu kommen. Die Ausstattung ist sehr gut, Strom, Duschen, WC,
+          vollständige Entsorgung.»
+        </p>
+        <div class="review-author">Knutschi Womoblog_ch</div>
+        <div class="review-meta">Local Guide &middot; 92 Rezensionen &middot; Google</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ─── 11. KONTAKT & ANFAHRT ─────────────────────────────────── -->
+<section class="kontakt" id="kontakt">
+  <div class="wrap">
+    <h2 class="sec-title">Kontakt & Anfahrt</h2>
+    <p class="sec-lead">Wir freuen uns auf Ihren Besuch im Wallis.</p>
+    <div class="kontakt-grid">
+
+      <div>
+        <h3 class="k-title">Kontaktinformationen</h3>
+        <div class="k-line">
+          <span class="k-icon">📍</span>
+          <div>Lampertji 6<br/>3945 Gampel, Wallis</div>
+        </div>
+        <div class="k-line">
+          <span class="k-icon">📞</span>
+          <div>
+            <a href="tel:+41797786736">+41 79 778 67 36</a>
+          </div>
+        </div>
+        <div class="k-line">
+          <span class="k-icon">👨‍🌾</span>
+          <div>
+            Platzwart Schosi Rotzer<br/>
+            <a href="tel:+41796148213">+41 79 614 82 13</a>
+          </div>
+        </div>
+        <div class="k-line">
+          <span class="k-icon">✉️</span>
+          <div>
+            <a href="mailto:info@naturstellplatzgampel.ch">info@naturstellplatzgampel.ch</a>
+          </div>
+        </div>
+        <hr class="k-divider" />
+        <div class="k-line">
+          <span class="k-icon">🕐</span>
+          <div>
+            <strong>365 Tage geöffnet</strong>
+            <p class="k-hours">Kein Check-in nötig – einfach ankommen</p>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="map-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+          </svg>
+          <p>Lampertji 6, 3945 Gampel</p>
+          <a
+            class="map-link"
+            href="https://maps.google.com/?q=Lampertji+6,+3945+Gampel,+Wallis"
+            target="_blank"
+            rel="noopener"
+          >
+            In Google Maps öffnen →
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ─── 12. FOOTER ────────────────────────────────────────────── -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <h3>Natur Stellplatz Gampel</h3>
+      <p>Lampertji 6 &middot; 3945 Gampel &middot; Wallis</p>
+    </div>
+    <nav>
+      <ul class="footer-nav">
+        <li><a href="#how">So geht's</a></li>
+        <li><a href="#preise">Preise</a></li>
+        <li><a href="#galerie">Galerie</a></li>
+        <li><a href="#openair">Open Air Gampel</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ul>
+    </nav>
+    <div>
+      <div class="footer-social-label">Folgt uns</div>
+      <div class="social-links">
+        <a href="https://instagram.com/lampertji6" target="_blank" rel="noopener" class="social-link" aria-label="Instagram @lampertji6">IG</a>
+        <a href="https://facebook.com/lampertji6" target="_blank" rel="noopener" class="social-link" aria-label="Facebook @lampertji6">FB</a>
+      </div>
+    </div>
+  </div>
+  <p class="footer-copy">© 2026 Natur Stellplatz Gampel &middot; Alle Rechte vorbehalten</p>
+</footer>
+
+<script>
+  // Language switcher – active state only (content in DE)
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+
+  // Nav: deepen background on scroll
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    nav.style.boxShadow = window.scrollY > 20
+      ? '0 2px 20px rgba(0,0,0,.12)'
+      : 'none';
+  }, { passive: true });
+</script>
+
+</body>
 </html>
