@@ -71,7 +71,7 @@
       text-align: center; padding: 28vh 1.5rem 2rem;
     }
     .hero h1 {
-      font-size: clamp(48px, 8vw, 96px);
+      font-size: clamp(38px, 6vw, 72px);
       font-weight: 700;
       color: #8B2020;
       text-shadow: 0 0 30px rgba(255,255,255,0.9), 0 2px 4px rgba(255,255,255,0.8);
@@ -416,8 +416,7 @@
       <!-- Logo links -->
       <a href="#" style="display:flex;align-items:center;gap:12px;text-decoration:none">
         <img src="/images/logo.png" alt="Natur Stellplatz Gampel Logo"
-             style="height:64px;width:auto;filter:brightness(0) invert(1);opacity:0.92;
-             background:rgba(255,255,255,0.15);border-radius:12px;padding:6px">
+             style="height:60px;width:auto;filter:brightness(0) invert(1) drop-shadow(0 0 8px rgba(0,0,0,0.6)) drop-shadow(0 0 2px rgba(0,0,0,0.9));opacity:0.95">
         <div>
           <div style="font-family:'Palatino Linotype',Palatino,Georgia,serif;
                       font-size:18px;color:#fff;font-weight:700;line-height:1.2;
@@ -551,14 +550,32 @@
 
       <div class="feat">
         <div class="icon-box">
-          <!-- A) 150+ Stellplätze — einfaches Wohnmobil -->
-          <svg viewBox="0 0 32 32">
-            <rect x="1" y="10" width="20" height="13" rx="2"/>
-            <rect x="21" y="13" width="9" height="10" rx="1"/>
-            <circle cx="7" cy="24" r="3"/>
-            <circle cx="22" cy="24" r="3"/>
-            <rect x="4" y="13" width="5" height="4" rx="1"/>
-            <rect x="11" y="13" width="5" height="4" rx="1"/>
+          <!-- A) 150+ Stellplätze — schönes Wohnmobil -->
+          <svg viewBox="0 0 40 24" width="40" height="24"
+            stroke="#8B2020" stroke-width="1.8" fill="none"
+            stroke-linecap="round" stroke-linejoin="round">
+            <!-- Hauptkörper -->
+            <rect x="1" y="5" width="26" height="14" rx="2.5"/>
+            <!-- Führerhaus rund -->
+            <path d="M27 9 L27 19 Q27 19 35 19 L37 19 Q39 19 39 17 L39 12 Q39 9 36 8 L30 6 Q27 5 27 9Z"/>
+            <!-- Fenster Wohnbereich -->
+            <rect x="4" y="8" width="6" height="5" rx="1"/>
+            <rect x="12" y="8" width="6" height="5" rx="1"/>
+            <rect x="20" y="8" width="4" height="5" rx="1"/>
+            <!-- Windschutzscheibe -->
+            <path d="M28 9 L28 15 L36 15 L36 12 L32 8 Z"/>
+            <!-- Räder -->
+            <circle cx="9" cy="20" r="3.5"/>
+            <circle cx="9" cy="20" r="1.5" fill="#8B2020"/>
+            <circle cx="30" cy="20" r="3.5"/>
+            <circle cx="30" cy="20" r="1.5" fill="#8B2020"/>
+            <!-- Türe -->
+            <rect x="21" y="10" width="3" height="7" rx="0.5"/>
+            <!-- Markise oben -->
+            <line x1="4" y1="5" x2="20" y2="5"/>
+            <line x1="6" y1="5" x2="4" y2="2"/>
+            <line x1="20" y1="5" x2="22" y2="2"/>
+            <line x1="4" y1="2" x2="22" y2="2"/>
           </svg>
         </div>
         <h3>150+ Stellplätze</h3>
@@ -566,14 +583,13 @@
       </div>
 
       <div class="feat">
-        <div class="icon-box">
-          <!-- B) Sanitäranlagen — einfache Toilette -->
-          <svg viewBox="0 0 32 32">
-            <path d="M10 4 h12 a8 8 0 0 1 0 16 H10 Z"/>
-            <path d="M10 20 v5 a3 3 0 0 0 6 0"/>
-            <line x1="8" y1="20" x2="24" y2="20"/>
-            <line x1="10" y1="4" x2="10" y2="20"/>
-          </svg>
+        <div style="width:52px;height:52px;background:var(--bg-alt);
+          border-radius:10px;display:flex;align-items:center;
+          justify-content:center;margin-bottom:14px">
+          <span style="font-family:'Palatino Linotype',Palatino,Georgia,serif;
+            font-size:20px;font-weight:700;color:#8B2020;letter-spacing:0.05em">
+            WC
+          </span>
         </div>
         <h3>Moderne Sanitäranlagen</h3>
         <p>3 Duschen, 3 WC, 3 Lavabos, Spülbecken – sauber und jederzeit zugänglich.</p>
@@ -747,15 +763,38 @@
 
       <div class="akt-item">
         <div class="icon-box">
-          <!-- E) Radweg — einfaches Fahrrad -->
-          <svg viewBox="0 0 32 32">
-            <circle cx="8" cy="22" r="6"/>
-            <circle cx="24" cy="22" r="6"/>
-            <circle cx="19" cy="10" r="2"/>
-            <line x1="19" y1="12" x2="19" y2="17"/>
-            <line x1="17" y1="10" x2="22" y2="10"/>
-            <polyline points="8,22 14,17 19,17 24,22"/>
-            <line x1="14" y1="17" x2="19" y2="12"/>
+          <!-- E) Radweg — korrektes Fahrrad -->
+          <svg viewBox="0 0 36 28" width="36" height="28"
+            stroke="#8B2020" stroke-width="1.8" fill="none"
+            stroke-linecap="round" stroke-linejoin="round">
+            <!-- Räder -->
+            <circle cx="8" cy="20" r="7"/>
+            <circle cx="28" cy="20" r="7"/>
+            <!-- Naben -->
+            <circle cx="8" cy="20" r="1.5" fill="#8B2020"/>
+            <circle cx="28" cy="20" r="1.5" fill="#8B2020"/>
+            <!-- Rahmen: Unterrohr -->
+            <line x1="8" y1="20" x2="20" y2="20"/>
+            <!-- Sattelrohr -->
+            <line x1="20" y1="20" x2="23" y2="10"/>
+            <!-- Oberrohr -->
+            <line x1="23" y1="10" x2="15" y2="10"/>
+            <!-- Steuerrohr -->
+            <line x1="15" y1="10" x2="12" y2="14"/>
+            <!-- Kettenstrebe -->
+            <line x1="20" y1="20" x2="28" y2="20"/>
+            <!-- Sitzstrebe -->
+            <line x1="23" y1="10" x2="28" y2="20"/>
+            <!-- Gabel -->
+            <line x1="12" y1="14" x2="8" y2="20"/>
+            <!-- Sattel -->
+            <line x1="21" y1="9" x2="26" y2="9"/>
+            <!-- Lenker -->
+            <line x1="12" y1="12" x2="10" y2="10"/>
+            <line x1="10" y1="10" x2="8" y2="11"/>
+            <!-- Pedale -->
+            <line x1="18" y1="19" x2="22" y2="19"/>
+            <circle cx="20" cy="19" r="1" fill="#8B2020"/>
           </svg>
         </div>
         <h3>Rhone-Radweg</h3>
@@ -954,7 +993,7 @@
           <svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Z"/><circle cx="12" cy="9" r="2.5"/></svg>
           <p>Lampertji 6, 3945 Gampel</p>
           <a class="map-link"
-             href="https://www.google.com/maps/search/Lampertji+6,+3945+Gampel"
+             href="https://www.google.com/maps/search/Lampertji+6+Gampel+Stellplatz"
              target="_blank" rel="noopener">
             In Google Maps öffnen →
           </a>
