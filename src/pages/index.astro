@@ -387,6 +387,11 @@
       .akt-grid { grid-template-columns: 1fr 1fr; }
       .hero-overlay { padding-top: 22vh; }
     }
+    @media (max-width: 768px) {
+      .hero-logo { top:16px !important; left:16px !important; }
+      .hero-logo img { height:52px !important; }
+      .hero-camper { top:16px !important; right:16px !important; }
+    }
     @media (max-width: 560px) {
       .akt-grid { grid-template-columns: 1fr; }
       .sec { padding: 3.5rem 1.1rem; }
@@ -409,19 +414,21 @@
   <div class="hero-overlay">
 
     <!-- ── NAV oben im Hero (transparent, absolute) ── -->
-    <div style="position:absolute;top:0;left:0;right:0;z-index:10;
-      padding:20px 24px;display:flex;align-items:center;
-      justify-content:space-between;background:transparent">
+    <div style="position:absolute;inset:0;z-index:10;pointer-events:none">
 
       <!-- Logo links -->
-      <a href="#" style="display:block;position:absolute;top:20px;left:24px;z-index:100;text-decoration:none">
-        <img src="/images/logo-clean.png"
+      <a href="#" class="hero-logo"
+         style="display:block;position:absolute;top:20px;left:24px;z-index:100;
+                text-decoration:none;pointer-events:all">
+        <img src="/images/logo.png"
              alt="Natur Stellplatz Gampel Logo"
-             style="height:72px;width:auto;display:block;">
+             style="height:70px;width:auto;display:block;">
       </a>
 
       <!-- Camper-Button rechts -->
-      <div style="position:relative">
+      <div class="hero-camper"
+           style="position:absolute;top:20px;right:24px;z-index:100;
+                  pointer-events:all">
         <button id="camper-menu-btn" style="background:#8B2020;border:none;
           border-radius:8px;cursor:pointer;padding:10px 14px;
           display:flex;flex-direction:column;align-items:center;gap:4px">
