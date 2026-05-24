@@ -26,6 +26,7 @@
 
     /* ── RESET ───────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { background-color: #FAF8F4 !important; }
     html { scroll-behavior: smooth; }
     body { background: var(--bg-hell); color: var(--text); font-family: var(--sans); line-height: 1.65; }
     h1, h2, h3, h4 { font-family: var(--serif); line-height: 1.22; }
@@ -34,95 +35,40 @@
 
     /* ── NAV ─────────────────────────────────── */
     .nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 300;
-      height: 64px; padding: 0 2rem;
-      background: rgba(250,248,244,0.92);
-      backdrop-filter: blur(12px);
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      padding: 12px 24px;
+      background: rgba(250,248,244,0.95);
+      backdrop-filter: blur(8px);
       display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
     }
-    .nav-logo {
-      font-family: var(--serif); font-size: .95rem; font-weight: bold;
-      color: var(--rot); white-space: nowrap; flex-shrink: 0; line-height: 1.3;
-    }
-    .nav-logo span { display: block; font-size: .78rem; font-weight: 400; color: var(--text-soft); }
 
-    /* NSG-Kreis-Button */
-    .nsg-btn {
-      width: 46px; height: 46px; border-radius: 50%;
-      background: none; border: 2px solid var(--rot);
-      color: var(--rot); font-family: var(--serif);
-      font-size: .78rem; font-weight: bold; letter-spacing: .03em;
-      cursor: pointer; display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0; transition: background .2s, color .2s;
+    /* Markise dropdown links */
+    .mlink {
+      font-size: 15px; color: #1A1A18; text-decoration: none;
+      padding: 9px 0; border-bottom: 1px solid rgba(0,0,0,0.06);
+      display: block; transition: color 0.2s;
     }
-    .nsg-btn:hover { background: var(--rot); color: #fff; }
+    .mlink:last-child { border-bottom: none; }
+    .mlink:hover { color: #8B2020; }
 
-    /* ── OVERLAY MENU ────────────────────────── */
-    .menu-overlay {
-      position: fixed; inset: 0; z-index: 400;
-      background: rgba(250,248,244,.97);
-      backdrop-filter: blur(18px);
-      display: none; flex-direction: column;
-      padding: 0 2rem;
-      opacity: 0; transition: opacity .25s;
-    }
-    .menu-overlay.open { display: flex; opacity: 1; }
-    .menu-overlay-top {
-      height: 64px; display: flex; align-items: center;
-      justify-content: space-between; flex-shrink: 0;
-    }
-    .menu-overlay-logo {
-      font-family: var(--serif); font-size: .95rem; font-weight: bold;
-      color: var(--rot); line-height: 1.3;
-    }
-    .menu-overlay-logo span { display: block; font-size: .78rem; font-weight: 400; color: var(--text-soft); }
-    .menu-close {
-      width: 46px; height: 46px; border-radius: 50%;
-      background: none; border: 2px solid var(--text-soft);
-      color: var(--text); font-size: 1.2rem; font-weight: 300;
-      cursor: pointer; display: flex; align-items: center; justify-content: center;
-      transition: border-color .2s, color .2s;
-    }
-    .menu-close:hover { border-color: var(--rot); color: var(--rot); }
-    .menu-overlay-body {
-      flex: 1; display: flex; align-items: center;
-      max-width: 1140px; margin: 0 auto; width: 100%;
-      gap: 5rem;
-    }
-    .menu-brand {
-      flex: 1;
-    }
-    .menu-brand-logo {
-      font-family: var(--serif); font-size: 2.2rem; font-weight: bold;
-      color: var(--rot); line-height: 1.2; margin-bottom: .4rem;
-    }
-    .menu-brand-sub { font-size: 1rem; color: var(--text-soft); }
-    .menu-nav-col { flex: 1; }
-    .menu-nav-col ul { list-style: none; display: flex; flex-direction: column; gap: 1.1rem; }
-    .menu-nav-col a {
-      font-family: var(--serif); font-size: 1.65rem;
-      color: var(--text); transition: color .18s;
-    }
-    .menu-nav-col a:hover { color: var(--rot); }
-    .menu-lang-row { display: flex; gap: .4rem; margin-top: 2rem; }
-    .lang-btn {
+    /* Language buttons */
+    .lb {
       border: 1px solid #ccc; background: none;
       padding: .25rem .65rem; font-size: .75rem; font-weight: 600;
       letter-spacing: .04em; cursor: pointer; border-radius: 3px;
       color: var(--text); font-family: var(--sans); transition: all .18s;
     }
-    .lang-btn.active,
-    .lang-btn:hover { background: var(--rot); color: #fff; border-color: var(--rot); }
-    @media (max-width: 640px) {
-      .menu-overlay-body { flex-direction: column; justify-content: center; gap: 2.5rem; }
-      .menu-brand { display: none; }
-      .menu-nav-col a { font-size: 1.4rem; }
-    }
+    .lb.on,
+    .lb:hover { background: var(--rot); color: #fff; border-color: var(--rot); }
+
+    /* Markise open state */
+    #markise.open { max-height: 320px !important; opacity: 1 !important; }
 
     /* ── HERO ────────────────────────────────── */
     .hero {
       position: relative; height: 100vh; min-height: 600px;
-      overflow: hidden; padding-top: 64px;
+      overflow: hidden; padding-top: 72px;
     }
     .hero-img {
       position: absolute; inset: 0;
@@ -140,18 +86,19 @@
     }
     .hero-badge {
       display: inline-block;
-      background: var(--rot); color: #fff;
+      background: rgba(139,32,32,0.15); color: #8B2020;
+      border: 1px solid rgba(139,32,32,0.4);
       font-size: .75rem; font-weight: 600;
       letter-spacing: .07em; padding: .4rem 1.2rem;
       border-radius: 2rem; margin-bottom: 1.5rem;
     }
     .hero h1 {
       font-size: clamp(1.9rem, 5vw, 3.5rem);
-      color: var(--rot);
+      color: #8B2020;
       margin-bottom: .75rem; max-width: 760px;
     }
     .hero-sub {
-      color: var(--text);
+      color: #8B2020;
       font-size: clamp(.95rem, 1.8vw, 1.15rem);
       margin-bottom: 2.25rem; max-width: 560px;
       font-weight: 500;
@@ -167,7 +114,7 @@
     .btn-primary:hover { background: #a52626; transform: translateY(-2px); }
 
     /* ── SECTIONS SHARED ─────────────────────── */
-    .sec { padding: 5rem 1.5rem; }
+    .sec { padding: 5rem 1.5rem; background: #FAF8F4; }
     .sec--alt { background: var(--bg-alt); }
     .wrap { max-width: 1140px; margin: 0 auto; }
     .sec-tag {
@@ -456,45 +403,88 @@
 </head>
 <body>
 
-<!-- ─── OVERLAY MENU ───────────────────────────────────────────── -->
-<div class="menu-overlay" id="menuOverlay" role="dialog" aria-modal="true" aria-label="Navigation">
-  <div class="menu-overlay-top">
-    <div class="menu-overlay-logo">
-      Natur Stellplatz
-      <span>Gampel · Wallis</span>
-    </div>
-    <button class="menu-close" id="menuClose" aria-label="Menu schliessen">&times;</button>
-  </div>
-  <div class="menu-overlay-body">
-    <div class="menu-brand">
-      <div class="menu-brand-logo">Natur Stellplatz<br/>Gampel</div>
-      <div class="menu-brand-sub">Wallis · Schweiz</div>
-    </div>
-    <nav class="menu-nav-col">
-      <ul>
-        <li><a href="#how" class="menu-link">So geht's</a></li>
-        <li><a href="#preise" class="menu-link">Preise</a></li>
-        <li><a href="#galerie" class="menu-link">Galerie</a></li>
-        <li><a href="#openair" class="menu-link">Open Air</a></li>
-        <li><a href="#kontakt" class="menu-link">Kontakt</a></li>
-      </ul>
-      <div class="menu-lang-row">
-        <button class="lang-btn active" data-lang="de">DE</button>
-        <button class="lang-btn" data-lang="fr">FR</button>
-        <button class="lang-btn" data-lang="en">EN</button>
-      </div>
-    </nav>
-  </div>
-</div>
-
-
 <!-- ─── 1. NAVIGATION ──────────────────────────────────────────── -->
 <header class="nav">
-  <a href="#" class="nav-logo">
-    Natur Stellplatz
-    <span>Gampel · Wallis</span>
+
+  <!-- LINKS: Logo + Schriftzug -->
+  <a href="#" style="display:flex;align-items:center;gap:10px;text-decoration:none">
+    <img src="/images/logo.png" alt="Natur Stellplatz Gampel Logo"
+         style="height:48px;width:auto">
+    <div>
+      <div style="font-family:'Palatino Linotype',Palatino,Georgia,serif;
+                  font-size:15px;color:#8B2020;font-weight:700;line-height:1.2">
+        Natur Stellplatz
+      </div>
+      <div style="font-size:9px;color:#2D5016;letter-spacing:.14em;
+                  text-transform:uppercase">
+        Gampel &middot; Wallis
+      </div>
+    </div>
   </a>
-  <button class="nsg-btn" id="menuOpen" aria-label="Menu öffnen" aria-expanded="false">NSG</button>
+
+  <!-- RECHTS: Camper-Button mit Markise -->
+  <div style="position:relative">
+    <button id="camper-menu-btn" style="background:none;border:none;
+      cursor:pointer;padding:8px;display:flex;flex-direction:column;
+      align-items:center;gap:2px">
+      <!-- Camper SVG Icon -->
+      <svg width="36" height="24" viewBox="0 0 36 24" fill="none"
+           xmlns="http://www.w3.org/2000/svg">
+        <!-- Camper Körper -->
+        <rect x="8" y="6" width="24" height="12" rx="2" fill="#8B2020"/>
+        <!-- Führerhaus -->
+        <rect x="1" y="9" width="9" height="9" rx="2" fill="#8B2020"/>
+        <!-- Fenster Wohnbereich -->
+        <rect x="14" y="8" width="5" height="4" rx="1" fill="#FAF8F4" opacity="0.7"/>
+        <rect x="21" y="8" width="5" height="4" rx="1" fill="#FAF8F4" opacity="0.7"/>
+        <!-- Fenster Führerhaus -->
+        <rect x="2" y="10" width="5" height="4" rx="1" fill="#FAF8F4" opacity="0.7"/>
+        <!-- Räder -->
+        <circle cx="9" cy="20" r="3" fill="#333"/>
+        <circle cx="9" cy="20" r="1.5" fill="#888"/>
+        <circle cx="26" cy="20" r="3" fill="#333"/>
+        <circle cx="26" cy="20" r="1.5" fill="#888"/>
+        <!-- Türe -->
+        <rect x="29" y="9" width="3" height="7" rx="1" fill="#6B1818"/>
+      </svg>
+      <!-- Markisen-Dach -->
+      <div id="markise-roof" style="width:36px;height:4px;background:#8B2020;
+        border-radius:2px 2px 0 0;transition:all 0.4s ease"></div>
+    </button>
+
+    <!-- Markise Dropdown -->
+    <div id="markise" style="position:absolute;right:0;top:100%;
+      min-width:200px;background:#FAF8F4;
+      border:1px solid rgba(139,32,32,0.2);
+      border-radius:0 0 12px 12px;
+      box-shadow:0 8px 24px rgba(0,0,0,0.1);
+      max-height:0;overflow:hidden;opacity:0;
+      transition:max-height 0.4s ease, opacity 0.3s ease;
+      z-index:999">
+      <div style="padding:16px 24px">
+        <!-- Markisen-Streifen oben (dekorativ) -->
+        <div style="height:6px;background:repeating-linear-gradient(
+          90deg, #8B2020 0px, #8B2020 12px, #FAF8F4 12px, #FAF8F4 20px);
+          margin:-16px -24px 12px -24px;border-radius:0"></div>
+        <!-- Nav Links -->
+        <nav style="display:flex;flex-direction:column">
+          <a href="#how" class="mlink">So geht's</a>
+          <a href="#preise" class="mlink">Preise</a>
+          <a href="#galerie" class="mlink">Galerie</a>
+          <a href="#openair" class="mlink">Open Air</a>
+          <a href="#kontakt" class="mlink">Kontakt</a>
+        </nav>
+        <!-- Sprache -->
+        <div style="display:flex;gap:6px;margin-top:14px;
+          padding-top:12px;border-top:1px solid rgba(0,0,0,0.08)">
+          <button class="lb on">DE</button>
+          <button class="lb">FR</button>
+          <button class="lb">EN</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </header>
 
 
@@ -508,7 +498,7 @@
   />
   <div class="hero-overlay">
     <div class="hero-badge">Ohne Reservation &middot; Immer Platz verfügbar &middot; Ganzjährig geöffnet</div>
-    <h1>Wohnmobil Stellplatz<br/>Natur Stellplatz Gampel</h1>
+    <h1>Natur Stellplatz Gampel</h1>
     <p class="hero-sub">11'000 m² Grünfläche direkt an der Rhone – im Herzen des Wallis</p>
     <a href="#features" class="btn-primary">Stellplatz entdecken ↓</a>
   </div>
@@ -526,7 +516,6 @@
       <div class="step">
         <div class="step-num">1</div>
         <div class="icon-box" style="margin:0 auto .9rem;">
-          <!-- parking / wohnmobil -->
           <svg viewBox="0 0 24 24"><path d="M1 11V17a1 1 0 0 0 1 1h1m16 0h1a1 1 0 0 0 1-1v-5L17 5H5a2 2 0 0 0-2 2v4M6 18a2 2 0 1 0 4 0 2 2 0 0 0-4 0Zm8 0a2 2 0 1 0 4 0 2 2 0 0 0-4 0Z"/><path d="M3 11h18M14 5v6"/></svg>
         </div>
         <h3>Parkieren</h3>
@@ -536,7 +525,6 @@
       <div class="step">
         <div class="step-num">2</div>
         <div class="icon-box" style="margin:0 auto .9rem;">
-          <!-- credit card / bezahlen -->
           <svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/><line x1="6" y1="15" x2="10" y2="15"/></svg>
         </div>
         <h3>Bezahlen</h3>
@@ -546,7 +534,6 @@
       <div class="step">
         <div class="step-num">3</div>
         <div class="icon-box" style="margin:0 auto .9rem;">
-          <!-- sun / geniessen -->
           <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
         </div>
         <h3>Geniessen</h3>
@@ -720,7 +707,6 @@
 
       <div class="akt-item">
         <div class="icon-box">
-          <!-- cable car -->
           <svg viewBox="0 0 24 24"><path d="M3 6h18M8 6V4m8 2V4"/><rect x="7" y="8" width="10" height="8" rx="2"/><line x1="12" y1="16" x2="12" y2="20"/><line x1="9" y1="20" x2="15" y2="20"/></svg>
         </div>
         <h3>Seilbahn Jeizinen</h3>
@@ -729,7 +715,6 @@
 
       <div class="akt-item">
         <div class="icon-box">
-          <!-- waterfall / droplets -->
           <svg viewBox="0 0 24 24"><path d="M12 2v10m0 0c0 4-4 6-4 10m4-10c0 4 4 6 4 10M8 6c-2 1-4 3-4 6m12-6c2 1 4 3 4 6"/></svg>
         </div>
         <h3>Wasserfall Turtmann</h3>
@@ -738,7 +723,6 @@
 
       <div class="akt-item">
         <div class="icon-box">
-          <!-- bicycle -->
           <svg viewBox="0 0 24 24"><circle cx="6" cy="17" r="3"/><circle cx="18" cy="17" r="3"/><path d="m12 5 2 7h4m-6-7H8l-2 7m6-7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/></svg>
         </div>
         <h3>Rhone-Radweg</h3>
@@ -747,7 +731,6 @@
 
       <div class="akt-item">
         <div class="icon-box">
-          <!-- hiking / footpath -->
           <svg viewBox="0 0 24 24"><path d="m3 20 7-12 4 6 2-3 5 9H3Z"/><circle cx="17" cy="5" r="2"/></svg>
         </div>
         <h3>Walliser Sonnenweg</h3>
@@ -756,7 +739,6 @@
 
       <div class="akt-item">
         <div class="icon-box">
-          <!-- waves / thermal -->
           <svg viewBox="0 0 24 24"><path d="M2 12c2-4 4-4 6 0s4 4 6 0 4-4 6 0M2 17c2-4 4-4 6 0s4 4 6 0 4-4 6 0"/></svg>
         </div>
         <h3>Leukerbad Therme</h3>
@@ -765,7 +747,6 @@
 
       <div class="akt-item">
         <div class="icon-box">
-          <!-- mountain -->
           <svg viewBox="0 0 24 24"><path d="m3 20 7-12 4 6 2-3 5 9H3Z"/></svg>
         </div>
         <h3>Lötschental</h3>
@@ -954,8 +935,8 @@
     <div>
       <div class="footer-social-label">Folgt uns</div>
       <div class="social-links">
-        <a href="https://instagram.com/lampertji6" target="_blank" rel="noopener" class="social-link" aria-label="Instagram @lampertji6">IG</a>
-        <a href="https://facebook.com/lampertji6" target="_blank" rel="noopener" class="social-link" aria-label="Facebook @lampertji6">FB</a>
+        <a href="https://instagram.com/stellplatzgampel" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">IG</a>
+        <a href="https://facebook.com/stellplatzgampel" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">FB</a>
       </div>
     </div>
   </div>
@@ -964,40 +945,32 @@
 
 
 <script>
-  // ── OVERLAY MENU ──────────────────────────────
-  const overlay  = document.getElementById('menuOverlay');
-  const btnOpen  = document.getElementById('menuOpen');
-  const btnClose = document.getElementById('menuClose');
+  // ── CAMPER MARKISE ────────────────────────────
+  const btn = document.getElementById('camper-menu-btn');
+  const markise = document.getElementById('markise');
 
-  function openMenu() {
-    overlay.classList.add('open');
-    btnOpen.setAttribute('aria-expanded', 'true');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeMenu() {
-    overlay.classList.remove('open');
-    btnOpen.setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
-  }
-
-  btnOpen.addEventListener('click', openMenu);
-  btnClose.addEventListener('click', closeMenu);
-
-  // Menü-Links schliessen Overlay
-  document.querySelectorAll('.menu-link').forEach(link => {
-    link.addEventListener('click', closeMenu);
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    markise.classList.toggle('open');
   });
 
-  // ESC schliesst Overlay
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') closeMenu();
+  document.addEventListener('click', (e) => {
+    if (!btn.contains(e.target) && !markise.contains(e.target)) {
+      markise.classList.remove('open');
+    }
+  });
+
+  markise.querySelectorAll('.mlink').forEach(link => {
+    link.addEventListener('click', () => {
+      markise.classList.remove('open');
+    });
   });
 
   // ── SPRACHUMSCHALTER ──────────────────────────
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
+  document.querySelectorAll('.lb').forEach(b => {
+    b.addEventListener('click', () => {
+      document.querySelectorAll('.lb').forEach(x => x.classList.remove('on'));
+      b.classList.add('on');
     });
   });
 
