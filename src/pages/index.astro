@@ -5,194 +5,253 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Natur Stellplatz Gampel – Wohnmobil & Camping im Wallis</title>
-  <meta name="description" content="Naturnaher Wohnmobilstellplatz in Gampel, Wallis. Ohne Reservation, ab CHF 26 pro Nacht, 365 Tage geöffnet. Direkt an der Rhone." />
-  <meta property="og:title" content="Natur Stellplatz Gampel" />
-  <meta property="og:description" content="Ihr naturnaher Wohnmobilstellplatz im Herzen des Wallis. Ohne Reservation, freie Platzwahl." />
+  <title>Natur Stellplatz Gampel – Wohnmobil Stellplatz Wallis</title>
+  <meta name="description" content="Naturnaher Wohnmobilstellplatz in Gampel, Wallis. Ohne Reservation, ab CHF 26 pro Nacht, ganzjährig geöffnet. Direkt an der Rhone." />
+  <meta property="og:title" content="Natur Stellplatz Gampel – Wohnmobil Stellplatz Wallis" />
+  <meta property="og:description" content="Ohne Reservation, freie Platzwahl, ganzjährig geöffnet. Ab CHF 26 pro Nacht." />
   <meta property="og:image" content="https://static.wixstatic.com/media/fddf3e_a6f2f6440d024ab8aa82dfba7ace26fe~mv2.jpg" />
   <link rel="preconnect" href="https://static.wixstatic.com" />
   <style>
+    /* ── VARIABLEN ───────────────────────────── */
     :root {
-      --rot:   #8B2020;
-      --gruen: #2D5016;
-      --bg:    #FAF8F4;
-      --bg2:   #EDE9E0;
-      --text:  #1A1A18;
-      --serif: 'Palatino Linotype', Palatino, Georgia, serif;
-      --sans:  system-ui, Helvetica, sans-serif;
+      --rot:      #8B2020;
+      --gruen:    #2D5016;
+      --bg-hell:  #FAF8F4;
+      --bg-alt:   #EDE9E0;
+      --text:     #1A1A18;
+      --text-soft:#6A6A64;
+      --serif:    'Palatino Linotype', Palatino, Georgia, serif;
+      --sans:     -apple-system, 'Helvetica Neue', sans-serif;
     }
+
+    /* ── RESET ───────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body { background: var(--bg); color: var(--text); font-family: var(--sans); line-height: 1.6; }
-    h1, h2, h3 { font-family: var(--serif); line-height: 1.25; }
+    body { background: var(--bg-hell); color: var(--text); font-family: var(--sans); line-height: 1.65; }
+    h1, h2, h3, h4 { font-family: var(--serif); line-height: 1.22; }
     img { display: block; max-width: 100%; }
-    a { color: inherit; }
+    a { color: inherit; text-decoration: none; }
 
     /* ── NAV ─────────────────────────────────── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-      background: rgba(250,248,244,0.96); backdrop-filter: blur(10px);
-      border-bottom: 1px solid #d9d4c8;
-      height: 62px; padding: 0 2rem;
-      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 300;
+      height: 64px; padding: 0 2rem;
+      background: rgba(250, 248, 244, 0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,0,0,.08);
+      display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
     }
     .nav-logo {
-      font-family: var(--serif); font-size: 1.05rem; font-weight: bold;
-      color: var(--rot); text-decoration: none; white-space: nowrap; flex-shrink: 0;
+      font-family: var(--serif); font-size: .95rem; font-weight: bold;
+      color: var(--rot); white-space: nowrap; flex-shrink: 0; line-height: 1.3;
     }
+    .nav-logo span { display: block; font-size: .78rem; font-weight: 400; color: var(--text-soft); }
     .nav-links {
-      display: flex; gap: 1.75rem; list-style: none; flex: 1; justify-content: center;
+      display: flex; gap: 1.75rem; list-style: none;
+      flex: 1; justify-content: center;
     }
     .nav-links a {
-      text-decoration: none; font-size: 0.875rem; font-weight: 500;
-      color: var(--text); transition: color .2s;
+      font-size: .85rem; font-weight: 500; color: var(--text);
+      transition: color .18s;
     }
     .nav-links a:hover { color: var(--rot); }
-    .lang-switcher { display: flex; gap: .25rem; flex-shrink: 0; }
-    .lang-btn {
-      border: 1px solid #ccc; background: none; padding: .2rem .55rem;
-      font-size: .72rem; font-weight: 600; letter-spacing: .04em;
-      cursor: pointer; border-radius: 3px; color: var(--text);
-      font-family: var(--sans); transition: all .18s;
+    .lang {
+      display: flex; gap: .25rem; flex-shrink: 0;
     }
-    .lang-btn.active { background: var(--rot); color: #fff; border-color: var(--rot); }
-    .lang-btn:not(.active):hover { border-color: var(--rot); color: var(--rot); }
+    .lang-btn {
+      border: 1px solid #ccc; background: none;
+      padding: .2rem .55rem; font-size: .72rem; font-weight: 600;
+      letter-spacing: .04em; cursor: pointer; border-radius: 3px;
+      color: var(--text); font-family: var(--sans); transition: all .18s;
+    }
+    .lang-btn.active,
+    .lang-btn:hover { background: var(--rot); color: #fff; border-color: var(--rot); }
 
     /* ── HERO ────────────────────────────────── */
     .hero {
-      position: relative; height: 100vh; min-height: 580px; overflow: hidden;
-      padding-top: 62px;
+      position: relative; height: 100vh; min-height: 600px;
+      overflow: hidden; padding-top: 64px;
     }
-    .hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .hero-img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%; object-fit: cover;
+    }
     .hero-overlay {
       position: absolute; inset: 0;
-      background: linear-gradient(170deg, rgba(0,0,0,.18) 0%, rgba(0,0,0,.55) 100%);
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      background: linear-gradient(160deg, rgba(0,0,0,.12) 0%, rgba(0,0,0,.58) 100%);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
       text-align: center; padding: 2rem 1.5rem;
     }
-    .badge {
+    .hero-badge {
       display: inline-block;
-      background: var(--gruen); color: #fff;
-      font-size: .75rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
-      padding: .35rem 1.1rem; border-radius: 2rem; margin-bottom: 1.25rem;
+      background: rgba(45, 80, 22, .9);
+      color: #fff; font-size: .75rem; font-weight: 600;
+      letter-spacing: .06em; padding: .4rem 1.2rem;
+      border-radius: 2rem; margin-bottom: 1.5rem;
     }
     .hero h1 {
-      font-size: clamp(2.1rem, 5.5vw, 3.8rem); color: #fff;
-      text-shadow: 0 2px 16px rgba(0,0,0,.45); margin-bottom: .5rem;
+      font-size: clamp(1.9rem, 5vw, 3.5rem);
+      color: #fff;
+      text-shadow: 0 2px 18px rgba(0,0,0,.45);
+      margin-bottom: .75rem; max-width: 760px;
     }
     .hero-sub {
-      color: rgba(255,255,255,.9); font-size: clamp(.95rem, 2vw, 1.2rem);
-      text-shadow: 0 1px 8px rgba(0,0,0,.4); margin-bottom: 2rem; max-width: 540px;
+      color: rgba(255,255,255,.88);
+      font-size: clamp(.95rem, 1.8vw, 1.15rem);
+      text-shadow: 0 1px 8px rgba(0,0,0,.4);
+      margin-bottom: 2.25rem; max-width: 560px;
     }
-    .btn {
-      display: inline-block; text-decoration: none;
+    .btn-primary {
+      display: inline-block;
       background: var(--rot); color: #fff;
-      padding: .85rem 2.4rem; border-radius: 4px;
+      padding: .9rem 2.6rem; border-radius: 4px;
       font-size: 1rem; font-weight: 700; font-family: var(--sans);
-      border: none; cursor: pointer; transition: background .2s, transform .12s;
+      border: none; cursor: pointer;
+      transition: background .2s, transform .12s;
     }
-    .btn:hover { background: #a02828; transform: translateY(-2px); }
-    .btn-outline {
-      background: transparent; color: #fff;
-      border: 2px solid rgba(255,255,255,.8); margin-left: .75rem;
-    }
-    .btn-outline:hover { background: rgba(255,255,255,.15); transform: translateY(-2px); }
+    .btn-primary:hover { background: #a52626; transform: translateY(-2px); }
 
-    /* ── SHARED SECTION ──────────────────────── */
-    section { padding: 5rem 1.5rem; }
-    .wrap { max-width: 1120px; margin: 0 auto; }
+    /* ── SECTIONS SHARED ─────────────────────── */
+    .sec { padding: 5rem 1.5rem; }
+    .sec--alt { background: var(--bg-alt); }
+    .wrap { max-width: 1140px; margin: 0 auto; }
+    .sec-tag {
+      display: block; text-align: center;
+      font-size: .75rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--rot); margin-bottom: .6rem;
+    }
     .sec-title {
-      font-family: var(--serif); font-size: clamp(1.55rem, 3vw, 2.1rem);
-      color: var(--rot); text-align: center; margin-bottom: .65rem;
+      font-family: var(--serif);
+      font-size: clamp(1.55rem, 3vw, 2.2rem);
+      color: var(--text); text-align: center; margin-bottom: .75rem;
     }
     .sec-lead {
-      text-align: center; color: #5a5650; font-size: 1.02rem; max-width: 600px;
-      margin: 0 auto 3rem; line-height: 1.7;
+      text-align: center; color: var(--text-soft);
+      font-size: 1rem; max-width: 620px;
+      margin: 0 auto 3rem; line-height: 1.72;
+    }
+
+    /* ── ICON BOX (kein Emoji) ───────────────── */
+    .icon-box {
+      width: 52px; height: 52px; border-radius: 10px;
+      background: var(--bg-alt);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1rem; flex-shrink: 0;
+    }
+    .icon-box svg {
+      width: 26px; height: 26px;
+      stroke: var(--rot); fill: none;
+      stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round;
     }
 
     /* ── SO EINFACH GEHT'S ───────────────────── */
-    .steps { background: var(--bg2); }
-    .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.75rem; }
+    .steps-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
     .step {
-      background: #fff; border-radius: 8px; padding: 2rem 1.75rem; text-align: center;
-      box-shadow: 0 2px 14px rgba(0,0,0,.06);
+      background: #fff; border-radius: 10px;
+      padding: 2rem 1.75rem; text-align: center;
+      box-shadow: 0 2px 16px rgba(0,0,0,.06);
     }
     .step-num {
-      width: 52px; height: 52px; border-radius: 50%; background: var(--rot); color: #fff;
-      font-family: var(--serif); font-size: 1.45rem; font-weight: bold;
-      display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;
+      width: 44px; height: 44px; border-radius: 50%;
+      background: var(--rot); color: #fff;
+      font-family: var(--serif); font-size: 1.3rem; font-weight: bold;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto .75rem;
     }
-    .step h3 { font-size: 1.15rem; margin-bottom: .5rem; color: var(--text); }
-    .step p { font-size: .9rem; color: #5a5650; line-height: 1.65; }
+    .step .icon-box { margin: 0 auto .9rem; }
+    .step h3 { font-size: 1.1rem; margin-bottom: .45rem; color: var(--text); }
+    .step p { font-size: .875rem; color: var(--text-soft); line-height: 1.65; }
 
     /* ── STATS ───────────────────────────────── */
-    .stats { background: var(--rot); padding: 2.75rem 1.5rem; }
+    .stats {
+      background: var(--rot); padding: 2.75rem 1.5rem;
+    }
     .stats-grid {
-      max-width: 1120px; margin: 0 auto;
+      max-width: 1140px; margin: 0 auto;
       display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: .5rem; text-align: center;
     }
-    .stat { padding: 1rem; }
+    .stat { padding: .75rem 1rem; }
     .stat-num {
-      font-family: var(--serif); font-size: 2.6rem; font-weight: bold;
-      color: #fff; line-height: 1;
+      font-family: var(--serif); font-size: 2.6rem;
+      font-weight: bold; color: #fff; line-height: 1;
     }
-    .stat-label { color: rgba(255,255,255,.8); font-size: .875rem; margin-top: .35rem; }
+    .stat-label { color: rgba(255,255,255,.78); font-size: .85rem; margin-top: .35rem; }
 
     /* ── FEATURES ────────────────────────────── */
-    .feat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 1.4rem; }
+    .feat-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.35rem;
+    }
     .feat {
-      background: var(--bg2); border-radius: 8px; padding: 1.75rem;
+      background: #fff; border-radius: 10px; padding: 1.75rem;
       border-left: 4px solid var(--gruen);
+      box-shadow: 0 1px 10px rgba(0,0,0,.05);
     }
-    .feat-icon-box {
-      width: 50px; height: 50px; border-radius: 8px; background: #EDE9E0;
-      display: flex; align-items: center; justify-content: center;
-      margin-bottom: .9rem; flex-shrink: 0;
-      box-shadow: inset 0 1px 3px rgba(0,0,0,.06);
-    }
-    .feat-icon-box svg { width: 24px; height: 24px; color: var(--rot); stroke: var(--rot); fill: none; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
-    .feat h3 { font-size: 1.05rem; color: var(--gruen); margin-bottom: .45rem; }
-    .feat p { font-size: .875rem; color: #5a5650; line-height: 1.65; }
+    .feat h3 { font-size: 1.02rem; color: var(--gruen); margin-bottom: .4rem; }
+    .feat p { font-size: .875rem; color: var(--text-soft); line-height: 1.65; }
 
     /* ── PREISE ──────────────────────────────── */
-    .preise { background: var(--bg2); }
-    .preise-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-    .preis-card {
-      background: #fff; border-radius: 10px; padding: 2rem;
-      box-shadow: 0 2px 18px rgba(0,0,0,.08); position: relative;
+    .preise-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
     }
-    .preis-card.pop { border: 2px solid var(--rot); }
-    .pop-badge {
-      position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
-      background: var(--rot); color: #fff;
-      font-size: .72rem; font-weight: 700; letter-spacing: .06em;
-      padding: .22rem .9rem; border-radius: 2rem; white-space: nowrap;
+    .preis-col {
+      background: #fff; border-radius: 10px; padding: 2.25rem;
+      box-shadow: 0 2px 18px rgba(0,0,0,.07);
     }
-    .preis-label { font-size: .8rem; color: #999; text-transform: uppercase; letter-spacing: .06em; margin-bottom: .4rem; }
-    .preis-num { font-family: var(--serif); font-size: 3rem; color: var(--rot); font-weight: bold; line-height: 1; }
-    .preis-unit { font-size: .85rem; color: #999; margin-bottom: 1.6rem; }
-    .incl { list-style: none; margin-bottom: 2rem; }
-    .incl li {
-      padding: .4rem 0; font-size: .875rem; color: #555;
-      border-bottom: 1px solid #f0ebe0;
-      display: flex; align-items: center; gap: .6rem;
+    .preis-col-title {
+      font-family: var(--serif); font-size: 1.2rem;
+      color: var(--text); margin-bottom: 1.5rem;
+      padding-bottom: .9rem; border-bottom: 2px solid var(--bg-alt);
     }
-    .incl li::before { content: '✓'; color: var(--gruen); font-weight: bold; flex-shrink: 0; }
+    .preis-row {
+      display: flex; justify-content: space-between; align-items: baseline;
+      padding: .6rem 0; border-bottom: 1px solid var(--bg-alt);
+      font-size: .9rem;
+    }
+    .preis-row:last-of-type { border-bottom: none; }
+    .preis-row-label { color: var(--text-soft); }
+    .preis-row-val { font-family: var(--serif); font-weight: bold; color: var(--rot); font-size: 1.05rem; }
+    .preis-row-note { color: var(--text); font-size: .875rem; }
+    .preis-unbegrenzt { text-align: center; margin: 1.25rem 0; font-size: .82rem; color: var(--text-soft); font-style: italic; }
     .btn-book {
-      display: block; width: 100%; background: var(--rot); color: #fff;
-      border: none; padding: .875rem; font-size: .95rem; font-weight: 700;
-      border-radius: 4px; cursor: pointer; text-decoration: none; text-align: center;
-      font-family: var(--sans); transition: background .2s;
+      display: block; width: 100%;
+      background: var(--rot); color: #fff;
+      padding: .9rem; border-radius: 4px;
+      font-size: .95rem; font-weight: 700; font-family: var(--sans);
+      border: none; cursor: pointer; text-align: center;
+      transition: background .2s; margin-top: 1.5rem;
     }
-    .btn-book:hover { background: #a02828; }
+    .btn-book:hover { background: #a52626; }
+    .incl-list { list-style: none; }
+    .incl-list li {
+      display: flex; align-items: flex-start; gap: .65rem;
+      padding: .55rem 0; border-bottom: 1px solid var(--bg-alt);
+      font-size: .875rem; color: var(--text);
+    }
+    .incl-list li:last-child { border-bottom: none; }
+    .incl-check {
+      width: 18px; height: 18px; border-radius: 50%;
+      background: var(--gruen); flex-shrink: 0; margin-top: .1rem;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .incl-check svg {
+      width: 10px; height: 10px;
+      stroke: #fff; fill: none; stroke-width: 2.5;
+      stroke-linecap: round; stroke-linejoin: round;
+    }
 
     /* ── GALERIE ─────────────────────────────── */
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
       grid-template-rows: 300px 260px;
-      gap: 8px; margin-top: 3rem; border-radius: 8px; overflow: hidden;
+      gap: 8px; border-radius: 10px; overflow: hidden; margin-top: 3rem;
     }
     .gallery-grid img { width: 100%; height: 100%; object-fit: cover; }
     .g1 { grid-column: 1 / span 7; grid-row: 1; }
@@ -202,108 +261,150 @@
     .g5 { grid-column: 9 / span 4; grid-row: 2; }
 
     /* ── OPEN AIR ────────────────────────────── */
-    .openair { background: var(--gruen); padding: 4.5rem 1.5rem; }
+    .openair {
+      background: #112008; padding: 4.5rem 1.5rem;
+    }
     .openair-inner {
-      max-width: 1120px; margin: 0 auto;
-      display: flex; flex-wrap: wrap; align-items: center;
-      justify-content: space-between; gap: 2.5rem;
+      max-width: 1140px; margin: 0 auto;
+      display: flex; flex-wrap: wrap;
+      align-items: center; justify-content: space-between; gap: 2.5rem;
     }
-    .openair-text h2 { font-size: clamp(1.4rem, 3vw, 2rem); color: #fff; margin-bottom: .5rem; }
-    .openair-text .openair-date { color: rgba(255,255,255,.8); font-size: 1rem; margin-bottom: .35rem; }
-    .openair-text .openair-desc { color: rgba(255,255,255,.75); font-size: .9rem; max-width: 480px; }
+    .openair-date-tag {
+      font-size: .78rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: rgba(255,255,255,.55);
+      margin-bottom: .5rem;
+    }
+    .openair-title {
+      font-family: var(--serif);
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      color: #fff; margin-bottom: .75rem;
+    }
+    .openair-details {
+      color: rgba(255,255,255,.75); font-size: .9rem; line-height: 1.8;
+    }
     .openair-cta { text-align: center; flex-shrink: 0; }
-    .openair-price { font-family: var(--serif); font-size: 2.8rem; color: #fff; font-weight: bold; line-height: 1; }
-    .openair-nights { color: rgba(255,255,255,.7); font-size: .85rem; margin: .35rem 0 1.5rem; }
-    .btn-white {
-      display: inline-block; background: #fff; color: var(--gruen);
-      padding: .85rem 2rem; border-radius: 4px;
-      font-size: .95rem; font-weight: 700; font-family: var(--sans);
-      text-decoration: none; transition: background .2s;
+    .openair-price {
+      font-family: var(--serif); font-size: 3rem;
+      color: #fff; font-weight: bold; line-height: 1; margin-bottom: .35rem;
     }
-    .btn-white:hover { background: var(--bg2); }
+    .openair-price-note { color: rgba(255,255,255,.6); font-size: .82rem; margin-bottom: 1.5rem; }
+    .btn-openair {
+      display: inline-block;
+      background: #fff; color: #112008;
+      padding: .85rem 2.2rem; border-radius: 4px;
+      font-size: .95rem; font-weight: 700; font-family: var(--sans);
+      transition: background .2s;
+    }
+    .btn-openair:hover { background: var(--bg-alt); }
 
     /* ── AKTIVITÄTEN ─────────────────────────── */
-    .akt { background: var(--bg2); }
-    .akt-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2rem; }
-    .akt-item { text-align: center; }
-    .akt-icon { font-size: 3rem; margin-bottom: 1rem; }
-    .akt-item h3 { font-size: 1.1rem; color: var(--gruen); margin-bottom: .5rem; }
-    .akt-item p { font-size: .875rem; color: #5a5650; line-height: 1.65; }
-    .akt-gruss {
-      text-align: center; margin-top: 3rem; font-family: var(--serif);
-      font-size: 1.4rem; color: var(--rot); font-style: italic;
+    .akt-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.75rem;
     }
+    .akt-item {
+      background: #fff; border-radius: 10px; padding: 1.75rem;
+      box-shadow: 0 1px 10px rgba(0,0,0,.05);
+    }
+    .akt-item h3 { font-size: 1.05rem; color: var(--gruen); margin-bottom: .45rem; }
+    .akt-item p { font-size: .875rem; color: var(--text-soft); line-height: 1.65; }
+    .akt-footer { text-align: center; margin-top: 2.5rem; }
+    .akt-footer p { font-size: .95rem; color: var(--text-soft); margin-bottom: .5rem; }
+    .akt-gruss { font-family: var(--serif); font-size: 1.25rem; font-style: italic; color: var(--rot); }
 
     /* ── BEWERTUNGEN ─────────────────────────── */
-    .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 1.5rem; }
-    .review {
-      background: var(--bg2); border-radius: 8px; padding: 1.75rem;
-      box-shadow: 0 2px 12px rgba(0,0,0,.05);
+    .reviews-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 1.5rem;
     }
-    .review-stars { color: #F4B400; font-size: 1.1rem; margin-bottom: .75rem; }
-    .review-text { font-size: .875rem; color: #444; line-height: 1.75; font-style: italic; margin-bottom: 1.1rem; }
-    .review-author { font-weight: 700; font-size: .85rem; }
-    .review-meta { font-size: .75rem; color: #888; margin-top: .15rem; }
+    .review {
+      background: #fff; border-radius: 10px; padding: 1.75rem;
+      box-shadow: 0 1px 10px rgba(0,0,0,.05);
+    }
+    .review-top { display: flex; align-items: center; gap: .75rem; margin-bottom: 1rem; }
+    .review-avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--bg-alt); flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--serif); font-size: 1rem; font-weight: bold; color: var(--rot);
+    }
+    .review-name { font-weight: 700; font-size: .875rem; }
+    .review-meta { font-size: .75rem; color: var(--text-soft); margin-top: .1rem; }
+    .review-stars { color: #F4B400; font-size: 1rem; margin-bottom: .65rem; }
+    .review-text { font-size: .875rem; color: #444; line-height: 1.72; font-style: italic; }
 
     /* ── KONTAKT ─────────────────────────────── */
-    .kontakt { background: var(--bg2); }
     .kontakt-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
-    .k-title { font-size: 1.2rem; color: var(--rot); margin-bottom: 1.5rem; }
-    .k-line { display: flex; gap: .8rem; align-items: flex-start; margin-bottom: 1.1rem; font-size: .92rem; line-height: 1.55; }
-    .k-icon { flex-shrink: 0; font-size: 1.1rem; margin-top: .05rem; }
-    .k-line a { text-decoration: none; transition: color .18s; }
-    .k-line a:hover { color: var(--rot); }
-    .k-divider { border: none; border-top: 1px solid #d4cfc4; margin: 1.5rem 0; }
-    .k-hours { font-size: .82rem; color: #777; margin-top: .25rem; }
-    .map-placeholder {
-      background: #fff; border-radius: 8px; height: 360px;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      gap: .6rem; border: 2px dashed #ccc; color: #888;
+    .kontakt-block h3 { font-family: var(--serif); font-size: 1.15rem; color: var(--rot); margin-bottom: 1.5rem; }
+    .k-item { display: flex; gap: .85rem; align-items: flex-start; margin-bottom: 1.1rem; }
+    .k-item-icon {
+      width: 36px; height: 36px; border-radius: 8px;
+      background: var(--bg-alt); flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
     }
-    .map-placeholder svg { width: 48px; height: 48px; opacity: .4; }
-    .map-placeholder p { font-size: .875rem; }
-    .map-link { color: var(--rot); text-decoration: none; font-size: .85rem; font-weight: 600; }
+    .k-item-icon svg {
+      width: 18px; height: 18px; stroke: var(--rot); fill: none;
+      stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round;
+    }
+    .k-item-text { font-size: .9rem; line-height: 1.55; }
+    .k-item-text a { transition: color .18s; }
+    .k-item-text a:hover { color: var(--rot); }
+    .k-item-label { font-size: .75rem; color: var(--text-soft); margin-top: .1rem; }
+    .k-divider { border: none; border-top: 1px solid var(--bg-alt); margin: 1.5rem 0; }
+    .k-hinweis {
+      background: var(--bg-alt); border-radius: 8px; padding: 1rem 1.2rem;
+      font-size: .85rem; color: var(--text-soft); line-height: 1.6;
+    }
+    .map-box {
+      background: var(--bg-alt); border-radius: 10px; height: 360px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: .75rem; border: 2px dashed #ccc; color: var(--text-soft);
+    }
+    .map-box svg { width: 48px; height: 48px; stroke: #bbb; fill: none; stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; }
+    .map-box p { font-size: .875rem; }
+    .map-link { color: var(--rot); font-size: .85rem; font-weight: 600; }
     .map-link:hover { text-decoration: underline; }
 
     /* ── FOOTER ──────────────────────────────── */
-    footer { background: #1A1A18; color: rgba(255,255,255,.7); padding: 3.5rem 1.5rem 2rem; }
-    .footer-grid {
-      max-width: 1120px; margin: 0 auto;
-      display: flex; flex-wrap: wrap; gap: 2.5rem; justify-content: space-between; align-items: flex-start;
-      padding-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,.1);
+    footer {
+      background: #111110; color: rgba(255,255,255,.7);
+      padding: 3.5rem 1.5rem 2rem;
     }
-    .footer-brand h3 { font-family: var(--serif); font-size: 1.05rem; color: #fff; margin-bottom: .3rem; }
-    .footer-brand p { font-size: .82rem; color: rgba(255,255,255,.45); }
-    .footer-nav { list-style: none; display: flex; flex-direction: column; gap: .45rem; }
-    .footer-nav a { text-decoration: none; font-size: .85rem; color: rgba(255,255,255,.65); transition: color .18s; }
-    .footer-nav a:hover { color: #fff; }
-    .footer-social-label { font-size: .75rem; color: rgba(255,255,255,.4); text-transform: uppercase; letter-spacing: .07em; margin-bottom: .75rem; }
-    .social-links { display: flex; gap: .6rem; }
+    .footer-grid {
+      max-width: 1140px; margin: 0 auto;
+      display: flex; flex-wrap: wrap; gap: 2.5rem;
+      justify-content: space-between; align-items: flex-start;
+      padding-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .footer-logo { font-family: var(--serif); font-size: 1.1rem; color: #fff; margin-bottom: .3rem; }
+    .footer-sub { font-size: .82rem; color: rgba(255,255,255,.4); }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: .4rem; }
+    .footer-links a { font-size: .85rem; color: rgba(255,255,255,.6); transition: color .18s; }
+    .footer-links a:hover { color: #fff; }
+    .footer-social-label { font-size: .72rem; text-transform: uppercase; letter-spacing: .07em; color: rgba(255,255,255,.35); margin-bottom: .65rem; }
+    .social-links { display: flex; gap: .5rem; }
     .social-link {
-      display: flex; align-items: center; justify-content: center;
       width: 38px; height: 38px; border-radius: 50%;
-      background: rgba(255,255,255,.1); color: #fff;
-      text-decoration: none; font-size: .75rem; font-weight: 700;
-      transition: background .2s;
+      background: rgba(255,255,255,.08); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-size: .72rem; font-weight: 700; transition: background .2s;
     }
     .social-link:hover { background: var(--rot); }
     .footer-copy {
-      text-align: center; font-size: .75rem;
-      color: rgba(255,255,255,.35); margin-top: 2rem;
-      max-width: 1120px; margin-left: auto; margin-right: auto;
+      max-width: 1140px; margin: 2rem auto 0;
+      text-align: center; font-size: .75rem; color: rgba(255,255,255,.3);
     }
 
     /* ── RESPONSIVE ──────────────────────────── */
-    @media (max-width: 840px) {
+    @media (max-width: 860px) {
       .nav-links { display: none; }
-      .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
-      .g1, .g2, .g3, .g4, .g5 { grid-column: span 1 !important; grid-row: auto !important; height: 200px; }
       .kontakt-grid { grid-template-columns: 1fr; }
       .openair-inner { flex-direction: column; text-align: center; }
-      .openair-text .openair-desc { margin: 0 auto; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+      .g1, .g2, .g3, .g4, .g5 { grid-column: span 1 !important; grid-row: auto !important; height: 200px; }
     }
     @media (max-width: 480px) {
-      section { padding: 3.5rem 1.1rem; }
+      .sec { padding: 3.5rem 1.1rem; }
       .stats { padding: 2rem 1.1rem; }
       .openair { padding: 3rem 1.1rem; }
     }
@@ -312,8 +413,11 @@
 <body>
 
 <!-- ─── 1. NAVIGATION ──────────────────────────────────────────── -->
-<nav>
-  <a href="#" class="nav-logo">Natur Stellplatz Gampel</a>
+<header class="nav">
+  <a href="#" class="nav-logo">
+    Natur Stellplatz
+    <span>Gampel · Wallis</span>
+  </a>
   <ul class="nav-links">
     <li><a href="#how">So geht's</a></li>
     <li><a href="#preise">Preise</a></li>
@@ -321,63 +425,75 @@
     <li><a href="#openair">Open Air</a></li>
     <li><a href="#kontakt">Kontakt</a></li>
   </ul>
-  <div class="lang-switcher">
+  <div class="lang">
     <button class="lang-btn active" data-lang="de">DE</button>
     <button class="lang-btn" data-lang="fr">FR</button>
     <button class="lang-btn" data-lang="en">EN</button>
   </div>
-</nav>
+</header>
 
 
 <!-- ─── 2. HERO ────────────────────────────────────────────────── -->
 <section class="hero" id="top">
   <img
-    src="https://static.wixstatic.com/media/fddf3e_a6f2f6440d024ab8aa82dfba7ace26fe~mv2.jpg"
-    alt="Natur Stellplatz Gampel – Drohnenaufnahme"
     class="hero-img"
+    src="https://static.wixstatic.com/media/fddf3e_a6f2f6440d024ab8aa82dfba7ace26fe~mv2.jpg"
+    alt="Natur Stellplatz Gampel – Luftaufnahme"
     fetchpriority="high"
   />
   <div class="hero-overlay">
-    <span class="badge">Ohne Reservation</span>
-    <h1>Natur Stellplatz<br/>Gampel</h1>
-    <p class="hero-sub">Ihr naturnaher Wohnmobilstellplatz im Herzen des Wallis – direkt an der Rhone</p>
-    <div>
-      <a href="https://park4campers.payrexx.com/de/pay?tid=c86b941c" target="_blank" rel="noopener" class="btn">
-        Jetzt buchen – ab CHF 26
-      </a>
-      <a href="#how" class="btn btn-outline">Mehr erfahren</a>
-    </div>
+    <div class="hero-badge">Ohne Reservation &middot; Immer Platz verfügbar &middot; Ganzjährig geöffnet</div>
+    <h1>Wohnmobil Stellplatz<br/>Natur Stellplatz Gampel</h1>
+    <p class="hero-sub">11'000 m² Grünfläche direkt an der Rhone – im Herzen des Wallis</p>
+    <a href="#features" class="btn-primary">Stellplatz entdecken</a>
   </div>
 </section>
 
 
 <!-- ─── 3. SO EINFACH GEHT'S ──────────────────────────────────── -->
-<section class="steps" id="how">
+<section class="sec sec--alt" id="how">
   <div class="wrap">
-    <h2 class="sec-title">So einfach geht's</h2>
+    <span class="sec-tag">So einfach geht's</span>
+    <h2 class="sec-title">In 3 Schritten zum Stellplatz</h2>
     <p class="sec-lead">Kein Stress, keine Reservation – einfach ankommen und geniessen.</p>
     <div class="steps-grid">
+
       <div class="step">
         <div class="step-num">1</div>
+        <div class="icon-box" style="margin:0 auto .9rem;">
+          <!-- credit card / bezahlen -->
+          <svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/><line x1="6" y1="15" x2="10" y2="15"/></svg>
+        </div>
         <h3>Bezahlen</h3>
-        <p>Online via Payrexx oder direkt vor Ort beim Betreiber. Einfach, schnell und unkompliziert.</p>
+        <p>Vor Ort via QR-Code an der Infotafel oder per Online-Vorauszahlung.</p>
       </div>
+
       <div class="step">
         <div class="step-num">2</div>
+        <div class="icon-box" style="margin:0 auto .9rem;">
+          <!-- parking / wohnmobil -->
+          <svg viewBox="0 0 24 24"><path d="M1 11V17a1 1 0 0 0 1 1h1m16 0h1a1 1 0 0 0 1-1v-5L17 5H5a2 2 0 0 0-2 2v4M6 18a2 2 0 1 0 4 0 2 2 0 0 0-4 0Zm8 0a2 2 0 1 0 4 0 2 2 0 0 0-4 0Z"/><path d="M3 11h18M14 5v6"/></svg>
+        </div>
         <h3>Parkieren</h3>
-        <p>Freie Platzwahl – suche dir deinen Lieblingsplatz auf der grünen Wiese direkt an der Rhone aus.</p>
+        <p>Freie Platzwahl, Schatten oder Sonne, mit oder ohne Strom.</p>
       </div>
+
       <div class="step">
         <div class="step-num">3</div>
+        <div class="icon-box" style="margin:0 auto .9rem;">
+          <!-- sun / geniessen -->
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        </div>
         <h3>Geniessen</h3>
-        <p>Entspanne in der Walliser Natur, entdecke das Dorf Gampel und erlebe das echte, ursprüngliche Wallis.</p>
+        <p>Ruhe der Walliser Talsohle und Bergpanorama geniessen.</p>
       </div>
+
     </div>
   </div>
 </section>
 
 
-<!-- ─── 4. STATS-LEISTE ────────────────────────────────────────── -->
+<!-- ─── 4. STATS ───────────────────────────────────────────────── -->
 <div class="stats">
   <div class="stats-grid">
     <div class="stat">
@@ -385,12 +501,12 @@
       <div class="stat-label">Stellplätze</div>
     </div>
     <div class="stat">
-      <div class="stat-num">CHF 26</div>
-      <div class="stat-label">ab pro Nacht</div>
+      <div class="stat-num">CHF 29</div>
+      <div class="stat-label">Pro Nacht</div>
     </div>
     <div class="stat">
       <div class="stat-num">∞</div>
-      <div class="stat-label">Freie Platzwahl</div>
+      <div class="stat-label">Aufenthaltsdauer</div>
     </div>
     <div class="stat">
       <div class="stat-num">365</div>
@@ -401,64 +517,64 @@
 
 
 <!-- ─── 5. FEATURES ───────────────────────────────────────────── -->
-<section id="features">
+<section class="sec" id="features">
   <div class="wrap">
+    <span class="sec-tag">Ausstattung</span>
     <h2 class="sec-title">Was Sie erwartet</h2>
     <p class="sec-lead">Alles was Sie für einen komfortablen Aufenthalt im Wallis brauchen.</p>
     <div class="feat-grid">
 
       <div class="feat">
-        <div class="feat-icon-box">
-          <!-- van / camper -->
-          <svg viewBox="0 0 24 24"><path d="M1 10.5V17a1 1 0 0 0 1 1h1m16 0h1a1 1 0 0 0 1-1v-5.5L17 5H5a2 2 0 0 0-2 2v4.5M6 18a2 2 0 1 0 4 0 2 2 0 0 0-4 0Zm8 0a2 2 0 1 0 4 0 2 2 0 0 0-4 0Z"/><path d="M3 10.5h18M14 5v5.5"/></svg>
+        <div class="icon-box">
+          <svg viewBox="0 0 24 24"><path d="M1 11V17a1 1 0 0 0 1 1h1m16 0h1a1 1 0 0 0 1-1v-5L17 5H5a2 2 0 0 0-2 2v4M6 18a2 2 0 1 0 4 0 2 2 0 0 0-4 0Zm8 0a2 2 0 1 0 4 0 2 2 0 0 0-4 0Z"/><path d="M3 11h18M14 5v6"/></svg>
         </div>
         <h3>Über 100 Stellplätze</h3>
-        <p>Freie Platzwahl auf weitläufiger Grünfläche – im Schatten oder in der Sonne. Ohne Voranmeldung, jederzeit verfügbar.</p>
+        <p>11'000 m² Fläche, freie Platzwahl, Schatten &amp; Sonne – für Wohnmobile jeder Grösse.</p>
       </div>
 
       <div class="feat">
-        <div class="feat-icon-box">
-          <!-- shower drop -->
-          <svg viewBox="0 0 24 24"><path d="M12 2a5 5 0 0 0-5 5v1H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-9a2 2 0 0 0-2-2h-2V7a5 5 0 0 0-5-5Z"/><circle cx="12" cy="14" r="2"/></svg>
+        <div class="icon-box">
+          <!-- shower -->
+          <svg viewBox="0 0 24 24"><path d="M4 12h16M4 12a8 8 0 0 1 8-8"/><path d="M4 12v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-6"/><circle cx="16" cy="6" r="2"/><line x1="7" y1="17" x2="7" y2="17.5"/><line x1="10" y1="17" x2="10" y2="17.5"/><line x1="13" y1="17" x2="13" y2="17.5"/></svg>
         </div>
         <h3>Moderne Sanitäranlagen</h3>
-        <p>3 Duschen, 3 WC, 3 Lavabos – sauber, gepflegt und jederzeit zugänglich. Warmes Wasser inklusive.</p>
+        <p>3 Duschen, 3 WC, 3 Lavabos, Spülbecken – sauber und jederzeit zugänglich.</p>
       </div>
 
       <div class="feat">
-        <div class="feat-icon-box">
-          <!-- bolt / lightning -->
+        <div class="icon-box">
+          <!-- bolt -->
           <svg viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z"/></svg>
         </div>
         <h3>Vollständige Infrastruktur</h3>
-        <p>48 CEE-Steckdosen (16 A), Frischwasseranschlüsse, Grau- und Schwarzwasser-Entsorgungsstation.</p>
+        <p>48 CEE-Steckdosen (16A), Frischwasser, Grau- &amp; Schwarzwasser-Entsorgung.</p>
       </div>
 
       <div class="feat">
-        <div class="feat-icon-box">
+        <div class="icon-box">
           <!-- map pin -->
           <svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Z"/><circle cx="12" cy="9" r="2.5"/></svg>
         </div>
         <h3>Perfekte Lage</h3>
-        <p>Direkt an der Rhone, 10 Minuten zu Fuss ins Dorf Gampel. Rundum Bergpanorama – mitten im Herzen des Wallis.</p>
+        <p>Direkt an der Rhone, 10 Min. ins Dorf, Bergpanorama auf allen Seiten.</p>
       </div>
 
       <div class="feat">
-        <div class="feat-icon-box">
-          <!-- tree / nature -->
-          <svg viewBox="0 0 24 24"><path d="M12 2 6 10h3l-3 5h4v5h4v-5h4l-3-5h3L12 2Z"/></svg>
+        <div class="icon-box">
+          <!-- tree -->
+          <svg viewBox="0 0 24 24"><path d="M12 2 6 10h4l-4 6h5v5h2v-5h5l-4-6h4L12 2Z"/></svg>
         </div>
         <h3>Naturerlebnis</h3>
-        <p>Rhone-Radweg von Gampel bis Brig oder Sion, Mountainbike-Trails, Wasserfall Turtmann, Bähnli Jeizinen auf 1500 m.</p>
+        <p>Rhone-Radweg, Mountainbike, Wasserfall Turtmann, Bähnli Jeizinen (1500 m).</p>
       </div>
 
       <div class="feat">
-        <div class="feat-icon-box">
-          <!-- users / group -->
+        <div class="icon-box">
+          <!-- users -->
           <svg viewBox="0 0 24 24"><circle cx="9" cy="7" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="7" r="3"/><path d="M21 20c0-3.3-2.7-6-6-6"/></svg>
         </div>
         <h3>Club-freundlich</h3>
-        <p>Ideal für jährliche Wohnmobil-Clubtreffen und Vereinsausflüge jeder Grösse – grosszügig Platz für alle.</p>
+        <p>Ideal für Wohnmobil-Clubs und Vereinsausflüge – grosszügig Platz für alle.</p>
       </div>
 
     </div>
@@ -467,40 +583,57 @@
 
 
 <!-- ─── 6. PREISE ─────────────────────────────────────────────── -->
-<section class="preise" id="preise">
+<section class="sec sec--alt" id="preise">
   <div class="wrap">
-    <h2 class="sec-title">Preise</h2>
-    <p class="sec-lead">Transparente Preise, keine versteckten Kosten.</p>
+    <span class="sec-tag">Preise</span>
+    <h2 class="sec-title">Transparent &amp; fair</h2>
+    <p class="sec-lead">Keine versteckten Kosten. Euro wird akzeptiert.</p>
     <div class="preise-grid">
 
-      <div class="preis-card">
-        <div class="preis-label">Ohne Strom</div>
-        <div class="preis-num">CHF 26.–</div>
-        <div class="preis-unit">pro Fahrzeug / Nacht</div>
-        <ul class="incl">
-          <li>Freie Platzwahl</li>
-          <li>Duschen & WC</li>
-          <li>Entsorgungsstation</li>
-        </ul>
+      <div class="preis-col">
+        <h3 class="preis-col-title">Stellplatz pro Nacht</h3>
+        <div class="preis-row">
+          <span class="preis-row-label">Ohne Strom</span>
+          <span class="preis-row-val">CHF 26.–</span>
+        </div>
+        <div class="preis-row">
+          <span class="preis-row-label">Mit Strom (16A)</span>
+          <span class="preis-row-val">CHF 29.–</span>
+        </div>
+        <div class="preis-row">
+          <span class="preis-row-label">Euro akzeptiert</span>
+          <span class="preis-row-note">€ 29.–</span>
+        </div>
+        <div class="preis-unbegrenzt">Aufenthaltsdauer unbeschränkt</div>
         <a href="https://park4campers.payrexx.com/de/pay?tid=c86b941c" target="_blank" rel="noopener" class="btn-book">
-          Jetzt buchen
+          Jetzt online bezahlen
         </a>
       </div>
 
-      <div class="preis-card pop">
-        <div class="pop-badge">Beliebt</div>
-        <div class="preis-label">Mit Strom (16A)</div>
-        <div class="preis-num">CHF 29.–</div>
-        <div class="preis-unit">pro Fahrzeug / Nacht</div>
-        <ul class="incl">
-          <li>Freie Platzwahl</li>
-          <li>Duschen & WC</li>
-          <li>Entsorgungsstation</li>
-          <li>Stromanschluss 16 A (CEE)</li>
+      <div class="preis-col">
+        <h3 class="preis-col-title">Für Stellplatzgäste inklusive</h3>
+        <ul class="incl-list">
+          <li>
+            <div class="incl-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+            Strom CEE 16A (48 Steckdosen)
+          </li>
+          <li>
+            <div class="incl-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+            Frischwasserversorgung
+          </li>
+          <li>
+            <div class="incl-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+            Grau- &amp; Schwarzwasser-Entsorgung
+          </li>
+          <li>
+            <div class="incl-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+            WC &amp; Duschen
+          </li>
+          <li>
+            <div class="incl-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+            Minigolf-Terrasse
+          </li>
         </ul>
-        <a href="https://park4campers.payrexx.com/de/pay?tid=c86b941c" target="_blank" rel="noopener" class="btn-book">
-          Jetzt buchen
-        </a>
       </div>
 
     </div>
@@ -509,9 +642,10 @@
 
 
 <!-- ─── 7. GALERIE ────────────────────────────────────────────── -->
-<section id="galerie">
+<section class="sec" id="galerie">
   <div class="wrap">
-    <h2 class="sec-title">Galerie</h2>
+    <span class="sec-tag">Galerie</span>
+    <h2 class="sec-title">Bilder vom Stellplatz</h2>
     <p class="sec-lead">Bilder sagen mehr als tausend Worte.</p>
     <div class="gallery-grid">
       <img class="g1" src="https://static.wixstatic.com/media/fddf3e_4afdeb9b639742ae9770bc5d6510e061~mv2.jpg" alt="Stellplatz Gampel Übersicht" loading="lazy" />
@@ -528,18 +662,18 @@
 <div class="openair" id="openair">
   <div class="openair-inner">
     <div class="openair-text">
-      <h2>Open Air Gampel 2026</h2>
-      <p class="openair-date">19.–23. August 2026 &middot; Direkt nebenan</p>
-      <p class="openair-desc">
-        Schlafen im Wohnmobil, feiern im Festival. Der kürzeste Weg zum Konzert –
-        einfach rüber und die beste Musik des Wallis geniessen.
+      <div class="openair-date-tag">19.–23. August 2026</div>
+      <h2 class="openair-title">Open Air Gampel 2026</h2>
+      <p class="openair-details">
+        5-Tages-Stellplatz &middot; max. 4 Personen<br/>
+        inkl. Strom, WC &amp; Duschen, Entsorgung
       </p>
     </div>
     <div class="openair-cta">
       <div class="openair-price">CHF 240.–</div>
-      <div class="openair-nights">5 Nächte inkl. Stellplatz</div>
-      <a href="https://park4campers.payrexx.com/de/pay?tid=909479a2" target="_blank" rel="noopener" class="btn-white">
-        Open Air Ticket buchen
+      <div class="openair-price-note">5 Nächte inkl. Stellplatz</div>
+      <a href="https://park4campers.payrexx.com/de/pay?tid=909479a2" target="_blank" rel="noopener" class="btn-openair">
+        Jetzt buchen
       </a>
     </div>
   </div>
@@ -547,70 +681,91 @@
 
 
 <!-- ─── 9. AKTIVITÄTEN ────────────────────────────────────────── -->
-<section class="akt" id="aktivitaeten">
+<section class="sec sec--alt" id="aktivitaeten">
   <div class="wrap">
-    <h2 class="sec-title">Aktivitäten</h2>
+    <span class="sec-tag">Erleben &amp; Geniessen</span>
+    <h2 class="sec-title">Aktivitäten rund um Gampel</h2>
     <p class="sec-lead">Das Wallis bietet rund um Gampel unzählige Möglichkeiten für aktive und erholsame Aufenthalte.</p>
     <div class="akt-grid">
+
       <div class="akt-item">
-        <div class="akt-icon">🚴</div>
-        <h3>Velo & Wandern</h3>
-        <p>Der Rhone-Radweg führt von Gampel bis nach Brig oder Sion – flach und traumhaft schön. Dazu Mountainbike-Wege, der Wasserfall Turtmann und das Bähnli Jeizinen auf 1500 m.</p>
+        <div class="icon-box">
+          <!-- bicycle -->
+          <svg viewBox="0 0 24 24"><circle cx="6" cy="17" r="3"/><circle cx="18" cy="17" r="3"/><path d="m12 5 2 7h4m-6-7H8l-2 7m6-7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/></svg>
+        </div>
+        <h3>Velo &amp; Wandern</h3>
+        <p>Rhone-Radweg von Gampel nach Brig oder Sion, Mountainbike-Wege, Wasserfall Turtmann, Bähnli auf 1500 m ü.M.</p>
       </div>
+
       <div class="akt-item">
-        <div class="akt-icon">🏔️</div>
+        <div class="icon-box">
+          <!-- mountain -->
+          <svg viewBox="0 0 24 24"><path d="m3 20 7-12 4 6 2-3 5 9H3Z"/></svg>
+        </div>
         <h3>Bergpanorama</h3>
-        <p>Inmitten der schönen Walliser Berge – Ruhe und Natur pur. Die beeindruckende Bergwelt des Wallis liegt direkt vor der Türe und lädt zum Entdecken ein.</p>
+        <p>Inmitten der schönen Walliser Berge, Ruhe und Natur pur.</p>
       </div>
+
       <div class="akt-item">
-        <div class="akt-icon">🏕️</div>
+        <div class="icon-box">
+          <!-- users -->
+          <svg viewBox="0 0 24 24"><circle cx="9" cy="7" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="7" r="3"/><path d="M21 20c0-3.3-2.7-6-6-6"/></svg>
+        </div>
         <h3>Ideal für Clubs</h3>
-        <p>Perfekt für jährliche Wohnmobil-Clubtreffen und Vereinsausflüge jeder Grösse. Grosszügig Platz, unkomplizierte Anreise und herzliche Gastfreundschaft.</p>
+        <p>Perfekt für jährliche Wohnmobil-Clubtreffen und Vereinsausflüge jeder Grösse.</p>
       </div>
+
     </div>
-    <div class="akt-gruss">Lass dich einfach überraschen — Viel Gfreidds!</div>
+    <div class="akt-footer">
+      <p>Von Gampel nach Brig oder nach Sion — der schönen Rhone entlang, zwischen Bäumen und Wiesen.</p>
+      <p class="akt-gruss">Lass dich einfach überraschen — Viel Gfreidds!</p>
+    </div>
   </div>
 </section>
 
 
 <!-- ─── 10. BEWERTUNGEN ───────────────────────────────────────── -->
-<section id="bewertungen">
+<section class="sec" id="bewertungen">
   <div class="wrap">
+    <span class="sec-tag">Gästestimmen</span>
     <h2 class="sec-title">Was Gäste sagen</h2>
     <p class="sec-lead">Echte Bewertungen von Google – direkt von unseren Gästen.</p>
     <div class="reviews-grid">
 
       <div class="review">
+        <div class="review-top">
+          <div class="review-avatar">C</div>
+          <div>
+            <div class="review-name">ChrisTine</div>
+            <div class="review-meta">Local Guide &middot; 211 Rezensionen &middot; Google</div>
+          </div>
+        </div>
         <div class="review-stars">★★★★★</div>
-        <p class="review-text">
-          «Schöner Platz an der Rhone. Ruhig, viel Wiese, zentral gelegen um im Dorf einzukaufen,
-          an der Rhone entlang spazieren zu gehen oder Velo zu fahren. Der Dusch- und WC-Container
-          ist sauber und der Betreiber ein netter urchiger Herr.»
-        </p>
-        <div class="review-author">ChrisTine</div>
-        <div class="review-meta">Local Guide &middot; 211 Rezensionen &middot; Google</div>
+        <p class="review-text">«Schöner Platz an der Rhone. Ruhig, viel Wiese, zentral gelegen um im Dorf einzukaufen, an der Rhone entlang spazieren zu gehen oder Velo zu fahren. Der Dusch- und WC-Container ist sauber und der Betreiber ein netter urchiger Herr.»</p>
       </div>
 
       <div class="review">
+        <div class="review-top">
+          <div class="review-avatar">M</div>
+          <div>
+            <div class="review-name">Mike</div>
+            <div class="review-meta">Local Guide &middot; 35 Rezensionen &middot; Google</div>
+          </div>
+        </div>
         <div class="review-stars">★★★★★</div>
-        <p class="review-text">
-          «Super Campingplatz, tolle Lage, freie Platzwahl, man benötigt keine Reservierung,
-          sehr freundliches und hilfsbereites Personal, auch das Preis-Leistungs-Verhältnis
-          ist super. Wir kommen sehr gerne wieder.»
-        </p>
-        <div class="review-author">Mike</div>
-        <div class="review-meta">Local Guide &middot; 35 Rezensionen &middot; Google</div>
+        <p class="review-text">«Super Campingplatz, tolle Lage, freie Platzwahl, man benötigt keine Reservierung, sehr freundliches und hilfsbereites Personal, auch das Preis-Leistungs-Verhältnis ist super. Wir kommen sehr gerne wieder.»</p>
       </div>
 
       <div class="review">
+        <div class="review-top">
+          <div class="review-avatar">K</div>
+          <div>
+            <div class="review-name">Knutschi Womoblog_ch</div>
+            <div class="review-meta">Local Guide &middot; 92 Rezensionen &middot; Google</div>
+          </div>
+        </div>
         <div class="review-stars">★★★★★</div>
-        <p class="review-text">
-          «Ein schöner grosszügiger Stellplatz mit vielen Plätzen. Man muss also keine Angst haben,
-          auf einen vollen Platz zu kommen. Die Ausstattung ist sehr gut, Strom, Duschen, WC,
-          vollständige Entsorgung.»
-        </p>
-        <div class="review-author">Knutschi Womoblog_ch</div>
-        <div class="review-meta">Local Guide &middot; 92 Rezensionen &middot; Google</div>
+        <p class="review-text">«Ein schöner grosszügiger Stellplatz mit vielen Plätzen. Man muss also keine Angst haben, auf einen vollen Platz zu kommen. Die Ausstattung ist sehr gut, Strom, Duschen, WC, vollständige Entsorgung.»</p>
       </div>
 
     </div>
@@ -619,55 +774,73 @@
 
 
 <!-- ─── 11. KONTAKT & ANFAHRT ─────────────────────────────────── -->
-<section class="kontakt" id="kontakt">
+<section class="sec sec--alt" id="kontakt">
   <div class="wrap">
-    <h2 class="sec-title">Kontakt & Anfahrt</h2>
-    <p class="sec-lead">Wir freuen uns auf Ihren Besuch im Wallis.</p>
+    <span class="sec-tag">Kontakt &amp; Anfahrt</span>
+    <h2 class="sec-title">Wir freuen uns auf Ihren Besuch</h2>
+    <p class="sec-lead">Einfach ankommen – kein Check-in, keine Reservation nötig.</p>
     <div class="kontakt-grid">
 
-      <div>
-        <h3 class="k-title">Kontaktinformationen</h3>
-        <div class="k-line">
-          <span class="k-icon">📍</span>
-          <div>Lampertji 6<br/>3945 Gampel, Wallis</div>
+      <div class="kontakt-block">
+        <h3>Kontaktinformationen</h3>
+
+        <div class="k-item">
+          <div class="k-item-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          </div>
+          <div class="k-item-text">
+            Lampertji 6<br/>3945 Gampel, Wallis
+          </div>
         </div>
-        <div class="k-line">
-          <span class="k-icon">📞</span>
-          <div>
+
+        <div class="k-item">
+          <div class="k-item-icon">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.24h3a2 2 0 0 1 2 1.72c.13.96.35 1.9.65 2.81a2 2 0 0 1-.45 2.11L7.09 9.1a16 16 0 0 0 7.86 7.86l1.21-1.21a2 2 0 0 1 2.11-.45c.91.3 1.85.52 2.81.65A2 2 0 0 1 22 17.92Z"/></svg>
+          </div>
+          <div class="k-item-text">
             <a href="tel:+41797786736">+41 79 778 67 36</a>
           </div>
         </div>
-        <div class="k-line">
-          <span class="k-icon">👨‍🌾</span>
-          <div>
+
+        <div class="k-item">
+          <div class="k-item-icon">
+            <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+          <div class="k-item-text">
             Platzwart Schosi Rotzer<br/>
             <a href="tel:+41796148213">+41 79 614 82 13</a>
           </div>
         </div>
-        <div class="k-line">
-          <span class="k-icon">✉️</span>
-          <div>
+
+        <div class="k-item">
+          <div class="k-item-icon">
+            <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/></svg>
+          </div>
+          <div class="k-item-text">
             <a href="mailto:info@naturstellplatzgampel.ch">info@naturstellplatzgampel.ch</a>
           </div>
         </div>
+
         <hr class="k-divider" />
-        <div class="k-line">
-          <span class="k-icon">🕐</span>
-          <div>
-            <strong>365 Tage geöffnet</strong>
-            <p class="k-hours">Kein Check-in nötig – einfach ankommen</p>
+
+        <div class="k-item">
+          <div class="k-item-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
           </div>
+          <div class="k-item-text">
+            <strong>Ganzjährig geöffnet</strong>
+            <div class="k-item-label">Jederzeit anreisen – 24 h</div>
+          </div>
+        </div>
+
+        <div class="k-hinweis">
+          Ohne Reservation &middot; Einfach vorbeikommen &middot; Immer Platz verfügbar
         </div>
       </div>
 
       <div>
-        <div class="map-placeholder">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path stroke-linecap="round" stroke-linejoin="round"
-              d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-            <path stroke-linecap="round" stroke-linejoin="round"
-              d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
-          </svg>
+        <div class="map-box">
+          <svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Z"/><circle cx="12" cy="9" r="2.5"/></svg>
           <p>Lampertji 6, 3945 Gampel</p>
           <a
             class="map-link"
@@ -688,16 +861,15 @@
 <!-- ─── 12. FOOTER ────────────────────────────────────────────── -->
 <footer>
   <div class="footer-grid">
-    <div class="footer-brand">
-      <h3>Natur Stellplatz Gampel</h3>
-      <p>Lampertji 6 &middot; 3945 Gampel &middot; Wallis</p>
+    <div>
+      <div class="footer-logo">Natur Stellplatz Gampel</div>
+      <div class="footer-sub">Wallis &middot; Schweiz &middot; Ganzjährig geöffnet</div>
     </div>
-    <nav>
-      <ul class="footer-nav">
-        <li><a href="#how">So geht's</a></li>
-        <li><a href="#preise">Preise</a></li>
-        <li><a href="#galerie">Galerie</a></li>
-        <li><a href="#openair">Open Air Gampel</a></li>
+    <nav aria-label="Footer Navigation">
+      <ul class="footer-links">
+        <li><a href="#">Datenschutz</a></li>
+        <li><a href="#">Impressum</a></li>
+        <li><a href="#">Platzordnung</a></li>
         <li><a href="#kontakt">Kontakt</a></li>
       </ul>
     </nav>
@@ -709,11 +881,12 @@
       </div>
     </div>
   </div>
-  <p class="footer-copy">© 2026 Natur Stellplatz Gampel &middot; Alle Rechte vorbehalten</p>
+  <p class="footer-copy">© 2026 Natur Stellplatz Gampel</p>
 </footer>
 
+
 <script>
-  // Language switcher – active state only (content in DE)
+  // Sprachumschalter – aktiver Zustand
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
@@ -721,11 +894,11 @@
     });
   });
 
-  // Nav: deepen background on scroll
-  const nav = document.querySelector('nav');
+  // Navigation: Schatten beim Scrollen
+  const nav = document.querySelector('.nav');
   window.addEventListener('scroll', () => {
-    nav.style.boxShadow = window.scrollY > 20
-      ? '0 2px 20px rgba(0,0,0,.12)'
+    nav.style.boxShadow = window.scrollY > 30
+      ? '0 2px 24px rgba(0,0,0,.10)'
       : 'none';
   }, { passive: true });
 </script>
