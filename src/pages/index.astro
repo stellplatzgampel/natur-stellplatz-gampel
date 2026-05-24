@@ -36,36 +36,88 @@
     .nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 300;
       height: 64px; padding: 0 2rem;
-      background: rgba(250, 248, 244, 0.96);
+      background: rgba(250,248,244,0.92);
       backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(0,0,0,.08);
-      display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
+      display: flex; align-items: center; justify-content: space-between;
     }
     .nav-logo {
       font-family: var(--serif); font-size: .95rem; font-weight: bold;
       color: var(--rot); white-space: nowrap; flex-shrink: 0; line-height: 1.3;
     }
     .nav-logo span { display: block; font-size: .78rem; font-weight: 400; color: var(--text-soft); }
-    .nav-links {
-      display: flex; gap: 1.75rem; list-style: none;
-      flex: 1; justify-content: center;
+
+    /* NSG-Kreis-Button */
+    .nsg-btn {
+      width: 46px; height: 46px; border-radius: 50%;
+      background: none; border: 2px solid var(--rot);
+      color: var(--rot); font-family: var(--serif);
+      font-size: .78rem; font-weight: bold; letter-spacing: .03em;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; transition: background .2s, color .2s;
     }
-    .nav-links a {
-      font-size: .85rem; font-weight: 500; color: var(--text);
-      transition: color .18s;
+    .nsg-btn:hover { background: var(--rot); color: #fff; }
+
+    /* ── OVERLAY MENU ────────────────────────── */
+    .menu-overlay {
+      position: fixed; inset: 0; z-index: 400;
+      background: rgba(250,248,244,.97);
+      backdrop-filter: blur(18px);
+      display: none; flex-direction: column;
+      padding: 0 2rem;
+      opacity: 0; transition: opacity .25s;
     }
-    .nav-links a:hover { color: var(--rot); }
-    .lang {
-      display: flex; gap: .25rem; flex-shrink: 0;
+    .menu-overlay.open { display: flex; opacity: 1; }
+    .menu-overlay-top {
+      height: 64px; display: flex; align-items: center;
+      justify-content: space-between; flex-shrink: 0;
     }
+    .menu-overlay-logo {
+      font-family: var(--serif); font-size: .95rem; font-weight: bold;
+      color: var(--rot); line-height: 1.3;
+    }
+    .menu-overlay-logo span { display: block; font-size: .78rem; font-weight: 400; color: var(--text-soft); }
+    .menu-close {
+      width: 46px; height: 46px; border-radius: 50%;
+      background: none; border: 2px solid var(--text-soft);
+      color: var(--text); font-size: 1.2rem; font-weight: 300;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      transition: border-color .2s, color .2s;
+    }
+    .menu-close:hover { border-color: var(--rot); color: var(--rot); }
+    .menu-overlay-body {
+      flex: 1; display: flex; align-items: center;
+      max-width: 1140px; margin: 0 auto; width: 100%;
+      gap: 5rem;
+    }
+    .menu-brand {
+      flex: 1;
+    }
+    .menu-brand-logo {
+      font-family: var(--serif); font-size: 2.2rem; font-weight: bold;
+      color: var(--rot); line-height: 1.2; margin-bottom: .4rem;
+    }
+    .menu-brand-sub { font-size: 1rem; color: var(--text-soft); }
+    .menu-nav-col { flex: 1; }
+    .menu-nav-col ul { list-style: none; display: flex; flex-direction: column; gap: 1.1rem; }
+    .menu-nav-col a {
+      font-family: var(--serif); font-size: 1.65rem;
+      color: var(--text); transition: color .18s;
+    }
+    .menu-nav-col a:hover { color: var(--rot); }
+    .menu-lang-row { display: flex; gap: .4rem; margin-top: 2rem; }
     .lang-btn {
       border: 1px solid #ccc; background: none;
-      padding: .2rem .55rem; font-size: .72rem; font-weight: 600;
+      padding: .25rem .65rem; font-size: .75rem; font-weight: 600;
       letter-spacing: .04em; cursor: pointer; border-radius: 3px;
       color: var(--text); font-family: var(--sans); transition: all .18s;
     }
     .lang-btn.active,
     .lang-btn:hover { background: var(--rot); color: #fff; border-color: var(--rot); }
+    @media (max-width: 640px) {
+      .menu-overlay-body { flex-direction: column; justify-content: center; gap: 2.5rem; }
+      .menu-brand { display: none; }
+      .menu-nav-col a { font-size: 1.4rem; }
+    }
 
     /* ── HERO ────────────────────────────────── */
     .hero {
@@ -78,29 +130,31 @@
     }
     .hero-overlay {
       position: absolute; inset: 0;
-      background: linear-gradient(160deg, rgba(0,0,0,.12) 0%, rgba(0,0,0,.58) 100%);
+      background: linear-gradient(to bottom,
+        rgba(250,248,244,.45) 0%,
+        rgba(250,248,244,.15) 50%,
+        rgba(250,248,244,.40) 100%);
       display: flex; flex-direction: column;
       align-items: center; justify-content: center;
       text-align: center; padding: 2rem 1.5rem;
     }
     .hero-badge {
       display: inline-block;
-      background: rgba(45, 80, 22, .9);
-      color: #fff; font-size: .75rem; font-weight: 600;
-      letter-spacing: .06em; padding: .4rem 1.2rem;
+      background: var(--rot); color: #fff;
+      font-size: .75rem; font-weight: 600;
+      letter-spacing: .07em; padding: .4rem 1.2rem;
       border-radius: 2rem; margin-bottom: 1.5rem;
     }
     .hero h1 {
       font-size: clamp(1.9rem, 5vw, 3.5rem);
-      color: #fff;
-      text-shadow: 0 2px 18px rgba(0,0,0,.45);
+      color: var(--rot);
       margin-bottom: .75rem; max-width: 760px;
     }
     .hero-sub {
-      color: rgba(255,255,255,.88);
+      color: var(--text);
       font-size: clamp(.95rem, 1.8vw, 1.15rem);
-      text-shadow: 0 1px 8px rgba(0,0,0,.4);
       margin-bottom: 2.25rem; max-width: 560px;
+      font-weight: 500;
     }
     .btn-primary {
       display: inline-block;
@@ -132,7 +186,7 @@
       margin: 0 auto 3rem; line-height: 1.72;
     }
 
-    /* ── ICON BOX (kein Emoji) ───────────────── */
+    /* ── ICON BOX ────────────────────────────── */
     .icon-box {
       width: 52px; height: 52px; border-radius: 10px;
       background: var(--bg-alt);
@@ -167,9 +221,7 @@
     .step p { font-size: .875rem; color: var(--text-soft); line-height: 1.65; }
 
     /* ── STATS ───────────────────────────────── */
-    .stats {
-      background: var(--rot); padding: 2.75rem 1.5rem;
-    }
+    .stats { background: var(--rot); padding: 2.75rem 1.5rem; }
     .stats-grid {
       max-width: 1140px; margin: 0 auto;
       display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -217,7 +269,6 @@
     .preis-row:last-of-type { border-bottom: none; }
     .preis-row-label { color: var(--text-soft); }
     .preis-row-val { font-family: var(--serif); font-weight: bold; color: var(--rot); font-size: 1.05rem; }
-    .preis-row-note { color: var(--text); font-size: .875rem; }
     .preis-unbegrenzt { text-align: center; margin: 1.25rem 0; font-size: .82rem; color: var(--text-soft); font-style: italic; }
     .btn-book {
       display: block; width: 100%;
@@ -260,10 +311,24 @@
     .g4 { grid-column: 5 / span 4; grid-row: 2; }
     .g5 { grid-column: 9 / span 4; grid-row: 2; }
 
-    /* ── OPEN AIR ────────────────────────────── */
-    .openair {
-      background: #112008; padding: 4.5rem 1.5rem;
+    /* ── AKTIVITÄTEN ─────────────────────────── */
+    .akt-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
     }
+    .akt-item {
+      background: #fff; border-radius: 10px; padding: 1.75rem;
+      box-shadow: 0 1px 10px rgba(0,0,0,.05);
+    }
+    .akt-item h3 { font-size: 1.02rem; color: var(--gruen); margin-bottom: .45rem; }
+    .akt-item p { font-size: .875rem; color: var(--text-soft); line-height: 1.65; }
+    .akt-footer { text-align: center; margin-top: 2.5rem; }
+    .akt-footer p { font-size: .95rem; color: var(--text-soft); margin-bottom: .5rem; }
+    .akt-gruss { font-family: var(--serif); font-size: 1.25rem; font-style: italic; color: var(--rot); }
+
+    /* ── OPEN AIR ────────────────────────────── */
+    .openair { background: #112008; padding: 4.5rem 1.5rem; }
     .openair-inner {
       max-width: 1140px; margin: 0 auto;
       display: flex; flex-wrap: wrap;
@@ -271,17 +336,14 @@
     }
     .openair-date-tag {
       font-size: .78rem; font-weight: 700; letter-spacing: .12em;
-      text-transform: uppercase; color: rgba(255,255,255,.55);
-      margin-bottom: .5rem;
+      text-transform: uppercase; color: rgba(255,255,255,.55); margin-bottom: .5rem;
     }
     .openair-title {
       font-family: var(--serif);
       font-size: clamp(1.5rem, 3vw, 2.2rem);
       color: #fff; margin-bottom: .75rem;
     }
-    .openair-details {
-      color: rgba(255,255,255,.75); font-size: .9rem; line-height: 1.8;
-    }
+    .openair-details { color: rgba(255,255,255,.75); font-size: .9rem; line-height: 1.8; }
     .openair-cta { text-align: center; flex-shrink: 0; }
     .openair-price {
       font-family: var(--serif); font-size: 3rem;
@@ -289,28 +351,12 @@
     }
     .openair-price-note { color: rgba(255,255,255,.6); font-size: .82rem; margin-bottom: 1.5rem; }
     .btn-openair {
-      display: inline-block;
-      background: #fff; color: #112008;
+      display: inline-block; background: #fff; color: #112008;
       padding: .85rem 2.2rem; border-radius: 4px;
       font-size: .95rem; font-weight: 700; font-family: var(--sans);
       transition: background .2s;
     }
     .btn-openair:hover { background: var(--bg-alt); }
-
-    /* ── AKTIVITÄTEN ─────────────────────────── */
-    .akt-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.75rem;
-    }
-    .akt-item {
-      background: #fff; border-radius: 10px; padding: 1.75rem;
-      box-shadow: 0 1px 10px rgba(0,0,0,.05);
-    }
-    .akt-item h3 { font-size: 1.05rem; color: var(--gruen); margin-bottom: .45rem; }
-    .akt-item p { font-size: .875rem; color: var(--text-soft); line-height: 1.65; }
-    .akt-footer { text-align: center; margin-top: 2.5rem; }
-    .akt-footer p { font-size: .95rem; color: var(--text-soft); margin-bottom: .5rem; }
-    .akt-gruss { font-family: var(--serif); font-size: 1.25rem; font-style: italic; color: var(--rot); }
 
     /* ── BEWERTUNGEN ─────────────────────────── */
     .reviews-grid {
@@ -366,10 +412,7 @@
     .map-link:hover { text-decoration: underline; }
 
     /* ── FOOTER ──────────────────────────────── */
-    footer {
-      background: #111110; color: rgba(255,255,255,.7);
-      padding: 3.5rem 1.5rem 2rem;
-    }
+    footer { background: #111110; color: rgba(255,255,255,.7); padding: 3.5rem 1.5rem 2rem; }
     .footer-grid {
       max-width: 1140px; margin: 0 auto;
       display: flex; flex-wrap: wrap; gap: 2.5rem;
@@ -397,13 +440,14 @@
 
     /* ── RESPONSIVE ──────────────────────────── */
     @media (max-width: 860px) {
-      .nav-links { display: none; }
       .kontakt-grid { grid-template-columns: 1fr; }
       .openair-inner { flex-direction: column; text-align: center; }
+      .akt-grid { grid-template-columns: 1fr 1fr; }
       .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
       .g1, .g2, .g3, .g4, .g5 { grid-column: span 1 !important; grid-row: auto !important; height: 200px; }
     }
-    @media (max-width: 480px) {
+    @media (max-width: 560px) {
+      .akt-grid { grid-template-columns: 1fr; }
       .sec { padding: 3.5rem 1.1rem; }
       .stats { padding: 2rem 1.1rem; }
       .openair { padding: 3rem 1.1rem; }
@@ -412,24 +456,45 @@
 </head>
 <body>
 
+<!-- ─── OVERLAY MENU ───────────────────────────────────────────── -->
+<div class="menu-overlay" id="menuOverlay" role="dialog" aria-modal="true" aria-label="Navigation">
+  <div class="menu-overlay-top">
+    <div class="menu-overlay-logo">
+      Natur Stellplatz
+      <span>Gampel · Wallis</span>
+    </div>
+    <button class="menu-close" id="menuClose" aria-label="Menu schliessen">&times;</button>
+  </div>
+  <div class="menu-overlay-body">
+    <div class="menu-brand">
+      <div class="menu-brand-logo">Natur Stellplatz<br/>Gampel</div>
+      <div class="menu-brand-sub">Wallis · Schweiz</div>
+    </div>
+    <nav class="menu-nav-col">
+      <ul>
+        <li><a href="#how" class="menu-link">So geht's</a></li>
+        <li><a href="#preise" class="menu-link">Preise</a></li>
+        <li><a href="#galerie" class="menu-link">Galerie</a></li>
+        <li><a href="#openair" class="menu-link">Open Air</a></li>
+        <li><a href="#kontakt" class="menu-link">Kontakt</a></li>
+      </ul>
+      <div class="menu-lang-row">
+        <button class="lang-btn active" data-lang="de">DE</button>
+        <button class="lang-btn" data-lang="fr">FR</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
+    </nav>
+  </div>
+</div>
+
+
 <!-- ─── 1. NAVIGATION ──────────────────────────────────────────── -->
 <header class="nav">
   <a href="#" class="nav-logo">
     Natur Stellplatz
     <span>Gampel · Wallis</span>
   </a>
-  <ul class="nav-links">
-    <li><a href="#how">So geht's</a></li>
-    <li><a href="#preise">Preise</a></li>
-    <li><a href="#galerie">Galerie</a></li>
-    <li><a href="#openair">Open Air</a></li>
-    <li><a href="#kontakt">Kontakt</a></li>
-  </ul>
-  <div class="lang">
-    <button class="lang-btn active" data-lang="de">DE</button>
-    <button class="lang-btn" data-lang="fr">FR</button>
-    <button class="lang-btn" data-lang="en">EN</button>
-  </div>
+  <button class="nsg-btn" id="menuOpen" aria-label="Menu öffnen" aria-expanded="false">NSG</button>
 </header>
 
 
@@ -445,7 +510,7 @@
     <div class="hero-badge">Ohne Reservation &middot; Immer Platz verfügbar &middot; Ganzjährig geöffnet</div>
     <h1>Wohnmobil Stellplatz<br/>Natur Stellplatz Gampel</h1>
     <p class="hero-sub">11'000 m² Grünfläche direkt an der Rhone – im Herzen des Wallis</p>
-    <a href="#features" class="btn-primary">Stellplatz entdecken</a>
+    <a href="#features" class="btn-primary">Stellplatz entdecken ↓</a>
   </div>
 </section>
 
@@ -461,21 +526,21 @@
       <div class="step">
         <div class="step-num">1</div>
         <div class="icon-box" style="margin:0 auto .9rem;">
-          <!-- credit card / bezahlen -->
-          <svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/><line x1="6" y1="15" x2="10" y2="15"/></svg>
-        </div>
-        <h3>Bezahlen</h3>
-        <p>Vor Ort via QR-Code an der Infotafel oder per Online-Vorauszahlung.</p>
-      </div>
-
-      <div class="step">
-        <div class="step-num">2</div>
-        <div class="icon-box" style="margin:0 auto .9rem;">
           <!-- parking / wohnmobil -->
           <svg viewBox="0 0 24 24"><path d="M1 11V17a1 1 0 0 0 1 1h1m16 0h1a1 1 0 0 0 1-1v-5L17 5H5a2 2 0 0 0-2 2v4M6 18a2 2 0 1 0 4 0 2 2 0 0 0-4 0Zm8 0a2 2 0 1 0 4 0 2 2 0 0 0-4 0Z"/><path d="M3 11h18M14 5v6"/></svg>
         </div>
         <h3>Parkieren</h3>
         <p>Freie Platzwahl, Schatten oder Sonne, mit oder ohne Strom.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="icon-box" style="margin:0 auto .9rem;">
+          <!-- credit card / bezahlen -->
+          <svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/><line x1="6" y1="15" x2="10" y2="15"/></svg>
+        </div>
+        <h3>Bezahlen</h3>
+        <p>Vor Ort via QR-Code an der Infotafel oder per Online-Vorauszahlung.</p>
       </div>
 
       <div class="step">
@@ -497,16 +562,16 @@
 <div class="stats">
   <div class="stats-grid">
     <div class="stat">
-      <div class="stat-num">100+</div>
+      <div class="stat-num">150+</div>
       <div class="stat-label">Stellplätze</div>
     </div>
     <div class="stat">
-      <div class="stat-num">CHF 29</div>
+      <div class="stat-num">Ab CHF 26</div>
       <div class="stat-label">Pro Nacht</div>
     </div>
     <div class="stat">
-      <div class="stat-num">∞</div>
-      <div class="stat-label">Aufenthaltsdauer</div>
+      <div class="stat-num">Keine</div>
+      <div class="stat-label">Mindestaufenthaltsdauer</div>
     </div>
     <div class="stat">
       <div class="stat-num">365</div>
@@ -534,7 +599,6 @@
 
       <div class="feat">
         <div class="icon-box">
-          <!-- shower -->
           <svg viewBox="0 0 24 24"><path d="M4 12h16M4 12a8 8 0 0 1 8-8"/><path d="M4 12v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-6"/><circle cx="16" cy="6" r="2"/><line x1="7" y1="17" x2="7" y2="17.5"/><line x1="10" y1="17" x2="10" y2="17.5"/><line x1="13" y1="17" x2="13" y2="17.5"/></svg>
         </div>
         <h3>Moderne Sanitäranlagen</h3>
@@ -543,7 +607,6 @@
 
       <div class="feat">
         <div class="icon-box">
-          <!-- bolt -->
           <svg viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z"/></svg>
         </div>
         <h3>Vollständige Infrastruktur</h3>
@@ -552,7 +615,6 @@
 
       <div class="feat">
         <div class="icon-box">
-          <!-- map pin -->
           <svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Z"/><circle cx="12" cy="9" r="2.5"/></svg>
         </div>
         <h3>Perfekte Lage</h3>
@@ -561,7 +623,6 @@
 
       <div class="feat">
         <div class="icon-box">
-          <!-- tree -->
           <svg viewBox="0 0 24 24"><path d="M12 2 6 10h4l-4 6h5v5h2v-5h5l-4-6h4L12 2Z"/></svg>
         </div>
         <h3>Naturerlebnis</h3>
@@ -570,7 +631,6 @@
 
       <div class="feat">
         <div class="icon-box">
-          <!-- users -->
           <svg viewBox="0 0 24 24"><circle cx="9" cy="7" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="7" r="3"/><path d="M21 20c0-3.3-2.7-6-6-6"/></svg>
         </div>
         <h3>Club-freundlich</h3>
@@ -587,7 +647,7 @@
   <div class="wrap">
     <span class="sec-tag">Preise</span>
     <h2 class="sec-title">Transparent &amp; fair</h2>
-    <p class="sec-lead">Keine versteckten Kosten. Euro wird akzeptiert.</p>
+    <p class="sec-lead">Keine versteckten Kosten.</p>
     <div class="preise-grid">
 
       <div class="preis-col">
@@ -599,10 +659,6 @@
         <div class="preis-row">
           <span class="preis-row-label">Mit Strom (16A)</span>
           <span class="preis-row-val">CHF 29.–</span>
-        </div>
-        <div class="preis-row">
-          <span class="preis-row-label">Euro akzeptiert</span>
-          <span class="preis-row-note">€ 29.–</span>
         </div>
         <div class="preis-unbegrenzt">Aufenthaltsdauer unbeschränkt</div>
         <a href="https://park4campers.payrexx.com/de/pay?tid=c86b941c" target="_blank" rel="noopener" class="btn-book">
@@ -629,10 +685,6 @@
             <div class="incl-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
             WC &amp; Duschen
           </li>
-          <li>
-            <div class="incl-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
-            Minigolf-Terrasse
-          </li>
         </ul>
       </div>
 
@@ -658,7 +710,78 @@
 </section>
 
 
-<!-- ─── 8. OPEN AIR BANNER ─────────────────────────────────────── -->
+<!-- ─── 8. AKTIVITÄTEN ────────────────────────────────────────── -->
+<section class="sec sec--alt" id="aktivitaeten">
+  <div class="wrap">
+    <span class="sec-tag">Entdecke die Region</span>
+    <h2 class="sec-title">Entdecke die Region</h2>
+    <p class="sec-lead">Gampel ist dein Ausgangspunkt ins Wallis</p>
+    <div class="akt-grid">
+
+      <div class="akt-item">
+        <div class="icon-box">
+          <!-- cable car -->
+          <svg viewBox="0 0 24 24"><path d="M3 6h18M8 6V4m8 2V4"/><rect x="7" y="8" width="10" height="8" rx="2"/><line x1="12" y1="16" x2="12" y2="20"/><line x1="9" y1="20" x2="15" y2="20"/></svg>
+        </div>
+        <h3>Seilbahn Jeizinen</h3>
+        <p>Ab Gampel direkt auf 1500 m ü.M. Herrlicher Ausblick ins Rhonetal und auf die Walliser Alpen.</p>
+      </div>
+
+      <div class="akt-item">
+        <div class="icon-box">
+          <!-- waterfall / droplets -->
+          <svg viewBox="0 0 24 24"><path d="M12 2v10m0 0c0 4-4 6-4 10m4-10c0 4 4 6 4 10M8 6c-2 1-4 3-4 6m12-6c2 1 4 3 4 6"/></svg>
+        </div>
+        <h3>Wasserfall Turtmann</h3>
+        <p>20 Min. mit dem Velo erreichbar. Einer der schönsten Wasserfälle des Wallis, ideal für einen Tagesausflug.</p>
+      </div>
+
+      <div class="akt-item">
+        <div class="icon-box">
+          <!-- bicycle -->
+          <svg viewBox="0 0 24 24"><circle cx="6" cy="17" r="3"/><circle cx="18" cy="17" r="3"/><path d="m12 5 2 7h4m-6-7H8l-2 7m6-7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/></svg>
+        </div>
+        <h3>Rhone-Radweg</h3>
+        <p>Von Gampel nach Brig oder Sion entlang der Rhone. Flach, schattig, für alle Altersgruppen geeignet.</p>
+      </div>
+
+      <div class="akt-item">
+        <div class="icon-box">
+          <!-- hiking / footpath -->
+          <svg viewBox="0 0 24 24"><path d="m3 20 7-12 4 6 2-3 5 9H3Z"/><circle cx="17" cy="5" r="2"/></svg>
+        </div>
+        <h3>Walliser Sonnenweg</h3>
+        <p>Etappenwanderung ab Gampel nach Ausserberg mit spektakulärer Aussicht auf die Lötschbergbahn.</p>
+      </div>
+
+      <div class="akt-item">
+        <div class="icon-box">
+          <!-- waves / thermal -->
+          <svg viewBox="0 0 24 24"><path d="M2 12c2-4 4-4 6 0s4 4 6 0 4-4 6 0M2 17c2-4 4-4 6 0s4 4 6 0 4-4 6 0"/></svg>
+        </div>
+        <h3>Leukerbad Therme</h3>
+        <p>30 Min. Fahrzeit. Europas grösste Alpentherme mit 30 Thermalbecken und 51°C Quellwasser.</p>
+      </div>
+
+      <div class="akt-item">
+        <div class="icon-box">
+          <!-- mountain -->
+          <svg viewBox="0 0 24 24"><path d="m3 20 7-12 4 6 2-3 5 9H3Z"/></svg>
+        </div>
+        <h3>Lötschental</h3>
+        <p>Das ursprünglichste Seitental des Wallis, 20 Min. Fahrzeit. Gletscher, Natur und Walliser Tradition pur.</p>
+      </div>
+
+    </div>
+    <div class="akt-footer">
+      <p>Von Gampel nach Brig oder nach Sion — der schönen Rhone entlang, zwischen Bäumen und Wiesen.</p>
+      <p class="akt-gruss">Lass dich einfach überraschen — Viel Gfreidds!</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ─── 9. OPEN AIR BANNER ─────────────────────────────────────── -->
 <div class="openair" id="openair">
   <div class="openair-inner">
     <div class="openair-text">
@@ -680,50 +803,6 @@
 </div>
 
 
-<!-- ─── 9. AKTIVITÄTEN ────────────────────────────────────────── -->
-<section class="sec sec--alt" id="aktivitaeten">
-  <div class="wrap">
-    <span class="sec-tag">Erleben &amp; Geniessen</span>
-    <h2 class="sec-title">Aktivitäten rund um Gampel</h2>
-    <p class="sec-lead">Das Wallis bietet rund um Gampel unzählige Möglichkeiten für aktive und erholsame Aufenthalte.</p>
-    <div class="akt-grid">
-
-      <div class="akt-item">
-        <div class="icon-box">
-          <!-- bicycle -->
-          <svg viewBox="0 0 24 24"><circle cx="6" cy="17" r="3"/><circle cx="18" cy="17" r="3"/><path d="m12 5 2 7h4m-6-7H8l-2 7m6-7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/></svg>
-        </div>
-        <h3>Velo &amp; Wandern</h3>
-        <p>Rhone-Radweg von Gampel nach Brig oder Sion, Mountainbike-Wege, Wasserfall Turtmann, Bähnli auf 1500 m ü.M.</p>
-      </div>
-
-      <div class="akt-item">
-        <div class="icon-box">
-          <!-- mountain -->
-          <svg viewBox="0 0 24 24"><path d="m3 20 7-12 4 6 2-3 5 9H3Z"/></svg>
-        </div>
-        <h3>Bergpanorama</h3>
-        <p>Inmitten der schönen Walliser Berge, Ruhe und Natur pur.</p>
-      </div>
-
-      <div class="akt-item">
-        <div class="icon-box">
-          <!-- users -->
-          <svg viewBox="0 0 24 24"><circle cx="9" cy="7" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="7" r="3"/><path d="M21 20c0-3.3-2.7-6-6-6"/></svg>
-        </div>
-        <h3>Ideal für Clubs</h3>
-        <p>Perfekt für jährliche Wohnmobil-Clubtreffen und Vereinsausflüge jeder Grösse.</p>
-      </div>
-
-    </div>
-    <div class="akt-footer">
-      <p>Von Gampel nach Brig oder nach Sion — der schönen Rhone entlang, zwischen Bäumen und Wiesen.</p>
-      <p class="akt-gruss">Lass dich einfach überraschen — Viel Gfreidds!</p>
-    </div>
-  </div>
-</section>
-
-
 <!-- ─── 10. BEWERTUNGEN ───────────────────────────────────────── -->
 <section class="sec" id="bewertungen">
   <div class="wrap">
@@ -741,7 +820,7 @@
           </div>
         </div>
         <div class="review-stars">★★★★★</div>
-        <p class="review-text">«Schöner Platz an der Rhone. Ruhig, viel Wiese, zentral gelegen um im Dorf einzukaufen, an der Rhone entlang spazieren zu gehen oder Velo zu fahren. Der Dusch- und WC-Container ist sauber und der Betreiber ein netter urchiger Herr.»</p>
+        <p class="review-text">«Schöner Platz an der Rhone. Ruhig, viel Wiese, zentral gelegen um im Dorf einzukaufen, an der Rhone entlang spazieren zu gehen oder Velo zu fahren. Der Dusch- und WC-Container ist sauber.»</p>
       </div>
 
       <div class="review">
@@ -789,7 +868,7 @@
             <svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Z"/><circle cx="12" cy="9" r="2.5"/></svg>
           </div>
           <div class="k-item-text">
-            Lampertji 6<br/>3945 Gampel, Wallis
+            Gewerbestrasse 13<br/>3945 Gampel, Wallis
           </div>
         </div>
 
@@ -798,7 +877,7 @@
             <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.24h3a2 2 0 0 1 2 1.72c.13.96.35 1.9.65 2.81a2 2 0 0 1-.45 2.11L7.09 9.1a16 16 0 0 0 7.86 7.86l1.21-1.21a2 2 0 0 1 2.11-.45c.91.3 1.85.52 2.81.65A2 2 0 0 1 22 17.92Z"/></svg>
           </div>
           <div class="k-item-text">
-            <a href="tel:+41797786736">+41 79 778 67 36</a>
+            <a href="tel:+41788202352">+41 78 820 23 52</a>
           </div>
         </div>
 
@@ -807,8 +886,7 @@
             <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
           </div>
           <div class="k-item-text">
-            Platzwart Schosi Rotzer<br/>
-            <a href="tel:+41796148213">+41 79 614 82 13</a>
+            Platzwärtin Myrtha Köppel
           </div>
         </div>
 
@@ -817,7 +895,7 @@
             <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/></svg>
           </div>
           <div class="k-item-text">
-            <a href="mailto:info@naturstellplatzgampel.ch">info@naturstellplatzgampel.ch</a>
+            <a href="mailto:stellplatzgampel@gmail.com">stellplatzgampel@gmail.com</a>
           </div>
         </div>
 
@@ -841,10 +919,10 @@
       <div>
         <div class="map-box">
           <svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Z"/><circle cx="12" cy="9" r="2.5"/></svg>
-          <p>Lampertji 6, 3945 Gampel</p>
+          <p>Gewerbestrasse 13, 3945 Gampel</p>
           <a
             class="map-link"
-            href="https://maps.google.com/?q=Lampertji+6,+3945+Gampel,+Wallis"
+            href="https://maps.google.com/?q=Gewerbestrasse+13,+3945+Gampel,+Wallis"
             target="_blank"
             rel="noopener"
           >
@@ -886,7 +964,36 @@
 
 
 <script>
-  // Sprachumschalter – aktiver Zustand
+  // ── OVERLAY MENU ──────────────────────────────
+  const overlay  = document.getElementById('menuOverlay');
+  const btnOpen  = document.getElementById('menuOpen');
+  const btnClose = document.getElementById('menuClose');
+
+  function openMenu() {
+    overlay.classList.add('open');
+    btnOpen.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMenu() {
+    overlay.classList.remove('open');
+    btnOpen.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
+  btnOpen.addEventListener('click', openMenu);
+  btnClose.addEventListener('click', closeMenu);
+
+  // Menü-Links schliessen Overlay
+  document.querySelectorAll('.menu-link').forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  // ESC schliesst Overlay
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeMenu();
+  });
+
+  // ── SPRACHUMSCHALTER ──────────────────────────
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
@@ -894,7 +1001,7 @@
     });
   });
 
-  // Navigation: Schatten beim Scrollen
+  // ── NAV SCHATTEN BEIM SCROLLEN ────────────────
   const nav = document.querySelector('.nav');
   window.addEventListener('scroll', () => {
     nav.style.boxShadow = window.scrollY > 30
