@@ -5,7 +5,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Natur Stellplatz Gampel – Wohnmobil Stellplatz Wallis</title>
+  <title data-i18n="metaTitle">Natur Stellplatz Gampel – Wohnmobil Stellplatz Wallis</title>
   <meta name="description" content="Naturnaher Wohnmobilstellplatz in Gampel, Wallis. Ohne Reservation, ab CHF 26 pro Nacht, ganzjährig geöffnet. Direkt an der Rhone." />
   <meta property="og:title" content="Natur Stellplatz Gampel – Wohnmobil Stellplatz Wallis" />
   <meta property="og:description" content="Ohne Reservation, freie Platzwahl, ganzjährig geöffnet. Ab CHF 26 pro Nacht." />
@@ -455,24 +455,15 @@
           <!-- Camper SVG weiss -->
           <svg width="52" height="32" viewBox="0 0 52 32" fill="none"
             stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-            <!-- Hauptkörper -->
             <rect x="1" y="8" width="32" height="17" rx="2.5"/>
-            <!-- Führerhaus -->
             <path d="M33 8 L33 25 L50 25 L50 17 L44 9 L36 8 Z"/>
-            <!-- Windschutzscheibe -->
             <path d="M35 10 L35 21 L49 21 L49 17 L43 10 Z"/>
-            <!-- Fenster gross links -->
             <rect x="4" y="11" width="10" height="7" rx="1.5"/>
-            <!-- Fenster rechts -->
             <rect x="18" y="11" width="8" height="7" rx="1.5"/>
-            <!-- Tür gross -->
             <rect x="27" y="13" width="5" height="10" rx="1"/>
-            <!-- Türknauf -->
             <circle cx="31" cy="18" r="0.8" fill="white"/>
-            <!-- Rad hinten -->
             <circle cx="11" cy="26" r="5"/>
             <circle cx="11" cy="26" r="2.5"/>
-            <!-- Rad vorne -->
             <circle cx="40" cy="26" r="5"/>
             <circle cx="40" cy="26" r="2.5"/>
           </svg>
@@ -494,17 +485,17 @@
               90deg,#8B2020 0px,#8B2020 12px,#FAF8F4 12px,#FAF8F4 20px);
               margin:-16px -24px 12px -24px"></div>
             <nav style="display:flex;flex-direction:column">
-              <a href="#how" class="mlink">So geht's</a>
-              <a href="#preise" class="mlink">Preise</a>
-              <a href="#galerie" class="mlink">Galerie</a>
-              <a href="#openair" class="mlink">Open Air</a>
-              <a href="#kontakt" class="mlink">Kontakt</a>
+              <a href="#how" class="mlink" data-i18n="navHow">So geht's</a>
+              <a href="#preise" class="mlink" data-i18n="navPrices">Preise</a>
+              <a href="#galerie" class="mlink" data-i18n="navGallery">Galerie</a>
+              <a href="#openair" class="mlink" data-i18n="navOpenAir">Open Air</a>
+              <a href="#kontakt" class="mlink" data-i18n="navContact">Kontakt</a>
             </nav>
             <div style="display:flex;gap:6px;margin-top:14px;
               padding-top:12px;border-top:1px solid rgba(0,0,0,0.08)">
-              <button class="lb on">DE</button>
-              <button class="lb">FR</button>
-              <button class="lb">EN</button>
+              <button class="lb lang-btn" data-lang="de" onclick="setLang('de')">DE</button>
+              <button class="lb lang-btn" data-lang="fr" onclick="setLang('fr')">FR</button>
+              <button class="lb lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
             </div>
           </div>
         </div>
@@ -512,9 +503,9 @@
     </div>
 
     <!-- ── Haupt-Content zentriert ~30% von oben ── -->
-    <h1>Natur Stellplatz Gampel</h1>
-    <p class="hero-sub">Wo die Berge warten und die Rhone fliesst.</p>
-    <a href="#features" class="btn-primary" style="margin-top:60px">Stellplatz entdecken ↓</a>
+    <h1 data-i18n="heroTitle">Natur Stellplatz Gampel</h1>
+    <p class="hero-sub" data-i18n="heroSub">Wo die Berge warten und die Rhone fliesst.</p>
+    <a href="#features" class="btn-primary" style="margin-top:60px" data-i18n="heroBtn">Stellplatz entdecken ↓</a>
 
   </div>
 </section>
@@ -523,9 +514,9 @@
 <!-- ─── 2. SO EINFACH GEHT'S ──────────────────────────────────── -->
 <section class="sec sec--alt" id="how">
   <div class="wrap">
-    <span class="sec-tag">So einfach geht's</span>
-    <h2 class="sec-title">In 3 Schritten zum Stellplatz</h2>
-    <p class="sec-lead">Kein Stress, keine Reservation – einfach ankommen und geniessen.</p>
+    <span class="sec-tag" data-i18n="stepsEy">So einfach geht's</span>
+    <h2 class="sec-title" data-i18n="stepsTitle">In 3 Schritten zum Stellplatz</h2>
+    <p class="sec-lead" data-i18n="stepsSub">Kein Stress, keine Reservation – einfach ankommen und geniessen.</p>
     <div class="steps-grid">
 
       <div class="step">
@@ -533,8 +524,8 @@
         <div class="icon-box" style="margin:0 auto .9rem;">
           <svg viewBox="0 0 24 24"><path d="M1 11V17a1 1 0 0 0 1 1h1m16 0h1a1 1 0 0 0 1-1v-5L17 5H5a2 2 0 0 0-2 2v4M6 18a2 2 0 1 0 4 0 2 2 0 0 0-4 0Zm8 0a2 2 0 1 0 4 0 2 2 0 0 0-4 0Z"/><path d="M3 11h18M14 5v6"/></svg>
         </div>
-        <h3>Parkieren</h3>
-        <p>Freie Platzwahl, Schatten oder Sonne, mit oder ohne Strom.</p>
+        <h3 data-i18n="step1Title">Parkieren</h3>
+        <p data-i18n="step1Desc">Freie Platzwahl, Schatten oder Sonne, mit oder ohne Strom.</p>
       </div>
 
       <div class="step">
@@ -542,8 +533,8 @@
         <div class="icon-box" style="margin:0 auto .9rem;">
           <svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/><line x1="6" y1="15" x2="10" y2="15"/></svg>
         </div>
-        <h3>Bezahlen</h3>
-        <p>Vor Ort via QR-Code an der Infotafel oder per Online-Vorauszahlung.</p>
+        <h3 data-i18n="step2Title">Bezahlen</h3>
+        <p data-i18n="step2Desc">Vor Ort via QR-Code an der Infotafel oder per Online-Vorauszahlung.</p>
       </div>
 
       <div class="step">
@@ -551,8 +542,8 @@
         <div class="icon-box" style="margin:0 auto .9rem;">
           <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
         </div>
-        <h3>Geniessen</h3>
-        <p>Ruhe der Walliser Talsohle und Bergpanorama geniessen.</p>
+        <h3 data-i18n="step3Title">Geniessen</h3>
+        <p data-i18n="step3Desc">Ruhe der Walliser Talsohle und Bergpanorama geniessen.</p>
       </div>
 
     </div>
@@ -563,10 +554,10 @@
 <!-- ─── 3. STATS ───────────────────────────────────────────────── -->
 <div class="stats">
   <div class="stats-grid">
-    <div class="stat"><div class="stat-num">150+</div><div class="stat-label">Stellplätze</div></div>
-    <div class="stat"><div class="stat-num">Ab CHF 26</div><div class="stat-label">Pro Nacht</div></div>
-    <div class="stat"><div class="stat-num">Keine</div><div class="stat-label">Mindestaufenthaltsdauer</div></div>
-    <div class="stat"><div class="stat-num">365</div><div class="stat-label">Tage geöffnet</div></div>
+    <div class="stat"><div class="stat-num">150+</div><div class="stat-label" data-i18n="stat1">Stellplätze</div></div>
+    <div class="stat"><div class="stat-num">Ab CHF 26</div><div class="stat-label" data-i18n="stat2">Pro Nacht</div></div>
+    <div class="stat"><div class="stat-num">Keine</div><div class="stat-label" data-i18n="stat3">Mindestaufenthaltsdauer</div></div>
+    <div class="stat"><div class="stat-num">365</div><div class="stat-label" data-i18n="stat4">Tage geöffnet</div></div>
   </div>
 </div>
 
@@ -574,9 +565,9 @@
 <!-- ─── 4. FEATURES ───────────────────────────────────────────── -->
 <section class="sec" id="features">
   <div class="wrap">
-    <span class="sec-tag">Ausstattung</span>
-    <h2 class="sec-title">Was Sie erwartet</h2>
-    <p class="sec-lead">Alles was Sie für einen komfortablen Aufenthalt im Wallis brauchen.</p>
+    <span class="sec-tag" data-i18n="featEy">Ausstattung</span>
+    <h2 class="sec-title" data-i18n="featTitle">Was Sie erwartet</h2>
+    <p class="sec-lead" data-i18n="featSub">Alles was Sie für einen komfortablen Aufenthalt im Wallis brauchen.</p>
     <div class="feat-grid">
 
       <div class="feat">
@@ -585,32 +576,25 @@
           <svg viewBox="0 0 40 24" width="40" height="24"
             stroke="#8B2020" stroke-width="1.8" fill="none"
             stroke-linecap="round" stroke-linejoin="round">
-            <!-- Hauptkörper -->
             <rect x="1" y="5" width="26" height="14" rx="2.5"/>
-            <!-- Führerhaus rund -->
             <path d="M27 9 L27 19 Q27 19 35 19 L37 19 Q39 19 39 17 L39 12 Q39 9 36 8 L30 6 Q27 5 27 9Z"/>
-            <!-- Fenster Wohnbereich -->
             <rect x="4" y="8" width="6" height="5" rx="1"/>
             <rect x="12" y="8" width="6" height="5" rx="1"/>
             <rect x="20" y="8" width="4" height="5" rx="1"/>
-            <!-- Windschutzscheibe -->
             <path d="M28 9 L28 15 L36 15 L36 12 L32 8 Z"/>
-            <!-- Räder -->
             <circle cx="9" cy="20" r="3.5"/>
             <circle cx="9" cy="20" r="1.5" fill="#8B2020"/>
             <circle cx="30" cy="20" r="3.5"/>
             <circle cx="30" cy="20" r="1.5" fill="#8B2020"/>
-            <!-- Türe -->
             <rect x="21" y="10" width="3" height="7" rx="0.5"/>
-            <!-- Markise oben -->
             <line x1="4" y1="5" x2="20" y2="5"/>
             <line x1="6" y1="5" x2="4" y2="2"/>
             <line x1="20" y1="5" x2="22" y2="2"/>
             <line x1="4" y1="2" x2="22" y2="2"/>
           </svg>
         </div>
-        <h3>150+ Stellplätze</h3>
-        <p>11'000 m² Fläche, freie Platzwahl, Schatten &amp; Sonne – für Wohnmobile jeder Grösse.</p>
+        <h3 data-i18n="feat1Title">150+ Stellplätze</h3>
+        <p data-i18n="feat1Desc">11'000 m² Fläche, freie Platzwahl, Schatten &amp; Sonne – für Wohnmobile jeder Grösse.</p>
       </div>
 
       <div class="feat">
@@ -622,40 +606,40 @@
             WC
           </span>
         </div>
-        <h3>Moderne Sanitäranlagen</h3>
-        <p>3 Duschen, 3 WC, 3 Lavabos, Spülbecken – sauber und jederzeit zugänglich.</p>
+        <h3 data-i18n="feat2Title">Moderne Sanitäranlagen</h3>
+        <p data-i18n="feat2Desc">3 Duschen, 3 WC, 3 Lavabos, Spülbecken – sauber und jederzeit zugänglich.</p>
       </div>
 
       <div class="feat">
         <div class="icon-box">
           <svg viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z"/></svg>
         </div>
-        <h3>Vollständige Infrastruktur</h3>
-        <p>48 CEE-Steckdosen (16A), Frischwasser, Grau- &amp; Schwarzwasser-Entsorgung.</p>
+        <h3 data-i18n="feat3Title">Vollständige Infrastruktur</h3>
+        <p data-i18n="feat3Desc">48 CEE-Steckdosen (16A), Frischwasser, Grau- &amp; Schwarzwasser-Entsorgung.</p>
       </div>
 
       <div class="feat">
         <div class="icon-box">
           <svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Z"/><circle cx="12" cy="9" r="2.5"/></svg>
         </div>
-        <h3>Perfekte Lage</h3>
-        <p>Direkt an der Rhone, 10 Min. ins Dorf, Bergpanorama auf allen Seiten.</p>
+        <h3 data-i18n="feat4Title">Perfekte Lage</h3>
+        <p data-i18n="feat4Desc">Direkt an der Rhone, 10 Min. ins Dorf, Bergpanorama auf allen Seiten.</p>
       </div>
 
       <div class="feat">
         <div class="icon-box">
           <svg viewBox="0 0 24 24"><path d="M12 2 6 10h4l-4 6h5v5h2v-5h5l-4-6h4L12 2Z"/></svg>
         </div>
-        <h3>Naturerlebnis</h3>
-        <p>Rhone-Radweg, Mountainbike, Wasserfall Turtmann, Bähnli Jeizinen (1500 m).</p>
+        <h3 data-i18n="feat5Title">Naturerlebnis</h3>
+        <p data-i18n="feat5Desc">Rhone-Radweg, Mountainbike, Wasserfall Turtmann, Bähnli Jeizinen (1500 m).</p>
       </div>
 
       <div class="feat">
         <div class="icon-box">
           <svg viewBox="0 0 24 24"><circle cx="9" cy="7" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="7" r="3"/><path d="M21 20c0-3.3-2.7-6-6-6"/></svg>
         </div>
-        <h3>Club-freundlich</h3>
-        <p>Ideal für Wohnmobil-Clubs und Vereinsausflüge – grosszügig Platz für alle.</p>
+        <h3 data-i18n="feat6Title">Club-freundlich</h3>
+        <p data-i18n="feat6Desc">Ideal für Wohnmobil-Clubs und Vereinsausflüge – grosszügig Platz für alle.</p>
       </div>
 
     </div>
@@ -666,33 +650,33 @@
 <!-- ─── 5. PREISE ─────────────────────────────────────────────── -->
 <section class="sec sec--alt" id="preise">
   <div class="wrap">
-    <span class="sec-tag">Preise</span>
-    <h2 class="sec-title">Transparent &amp; fair</h2>
-    <p class="sec-lead">Keine versteckten Kosten.</p>
+    <span class="sec-tag" data-i18n="priceEy">Preise</span>
+    <h2 class="sec-title" data-i18n="priceTitle">Transparent &amp; fair</h2>
+    <p class="sec-lead" data-i18n="priceSub">Keine versteckten Kosten.</p>
     <div class="preise-grid">
 
       <div class="preis-col">
-        <h3 class="preis-col-title">Stellplatz pro Nacht</h3>
+        <h3 class="preis-col-title" data-i18n="price1Title">Stellplatz pro Nacht</h3>
         <div class="preis-row">
-          <span class="preis-row-label">Ohne Strom</span>
+          <span class="preis-row-label" data-i18n="price1a">Ohne Strom</span>
           <span class="preis-row-val">CHF 26.–</span>
         </div>
         <div class="preis-row">
-          <span class="preis-row-label">Mit Strom (16A)</span>
+          <span class="preis-row-label" data-i18n="price1b">Mit Strom (16A)</span>
           <span class="preis-row-val">CHF 29.–</span>
         </div>
-        <div class="preis-unbegrenzt">Aufenthaltsdauer unbeschränkt</div>
+        <div class="preis-unbegrenzt" data-i18n="price1c">Aufenthaltsdauer unbeschränkt</div>
         <a href="https://park4campers.payrexx.com/de/pay?tid=c86b941c"
-           target="_blank" rel="noopener" class="btn-book">Jetzt online bezahlen</a>
+           target="_blank" rel="noopener" class="btn-book" data-i18n="priceBtn">Jetzt online bezahlen</a>
       </div>
 
       <div class="preis-col">
-        <h3 class="preis-col-title">Für Stellplatzgäste inklusive</h3>
+        <h3 class="preis-col-title" data-i18n="price2Title">Für Stellplatzgäste inklusive</h3>
         <ul class="incl-list">
-          <li><div class="incl-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>Strom CEE 16A (48 Steckdosen)</li>
-          <li><div class="incl-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>Frischwasserversorgung</li>
-          <li><div class="incl-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>Grau- &amp; Schwarzwasser-Entsorgung</li>
-          <li><div class="incl-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>WC &amp; Duschen</li>
+          <li><div class="incl-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div><span data-i18n="incl1">Strom CEE 16A (48 Steckdosen)</span></li>
+          <li><div class="incl-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div><span data-i18n="incl2">Frischwasserversorgung</span></li>
+          <li><div class="incl-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div><span data-i18n="incl3">Grau- &amp; Schwarzwasser-Entsorgung</span></li>
+          <li><div class="incl-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div><span data-i18n="incl4">WC &amp; Duschen</span></li>
         </ul>
       </div>
 
@@ -704,9 +688,9 @@
 <!-- ─── 6. GALERIE ────────────────────────────────────────────── -->
 <section class="sec" id="galerie">
   <div class="wrap">
-    <span class="sec-tag">Galerie</span>
-    <h2 class="sec-title">Bilder vom Stellplatz</h2>
-    <p class="sec-lead">Bilder sagen mehr als tausend Worte.</p>
+    <span class="sec-tag" data-i18n="galEy">Galerie</span>
+    <h2 class="sec-title" data-i18n="galTitle">Bilder vom Stellplatz</h2>
+    <p class="sec-lead" data-i18n="galSub">Bilder sagen mehr als tausend Worte.</p>
 
     <div class="galerie-grid">
       <!-- Zeile 1: 2 grosse Bilder -->
@@ -727,7 +711,7 @@
       <!-- Zeile 3: Plus-Button (span 2 cols) -->
       <div class="gal-plus">
         <span>+</span>
-        <span style="font-size:13px">Mehr sehen</span>
+        <span data-i18n="galMore" style="font-size:13px">Mehr sehen</span>
       </div>
     </div>
 
@@ -762,9 +746,9 @@
 <!-- ─── 7. AKTIVITÄTEN ────────────────────────────────────────── -->
 <section class="sec sec--alt" id="aktivitaeten">
   <div class="wrap">
-    <span class="sec-tag">Entdecke die Region</span>
-    <h2 class="sec-title">Entdecke die Region</h2>
-    <p class="sec-lead">Gampel ist dein Ausgangspunkt ins Wallis</p>
+    <span class="sec-tag" data-i18n="aktEy">Entdecke die Region</span>
+    <h2 class="sec-title" data-i18n="aktTitle">Entdecke die Region</h2>
+    <p class="sec-lead" data-i18n="aktSub">Gampel ist dein Ausgangspunkt ins Wallis</p>
     <div class="akt-grid">
 
       <div class="akt-item">
@@ -778,8 +762,8 @@
             <rect x="17" y="16" width="3" height="4" rx="1"/>
           </svg>
         </div>
-        <h3>Seilbahn Jeizinen</h3>
-        <p>Ab Gampel direkt auf 1500 m ü.M. Herrlicher Ausblick ins Rhonetal und auf die Walliser Alpen.</p>
+        <h3 data-i18n="akt1Title">Seilbahn Jeizinen</h3>
+        <p data-i18n="akt1Desc">Ab Gampel direkt auf 1500 m ü.M. Herrlicher Ausblick ins Rhonetal und auf die Walliser Alpen.</p>
       </div>
 
       <div class="akt-item">
@@ -789,8 +773,8 @@
             <path d="M16 4 C16 4 6 16 6 21 a10 10 0 0 0 20 0 C26 16 16 4 16 4 Z"/>
           </svg>
         </div>
-        <h3>Wasserfall Turtmann</h3>
-        <p>20 Min. mit dem Velo erreichbar. Einer der schönsten Wasserfälle des Wallis, ideal für einen Tagesausflug.</p>
+        <h3 data-i18n="akt2Title">Wasserfall Turtmann</h3>
+        <p data-i18n="akt2Desc">20 Min. mit dem Velo erreichbar. Einer der schönsten Wasserfälle des Wallis, ideal für einen Tagesausflug.</p>
       </div>
 
       <div class="akt-item">
@@ -799,38 +783,26 @@
           <svg viewBox="0 0 36 28" width="36" height="28"
             stroke="#8B2020" stroke-width="1.8" fill="none"
             stroke-linecap="round" stroke-linejoin="round">
-            <!-- Räder -->
             <circle cx="8" cy="20" r="7"/>
             <circle cx="28" cy="20" r="7"/>
-            <!-- Naben -->
             <circle cx="8" cy="20" r="1.5" fill="#8B2020"/>
             <circle cx="28" cy="20" r="1.5" fill="#8B2020"/>
-            <!-- Rahmen: Unterrohr -->
             <line x1="8" y1="20" x2="20" y2="20"/>
-            <!-- Sattelrohr -->
             <line x1="20" y1="20" x2="23" y2="10"/>
-            <!-- Oberrohr -->
             <line x1="23" y1="10" x2="15" y2="10"/>
-            <!-- Steuerrohr -->
             <line x1="15" y1="10" x2="12" y2="14"/>
-            <!-- Kettenstrebe -->
             <line x1="20" y1="20" x2="28" y2="20"/>
-            <!-- Sitzstrebe -->
             <line x1="23" y1="10" x2="28" y2="20"/>
-            <!-- Gabel -->
             <line x1="12" y1="14" x2="8" y2="20"/>
-            <!-- Sattel -->
             <line x1="21" y1="9" x2="26" y2="9"/>
-            <!-- Lenker -->
             <line x1="12" y1="12" x2="10" y2="10"/>
             <line x1="10" y1="10" x2="8" y2="11"/>
-            <!-- Pedale -->
             <line x1="18" y1="19" x2="22" y2="19"/>
             <circle cx="20" cy="19" r="1" fill="#8B2020"/>
           </svg>
         </div>
-        <h3>Rhone-Radweg</h3>
-        <p>Von Gampel nach Brig oder Sion entlang der Rhone. Flach, schattig, für alle Altersgruppen geeignet.</p>
+        <h3 data-i18n="akt3Title">Rhone-Radweg</h3>
+        <p data-i18n="akt3Desc">Von Gampel nach Brig oder Sion entlang der Rhone. Flach, schattig, für alle Altersgruppen geeignet.</p>
       </div>
 
       <div class="akt-item">
@@ -848,8 +820,8 @@
             <line x1="9" y1="23" x2="6" y2="26"/>
           </svg>
         </div>
-        <h3>Walliser Sonnenweg</h3>
-        <p>Etappenwanderung ab Gampel nach Ausserberg mit spektakulärer Aussicht auf die Lötschbergbahn.</p>
+        <h3 data-i18n="akt4Title">Walliser Sonnenweg</h3>
+        <p data-i18n="akt4Desc">Etappenwanderung ab Gampel nach Ausserberg mit spektakulärer Aussicht auf die Lötschbergbahn.</p>
       </div>
 
       <div class="akt-item">
@@ -865,8 +837,8 @@
             <line x1="24" y1="26" x2="24" y2="30"/>
           </svg>
         </div>
-        <h3>Leukerbad Therme</h3>
-        <p>30 Min. Fahrzeit. Europas grösste Alpentherme mit 30 Thermalbecken und 51°C Quellwasser.</p>
+        <h3 data-i18n="akt5Title">Leukerbad Therme</h3>
+        <p data-i18n="akt5Desc">30 Min. Fahrzeit. Europas grösste Alpentherme mit 30 Thermalbecken und 51°C Quellwasser.</p>
       </div>
 
       <div class="akt-item">
@@ -879,14 +851,14 @@
             <polyline points="17,12 20,8 23,12" fill="#8B2020" stroke="#8B2020"/>
           </svg>
         </div>
-        <h3>Lötschental</h3>
-        <p>Das ursprünglichste Seitental des Wallis, 20 Min. Fahrzeit. Gletscher, Natur und Walliser Tradition pur.</p>
+        <h3 data-i18n="akt6Title">Lötschental</h3>
+        <p data-i18n="akt6Desc">Das ursprünglichste Seitental des Wallis, 20 Min. Fahrzeit. Gletscher, Natur und Walliser Tradition pur.</p>
       </div>
 
     </div>
     <div class="akt-footer">
-      <p>Von Gampel nach Brig oder nach Sion — der schönen Rhone entlang, zwischen Bäumen und Wiesen.</p>
-      <p class="akt-gruss">Lass dich einfach überraschen — Viel Gfreidds!</p>
+      <p data-i18n="aktOutro">Von Gampel nach Brig oder nach Sion — der schönen Rhone entlang, zwischen Bäumen und Wiesen.</p>
+      <p class="akt-gruss" data-i18n="aktGfreidds">Lass dich einfach überraschen — Viel Gfreidds!</p>
     </div>
   </div>
 </section>
@@ -896,18 +868,15 @@
 <div class="openair" id="openair">
   <div class="openair-inner">
     <div class="openair-text">
-      <div class="openair-date-tag">19.–23. August 2026</div>
-      <h2 class="openair-title">Open Air Gampel 2026</h2>
-      <p class="openair-details">
-        5-Tages-Stellplatz &middot; max. 4 Personen<br/>
-        inkl. Strom, WC &amp; Duschen, Entsorgung
-      </p>
+      <div class="openair-date-tag" data-i18n="oaDate">19.–23. August 2026</div>
+      <h2 class="openair-title" data-i18n="oaTitle">Open Air Gampel 2026</h2>
+      <p class="openair-details" data-i18n="oaSub">5-Tages-Stellplatz · max. 4 Personen · inkl. Strom, WC &amp; Duschen, Entsorgung</p>
     </div>
     <div class="openair-cta">
       <div class="openair-price">CHF 240.–</div>
-      <div class="openair-price-note">Stellplatz für 5 Nächte</div>
+      <div class="openair-price-note" data-i18n="oaPrice">Stellplatz für 5 Nächte</div>
       <a href="https://park4campers.payrexx.com/de/pay?tid=909479a2"
-         target="_blank" rel="noopener" class="btn-openair">Jetzt buchen</a>
+         target="_blank" rel="noopener" class="btn-openair" data-i18n="oaBtn">Jetzt buchen</a>
     </div>
   </div>
 </div>
@@ -916,9 +885,9 @@
 <!-- ─── 9. BEWERTUNGEN ───────────────────────────────────────── -->
 <section class="sec" id="bewertungen">
   <div class="wrap">
-    <span class="sec-tag">Gästestimmen</span>
-    <h2 class="sec-title">Was Gäste sagen</h2>
-    <p class="sec-lead">Echte Bewertungen von Google – direkt von unseren Gästen.</p>
+    <span class="sec-tag" data-i18n="revEy">Gästestimmen</span>
+    <h2 class="sec-title" data-i18n="revTitle">Was Gäste sagen</h2>
+    <p class="sec-lead" data-i18n="revSub">Echte Bewertungen von Google – direkt von unseren Gästen.</p>
     <div class="reviews-grid">
 
       <div class="review">
@@ -930,7 +899,7 @@
           </div>
         </div>
         <div class="review-stars">★★★★★</div>
-        <p class="review-text">«Schöner Platz an der Rhone. Ruhig, viel Wiese, zentral gelegen um im Dorf einzukaufen, an der Rhone entlang spazieren zu gehen oder Velo zu fahren. Der Dusch- und WC-Container ist sauber.»</p>
+        <p class="review-text" data-i18n="rev1">«Schöner Platz an der Rhone. Ruhig, viel Wiese, zentral gelegen um im Dorf einzukaufen, an der Rhone entlang spazieren zu gehen oder Velo zu fahren. Der Dusch- und WC-Container ist sauber.»</p>
       </div>
 
       <div class="review">
@@ -942,7 +911,7 @@
           </div>
         </div>
         <div class="review-stars">★★★★★</div>
-        <p class="review-text">«Super Campingplatz, tolle Lage, freie Platzwahl, man benötigt keine Reservierung, sehr freundliches und hilfsbereites Personal, auch das Preis-Leistungs-Verhältnis ist super. Wir kommen sehr gerne wieder.»</p>
+        <p class="review-text" data-i18n="rev2">«Super Campingplatz, tolle Lage, freie Platzwahl, man benötigt keine Reservierung, sehr freundliches und hilfsbereites Personal, auch das Preis-Leistungs-Verhältnis ist super. Wir kommen sehr gerne wieder.»</p>
       </div>
 
       <div class="review">
@@ -954,7 +923,7 @@
           </div>
         </div>
         <div class="review-stars">★★★★★</div>
-        <p class="review-text">«Ein schöner grosszügiger Stellplatz mit vielen Plätzen. Man muss also keine Angst haben, auf einen vollen Platz zu kommen. Die Ausstattung ist sehr gut, Strom, Duschen, WC, vollständige Entsorgung.»</p>
+        <p class="review-text" data-i18n="rev3">«Ein schöner grosszügiger Stellplatz mit vielen Plätzen. Man muss also keine Angst haben, auf einen vollen Platz zu kommen. Die Ausstattung ist sehr gut, Strom, Duschen, WC, vollständige Entsorgung.»</p>
       </div>
 
     </div>
@@ -965,13 +934,13 @@
 <!-- ─── 10. KONTAKT & ANFAHRT ─────────────────────────────────── -->
 <section class="sec sec--alt" id="kontakt">
   <div class="wrap">
-    <span class="sec-tag">Kontakt &amp; Anfahrt</span>
-    <h2 class="sec-title">Wir freuen uns auf Ihren Besuch</h2>
-    <p class="sec-lead">Einfach ankommen – kein Check-in, keine Reservation nötig.</p>
+    <span class="sec-tag" data-i18n="contEy">Kontakt &amp; Anfahrt</span>
+    <h2 class="sec-title" data-i18n="contTitle">Wir freuen uns auf Ihren Besuch</h2>
+    <p class="sec-lead" data-i18n="contSub">Einfach ankommen – kein Check-in, keine Reservation nötig.</p>
     <div class="kontakt-grid">
 
       <div class="kontakt-block">
-        <h3>Kontaktinformationen</h3>
+        <h3 data-i18n="contInfoTitle">Kontaktinformationen</h3>
 
         <div class="k-item">
           <div class="k-item-icon">
@@ -1010,13 +979,13 @@
             <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
           </div>
           <div class="k-item-text">
-            <strong>Ganzjährig geöffnet</strong>
-            <div class="k-item-label">Jederzeit anreisen – 24 h</div>
+            <strong data-i18n="contOpen">Ganzjährig geöffnet</strong>
+            <div class="k-item-label" data-i18n="contOpenSub">Jederzeit anreisen – 24 h</div>
           </div>
         </div>
 
-        <div class="k-hinweis">
-          Ohne Reservation &middot; Einfach vorbeikommen &middot; Immer Platz verfügbar
+        <div class="k-hinweis" data-i18n="contNoRes">
+          Ohne Reservation · Einfach vorbeikommen · Immer Platz verfügbar
         </div>
       </div>
 
@@ -1026,7 +995,8 @@
           <p>Lampertji 6, 3945 Gampel</p>
           <a class="map-link"
              href="https://www.google.com/maps/search/Lampertji+6+Gampel+Stellplatz"
-             target="_blank" rel="noopener">
+             target="_blank" rel="noopener"
+             data-i18n="contMaps">
             In Google Maps öffnen →
           </a>
         </div>
@@ -1053,7 +1023,7 @@
       </ul>
     </nav>
     <div>
-      <div class="footer-social-label">Folgt uns</div>
+      <div class="footer-social-label" data-i18n="footFollow">Folgt uns</div>
       <div class="social-links">
         <a href="https://instagram.com/stellplatzgampel" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">IG</a>
         <a href="https://facebook.com/stellplatzgampel" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">FB</a>
@@ -1065,6 +1035,312 @@
 
 
 <script>
+  // ── ÜBERSETZUNGEN ────────────────────────────
+  const translations = {
+    de: {
+      metaTitle: "Natur Stellplatz Gampel – Wohnmobil Stellplatz Wallis",
+      metaDesc: "Naturnaher Wohnmobilstellplatz in Gampel, Wallis. Ohne Reservation, ab CHF 26 pro Nacht, ganzjährig geöffnet. Direkt an der Rhone.",
+      navHow: "So geht's",
+      navPrices: "Preise",
+      navGallery: "Galerie",
+      navOpenAir: "Open Air",
+      navContact: "Kontakt",
+      heroTitle: "Natur Stellplatz Gampel",
+      heroSub: "Wo die Berge warten und die Rhone fliesst.",
+      heroBtn: "Stellplatz entdecken ↓",
+      stepsEy: "So einfach geht's",
+      stepsTitle: "In 3 Schritten zum Stellplatz",
+      stepsSub: "Kein Stress, keine Reservation – einfach ankommen und geniessen.",
+      step1Title: "Parkieren",
+      step1Desc: "Freie Platzwahl, Schatten oder Sonne, mit oder ohne Strom.",
+      step2Title: "Bezahlen",
+      step2Desc: "Vor Ort via QR-Code an der Infotafel oder per Online-Vorauszahlung.",
+      step3Title: "Geniessen",
+      step3Desc: "Ruhe der Walliser Talsohle und Bergpanorama geniessen.",
+      stat1: "Stellplätze",
+      stat2: "Pro Nacht",
+      stat3: "Mindestaufenthaltsdauer",
+      stat4: "Tage geöffnet",
+      featEy: "Ausstattung",
+      featTitle: "Was Sie erwartet",
+      featSub: "Alles was Sie für einen komfortablen Aufenthalt im Wallis brauchen.",
+      feat1Title: "150+ Stellplätze",
+      feat1Desc: "11'000 m² Fläche, freie Platzwahl, Schatten & Sonne – für Wohnmobile jeder Grösse.",
+      feat2Title: "Moderne Sanitäranlagen",
+      feat2Desc: "3 Duschen, 3 WC, 3 Lavabos, Spülbecken – sauber und jederzeit zugänglich.",
+      feat3Title: "Vollständige Infrastruktur",
+      feat3Desc: "48 CEE-Steckdosen (16A), Frischwasser, Grau- & Schwarzwasser-Entsorgung.",
+      feat4Title: "Perfekte Lage",
+      feat4Desc: "Direkt an der Rhone, 10 Min. ins Dorf, Bergpanorama auf allen Seiten.",
+      feat5Title: "Naturerlebnis",
+      feat5Desc: "Rhone-Radweg, Mountainbike, Wasserfall Turtmann, Bähnli Jeizinen (1500 m).",
+      feat6Title: "Club-freundlich",
+      feat6Desc: "Ideal für Wohnmobil-Clubs und Vereinsausflüge – grosszügig Platz für alle.",
+      priceEy: "Preise",
+      priceTitle: "Transparent & fair",
+      priceSub: "Keine versteckten Kosten.",
+      price1Title: "Stellplatz pro Nacht",
+      price1a: "Ohne Strom",
+      price1b: "Mit Strom (16A)",
+      price1c: "Aufenthaltsdauer unbeschränkt",
+      priceBtn: "Jetzt online bezahlen",
+      price2Title: "Für Stellplatzgäste inklusive",
+      incl1: "Strom CEE 16A (48 Steckdosen)",
+      incl2: "Frischwasserversorgung",
+      incl3: "Grau- & Schwarzwasser-Entsorgung",
+      incl4: "WC & Duschen",
+      galEy: "Galerie",
+      galTitle: "Bilder vom Stellplatz",
+      galSub: "Bilder sagen mehr als tausend Worte.",
+      galMore: "Mehr sehen",
+      aktEy: "Entdecke die Region",
+      aktTitle: "Entdecke die Region",
+      aktSub: "Gampel ist dein Ausgangspunkt ins Wallis",
+      akt1Title: "Seilbahn Jeizinen",
+      akt1Desc: "Ab Gampel direkt auf 1500 m ü.M. Herrlicher Ausblick ins Rhonetal und auf die Walliser Alpen.",
+      akt2Title: "Wasserfall Turtmann",
+      akt2Desc: "20 Min. mit dem Velo erreichbar. Einer der schönsten Wasserfälle des Wallis, ideal für einen Tagesausflug.",
+      akt3Title: "Rhone-Radweg",
+      akt3Desc: "Von Gampel nach Brig oder Sion entlang der Rhone. Flach, schattig, für alle Altersgruppen geeignet.",
+      akt4Title: "Walliser Sonnenweg",
+      akt4Desc: "Etappenwanderung ab Gampel nach Ausserberg mit spektakulärer Aussicht auf die Lötschbergbahn.",
+      akt5Title: "Leukerbad Therme",
+      akt5Desc: "30 Min. Fahrzeit. Europas grösste Alpentherme mit 30 Thermalbecken und 51°C Quellwasser.",
+      akt6Title: "Lötschental",
+      akt6Desc: "Das ursprünglichste Seitental des Wallis, 20 Min. Fahrzeit. Gletscher, Natur und Walliser Tradition pur.",
+      aktOutro: "Von Gampel nach Brig oder nach Sion — der schönen Rhone entlang, zwischen Bäumen und Wiesen.",
+      aktGfreidds: "Lass dich einfach überraschen — Viel Gfreidds!",
+      oaDate: "19.–23. August 2026",
+      oaTitle: "Open Air Gampel 2026",
+      oaSub: "5-Tages-Stellplatz · max. 4 Personen · inkl. Strom, WC & Duschen, Entsorgung",
+      oaPrice: "Stellplatz für 5 Nächte",
+      oaBtn: "Jetzt buchen",
+      revEy: "Gästestimmen",
+      revTitle: "Was Gäste sagen",
+      revSub: "Echte Bewertungen von Google – direkt von unseren Gästen.",
+      rev1: "«Schöner Platz an der Rhone. Ruhig, viel Wiese, zentral gelegen um im Dorf einzukaufen, an der Rhone entlang spazieren zu gehen oder Velo zu fahren. Der Dusch- und WC-Container ist sauber.»",
+      rev2: "«Super Campingplatz, tolle Lage, freie Platzwahl, man benötigt keine Reservierung, sehr freundliches und hilfsbereites Personal, auch das Preis-Leistungs-Verhältnis ist super. Wir kommen sehr gerne wieder.»",
+      rev3: "«Ein schöner grosszügiger Stellplatz mit vielen Plätzen. Man muss also keine Angst haben, auf einen vollen Platz zu kommen. Die Ausstattung ist sehr gut, Strom, Duschen, WC, vollständige Entsorgung.»",
+      contEy: "Kontakt & Anfahrt",
+      contTitle: "Wir freuen uns auf Ihren Besuch",
+      contSub: "Einfach ankommen – kein Check-in, keine Reservation nötig.",
+      contInfoTitle: "Kontaktinformationen",
+      contOpen: "Ganzjährig geöffnet",
+      contOpenSub: "Jederzeit anreisen – 24 h",
+      contNoRes: "Ohne Reservation · Einfach vorbeikommen · Immer Platz verfügbar",
+      contMaps: "In Google Maps öffnen →",
+      footFollow: "Folgt uns",
+    },
+
+    fr: {
+      metaTitle: "Natur Stellplatz Gampel – Aire de camping-car Valais",
+      metaDesc: "Aire de camping-car naturelle à Gampel, Valais. Sans réservation, dès CHF 26 par nuit, ouvert toute l'année. Au bord du Rhône.",
+      navHow: "Comment ça marche",
+      navPrices: "Tarifs",
+      navGallery: "Galerie",
+      navOpenAir: "Open Air",
+      navContact: "Contact",
+      heroTitle: "Natur Stellplatz Gampel",
+      heroSub: "Là où les montagnes attendent et le Rhône coule.",
+      heroBtn: "Découvrir l'aire ↓",
+      stepsEy: "Simple et rapide",
+      stepsTitle: "En 3 étapes vers l'aire",
+      stepsSub: "Pas de stress, pas de réservation – arrivez et profitez.",
+      step1Title: "Se garer",
+      step1Desc: "Choix libre de l'emplacement, ombre ou soleil, avec ou sans électricité.",
+      step2Title: "Payer",
+      step2Desc: "Sur place via QR-code au panneau d'information ou par paiement en ligne.",
+      step3Title: "Profiter",
+      step3Desc: "Savourez le calme de la plaine du Valais et le panorama montagnard.",
+      stat1: "Emplacements",
+      stat2: "Par nuit",
+      stat3: "Durée minimale de séjour",
+      stat4: "Jours ouverts",
+      featEy: "Équipements",
+      featTitle: "Ce qui vous attend",
+      featSub: "Tout ce qu'il vous faut pour un séjour confortable en Valais.",
+      feat1Title: "150+ emplacements",
+      feat1Desc: "11'000 m² de surface, libre choix, ombre & soleil – pour camping-cars de toutes tailles.",
+      feat2Title: "Sanitaires modernes",
+      feat2Desc: "3 douches, 3 WC, 3 lavabos, évier – propres et accessibles à tout moment.",
+      feat3Title: "Infrastructure complète",
+      feat3Desc: "48 prises CEE (16A), eau potable, vidange eaux grises & eaux noires.",
+      feat4Title: "Emplacement idéal",
+      feat4Desc: "Au bord du Rhône, à 10 min. du village, panorama montagnard tout autour.",
+      feat5Title: "Nature",
+      feat5Desc: "Piste cyclable du Rhône, VTT, cascade de Tourtemagne, téléphérique de Jeizinen (1500 m).",
+      feat6Title: "Groupes bienvenus",
+      feat6Desc: "Idéal pour les clubs de camping-cars et les sorties d'associations.",
+      priceEy: "Tarifs",
+      priceTitle: "Transparent & équitable",
+      priceSub: "Aucun frais caché.",
+      price1Title: "Emplacement par nuit",
+      price1a: "Sans électricité",
+      price1b: "Avec électricité (16A)",
+      price1c: "Durée de séjour illimitée",
+      priceBtn: "Payer en ligne maintenant",
+      price2Title: "Inclus pour les campeurs",
+      incl1: "Électricité CEE 16A (48 prises)",
+      incl2: "Alimentation en eau potable",
+      incl3: "Vidange eaux grises & eaux noires",
+      incl4: "WC & douches",
+      galEy: "Galerie",
+      galTitle: "Photos de l'aire",
+      galSub: "Une image vaut mille mots.",
+      galMore: "Voir plus",
+      aktEy: "Découvrez la région",
+      aktTitle: "Découvrez la région",
+      aktSub: "Gampel est votre point de départ vers le Valais",
+      akt1Title: "Téléphérique de Jeizinen",
+      akt1Desc: "Depuis Gampel directement à 1500 m d'altitude. Vue magnifique sur la vallée du Rhône et les Alpes valaisannes.",
+      akt2Title: "Cascade de Tourtemagne",
+      akt2Desc: "À 20 min. à vélo. L'une des plus belles cascades du Valais, idéale pour une excursion.",
+      akt3Title: "Piste cyclable du Rhône",
+      akt3Desc: "De Gampel à Brigue ou Sion le long du Rhône. Plat, ombragé, convient à tous les âges.",
+      akt4Title: "Chemin du Soleil valaisan",
+      akt4Desc: "Randonnée par étapes de Gampel à Ausserberg avec vue spectaculaire sur la ligne du Lötschberg.",
+      akt5Title: "Thermes de Loèche",
+      akt5Desc: "30 min. en voiture. Les plus grands thermes alpins d'Europe avec 30 bassins à 51°C.",
+      akt6Title: "Lötschental",
+      akt6Desc: "La vallée latérale la plus authentique du Valais, à 20 min. Glaciers, nature et traditions valaisannes.",
+      aktOutro: "De Gampel à Brigue ou à Sion — le long du beau Rhône, entre arbres et prairies.",
+      aktGfreidds: "Laissez-vous surprendre — Profitez bien!",
+      oaDate: "19–23 août 2026",
+      oaTitle: "Open Air Gampel 2026",
+      oaSub: "Emplacement 5 nuits · max. 4 personnes · incl. électricité, WC & douches, vidange",
+      oaPrice: "Emplacement pour 5 nuits",
+      oaBtn: "Réserver maintenant",
+      revEy: "Avis clients",
+      revTitle: "Ce que disent nos clients",
+      revSub: "Avis authentiques de Google – directement de nos campeurs.",
+      rev1: "«Bel emplacement au bord du Rhône. Calme, beaucoup de verdure, bien situé pour faire les courses au village, se promener ou faire du vélo le long du Rhône. Les sanitaires sont propres.»",
+      rev2: "«Super camping, bel emplacement, choix libre de place, pas besoin de réservation, personnel très sympathique et serviable, le rapport qualité-prix est excellent. Nous reviendrons avec plaisir.»",
+      rev3: "«Un beau grand camping avec beaucoup de places. Pas besoin de craindre de trouver le camping complet. L'équipement est très bon – électricité, douches, WC, évacuation complète.»",
+      contEy: "Contact & Accès",
+      contTitle: "Nous nous réjouissons de votre visite",
+      contSub: "Arrivez simplement – pas de check-in, pas de réservation nécessaire.",
+      contInfoTitle: "Informations de contact",
+      contOpen: "Ouvert toute l'année",
+      contOpenSub: "Arrivée à toute heure – 24h/24",
+      contNoRes: "Sans réservation · Venez directement · Toujours de la place",
+      contMaps: "Ouvrir dans Google Maps →",
+      footFollow: "Suivez-nous",
+    },
+
+    en: {
+      metaTitle: "Natur Stellplatz Gampel – Motorhome Stopover Valais",
+      metaDesc: "Natural motorhome stopover in Gampel, Valais. No reservation needed, from CHF 26 per night, open all year. Right on the Rhône.",
+      navHow: "How it works",
+      navPrices: "Prices",
+      navGallery: "Gallery",
+      navOpenAir: "Open Air",
+      navContact: "Contact",
+      heroTitle: "Natur Stellplatz Gampel",
+      heroSub: "Where the mountains await and the Rhône flows.",
+      heroBtn: "Discover the site ↓",
+      stepsEy: "Quick & easy",
+      stepsTitle: "3 steps to your pitch",
+      stepsSub: "No stress, no reservation – just arrive and enjoy.",
+      step1Title: "Park",
+      step1Desc: "Free choice of pitch – shade or sun, with or without electricity.",
+      step2Title: "Pay",
+      step2Desc: "On-site via QR code at the information board or pay online in advance.",
+      step3Title: "Enjoy",
+      step3Desc: "Relax in the peaceful Valais valley with mountain views all around.",
+      stat1: "Pitches",
+      stat2: "Per night",
+      stat3: "Minimum stay",
+      stat4: "Days open",
+      featEy: "Facilities",
+      featTitle: "What awaits you",
+      featSub: "Everything you need for a comfortable stay in the Valais.",
+      feat1Title: "150+ pitches",
+      feat1Desc: "11,000 m² of space, free pitch choice, shade & sun – for motorhomes of all sizes.",
+      feat2Title: "Modern sanitary facilities",
+      feat2Desc: "3 showers, 3 toilets, 3 washbasins, washing-up sink – clean and always accessible.",
+      feat3Title: "Full infrastructure",
+      feat3Desc: "48 CEE sockets (16A), fresh water, grey & black water disposal.",
+      feat4Title: "Perfect location",
+      feat4Desc: "Right on the Rhône, 10 min. from the village, mountain panorama on all sides.",
+      feat5Title: "Nature",
+      feat5Desc: "Rhône cycle path, mountain biking, Turtmann waterfall, Jeizinen cable car (1500 m).",
+      feat6Title: "Club-friendly",
+      feat6Desc: "Perfect for motorhome clubs and group outings – plenty of space for everyone.",
+      priceEy: "Prices",
+      priceTitle: "Transparent & fair",
+      priceSub: "No hidden costs.",
+      price1Title: "Pitch per night",
+      price1a: "Without electricity",
+      price1b: "With electricity (16A)",
+      price1c: "Unlimited length of stay",
+      priceBtn: "Pay online now",
+      price2Title: "Included for guests",
+      incl1: "Electricity CEE 16A (48 sockets)",
+      incl2: "Fresh water supply",
+      incl3: "Grey & black water disposal",
+      incl4: "Toilets & showers",
+      galEy: "Gallery",
+      galTitle: "Photos of the site",
+      galSub: "A picture is worth a thousand words.",
+      galMore: "See more",
+      aktEy: "Explore the region",
+      aktTitle: "Explore the region",
+      aktSub: "Gampel is your gateway to the Valais",
+      akt1Title: "Jeizinen cable car",
+      akt1Desc: "From Gampel directly up to 1500 m above sea level. Stunning views over the Rhône valley and the Valais Alps.",
+      akt2Title: "Turtmann waterfall",
+      akt2Desc: "20 min. by bike. One of the most beautiful waterfalls in the Valais, ideal for a day trip.",
+      akt3Title: "Rhône cycle path",
+      akt3Desc: "From Gampel to Brig or Sion along the Rhône. Flat, shaded, suitable for all ages.",
+      akt4Title: "Valais Sunny Path",
+      akt4Desc: "Stage hike from Gampel to Ausserberg with spectacular views of the Lötschberg railway.",
+      akt5Title: "Leukerbad Therme",
+      akt5Desc: "30 min. drive. Europe's largest alpine thermal baths with 30 pools at 51°C.",
+      akt6Title: "Lötschental",
+      akt6Desc: "The most unspoilt side valley in the Valais, 20 min. away. Glaciers, nature and Valaisian tradition.",
+      aktOutro: "From Gampel to Brig or Sion — along the beautiful Rhône, between trees and meadows.",
+      aktGfreidds: "Let yourself be surprised — Enjoy your stay!",
+      oaDate: "19–23 August 2026",
+      oaTitle: "Open Air Gampel 2026",
+      oaSub: "5-night pitch · max. 4 persons · incl. electricity, WC & showers, disposal",
+      oaPrice: "Pitch for 5 nights",
+      oaBtn: "Book now",
+      revEy: "Guest reviews",
+      revTitle: "What our guests say",
+      revSub: "Real Google reviews – straight from our guests.",
+      rev1: "«Beautiful spot on the Rhône. Quiet, lots of green space, centrally located for shopping in the village, walking or cycling along the Rhône. The shower and toilet facilities are clean.»",
+      rev2: "«Great campsite, great location, free pitch choice, no reservation needed, very friendly and helpful staff, excellent value for money. We will definitely come back.»",
+      rev3: "«A beautiful spacious campsite with plenty of pitches. No need to worry about finding it full. The facilities are excellent – electricity, showers, toilets, full waste disposal.»",
+      contEy: "Contact & Directions",
+      contTitle: "We look forward to your visit",
+      contSub: "Just arrive – no check-in, no reservation needed.",
+      contInfoTitle: "Contact information",
+      contOpen: "Open all year",
+      contOpenSub: "Arrive any time – 24 hours",
+      contNoRes: "No reservation · Just turn up · Always space available",
+      contMaps: "Open in Google Maps →",
+      footFollow: "Follow us",
+    }
+  };
+
+  // ── SPRACHE SETZEN ──────────────────────────
+  function setLang(lang) {
+    document.documentElement.lang = lang;
+    localStorage.setItem('lang', lang);
+    const t = translations[lang];
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (t[key] !== undefined) el.textContent = t[key];
+    });
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+      const key = el.getAttribute('data-i18n-placeholder');
+      if (t[key] !== undefined) el.placeholder = t[key];
+    });
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.classList.toggle('on', btn.dataset.lang === lang);
+    });
+  }
+
   // ── CAMPER MARKISE ────────────────────────────
   const btn = document.getElementById('camper-menu-btn');
   const markise = document.getElementById('markise');
@@ -1080,14 +1356,6 @@
   });
   markise.querySelectorAll('.mlink').forEach(link => {
     link.addEventListener('click', () => markise.classList.remove('open'));
-  });
-
-  // ── SPRACHUMSCHALTER ──────────────────────────
-  document.querySelectorAll('.lb').forEach(b => {
-    b.addEventListener('click', () => {
-      document.querySelectorAll('.lb').forEach(x => x.classList.remove('on'));
-      b.classList.add('on');
-    });
   });
 
   // ── LIGHTBOX ──────────────────────────────────
@@ -1134,6 +1402,10 @@
   }
 
   document.addEventListener('DOMContentLoaded', function() {
+    // Gespeicherte Sprache anwenden
+    const saved = localStorage.getItem('lang') || 'de';
+    setLang(saved);
+
     document.querySelectorAll('.gal-img').forEach(function(img, i) {
       img.addEventListener('click', function() { openLightbox(i); });
     });
