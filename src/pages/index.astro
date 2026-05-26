@@ -425,14 +425,13 @@
     <div style="position:absolute;inset:0;z-index:10;pointer-events:none">
 
       <!-- Logo links -->
-      <a href="#" style="
+      <a href="#" class="rounded-lg" style="
         position:absolute;
         top:20px;
         left:24px;
         z-index:100;
         display:block;
         background:#ffffff;
-        border-radius:16px;
         padding:8px;
         box-shadow:0 4px 16px rgba(0,0,0,0.4);
         line-height:0;
@@ -555,9 +554,9 @@
 <div class="stats">
   <div class="stats-grid">
     <div class="stat"><div class="stat-num">150+</div><div class="stat-label" data-i18n="stat1">Stellplätze</div></div>
-    <div class="stat"><div class="stat-num">Ab CHF 26</div><div class="stat-label" data-i18n="stat2">Pro Nacht</div></div>
-    <div class="stat"><div class="stat-num">Keine</div><div class="stat-label" data-i18n="stat3">Mindestaufenthaltsdauer</div></div>
-    <div class="stat"><div class="stat-num">365</div><div class="stat-label" data-i18n="stat4">Tage geöffnet</div></div>
+    <div class="stat"><div class="stat-num">24h · 365</div><div class="stat-label" data-i18n="stat2">Jederzeit anreisen</div></div>
+    <div class="stat"><div class="stat-num" style="font-size:1.6rem" data-i18n="stat3Num">Kurz &amp; Lang</div><div class="stat-label" data-i18n="stat3">Aufenthalte willkommen</div></div>
+    <div class="stat"><div class="stat-num">Ab CHF 26</div><div class="stat-label" data-i18n="stat4">Pro Nacht</div></div>
   </div>
 </div>
 
@@ -570,9 +569,9 @@
     <p class="sec-lead" data-i18n="featSub">Alles was Sie für einen komfortablen Aufenthalt im Wallis brauchen.</p>
     <div class="feat-grid">
 
+      <!-- 1. Ausreichend Stellplätze -->
       <div class="feat">
         <div class="icon-box">
-          <!-- A) 150+ Stellplätze — schönes Wohnmobil -->
           <svg viewBox="0 0 40 24" width="40" height="24"
             stroke="#8B2020" stroke-width="1.8" fill="none"
             stroke-linecap="round" stroke-linejoin="round">
@@ -593,10 +592,20 @@
             <line x1="4" y1="2" x2="22" y2="2"/>
           </svg>
         </div>
-        <h3 data-i18n="feat1Title">150+ Stellplätze</h3>
-        <p data-i18n="feat1Desc">11'000 m² Fläche, freie Platzwahl, Schatten &amp; Sonne – für Wohnmobile jeder Grösse.</p>
+        <h3 data-i18n="feat1Title">Ausreichend Stellplätze</h3>
+        <p data-i18n="feat1Desc">Für Wohnmobile, Wohnwagen, Zelter und alle anderen Camper.</p>
       </div>
 
+      <!-- 2. Naturerlebnis -->
+      <div class="feat">
+        <div class="icon-box">
+          <svg viewBox="0 0 24 24"><path d="M12 2 6 10h4l-4 6h5v5h2v-5h5l-4-6h4L12 2Z"/></svg>
+        </div>
+        <h3 data-i18n="feat5Title">Naturerlebnis</h3>
+        <p data-i18n="feat5Desc">Rhone-Radweg, Mountainbike, Wasserfall Turtmann, Bähnli Jeizinen (1500 m).</p>
+      </div>
+
+      <!-- 3. Gepflegte Sanitäranlagen -->
       <div class="feat">
         <div style="width:52px;height:52px;background:var(--bg-alt);
           border-radius:10px;display:flex;align-items:center;
@@ -606,40 +615,35 @@
             WC
           </span>
         </div>
-        <h3 data-i18n="feat2Title">Moderne Sanitäranlagen</h3>
-        <p data-i18n="feat2Desc">3 Duschen, 3 WC, 3 Lavabos, Spülbecken – sauber und jederzeit zugänglich.</p>
+        <h3 data-i18n="feat2Title">Gepflegte Sanitäranlagen</h3>
+        <p data-i18n="feat2Desc">Duschen, WC, Lavabos – sauber und jederzeit zugänglich.</p>
       </div>
 
+      <!-- 4. Vollständige Infrastruktur -->
       <div class="feat">
         <div class="icon-box">
           <svg viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z"/></svg>
         </div>
         <h3 data-i18n="feat3Title">Vollständige Infrastruktur</h3>
-        <p data-i18n="feat3Desc">48 CEE-Steckdosen (16A), Frischwasser, Grau- &amp; Schwarzwasser-Entsorgung.</p>
+        <p data-i18n="feat3Desc">48 CEE-Steckdosen (16A), Frischwasser, Grau- &amp; Schwarzwasser-Entsorgung. 1 Tag, mehrere Tage und auch längere Aufenthalte möglich. Angebot für längere Aufenthalte auf Anfrage.</p>
       </div>
 
+      <!-- 5. Perfekte Lage -->
       <div class="feat">
         <div class="icon-box">
           <svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Z"/><circle cx="12" cy="9" r="2.5"/></svg>
         </div>
         <h3 data-i18n="feat4Title">Perfekte Lage</h3>
-        <p data-i18n="feat4Desc">Direkt an der Rhone, 10 Min. ins Dorf, Bergpanorama auf allen Seiten.</p>
+        <p data-i18n="feat4Desc">Direkt an der Rhone, zentral im Wallis – Dorf und Einkauf zu Fuss erreichbar.</p>
       </div>
 
-      <div class="feat">
-        <div class="icon-box">
-          <svg viewBox="0 0 24 24"><path d="M12 2 6 10h4l-4 6h5v5h2v-5h5l-4-6h4L12 2Z"/></svg>
-        </div>
-        <h3 data-i18n="feat5Title">Naturerlebnis</h3>
-        <p data-i18n="feat5Desc">Rhone-Radweg, Mountainbike, Wasserfall Turtmann, Bähnli Jeizinen (1500 m).</p>
-      </div>
-
+      <!-- 6. Club-freundlich -->
       <div class="feat">
         <div class="icon-box">
           <svg viewBox="0 0 24 24"><circle cx="9" cy="7" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="7" r="3"/><path d="M21 20c0-3.3-2.7-6-6-6"/></svg>
         </div>
         <h3 data-i18n="feat6Title">Club-freundlich</h3>
-        <p data-i18n="feat6Desc">Ideal für Wohnmobil-Clubs und Vereinsausflüge – grosszügig Platz für alle.</p>
+        <p data-i18n="feat6Desc">Ideal für Clubs und Gruppen. Wir helfen bei der Organisation.</p>
       </div>
 
     </div>
@@ -673,10 +677,18 @@
       <div class="preis-col">
         <h3 class="preis-col-title" data-i18n="price2Title">Für Stellplatzgäste inklusive</h3>
         <ul class="incl-list">
-          <li><div class="incl-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div><span data-i18n="incl1">Strom CEE 16A (48 Steckdosen)</span></li>
+          <li>
+            <div class="incl-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+            <div>
+              <span data-i18n="incl1">Strom CEE 16A (48 Steckdosen)</span>
+              <div style="font-size:.8em;color:var(--text-soft)" data-i18n="incl1Note">(bei Buchung mit Strom)</div>
+            </div>
+          </li>
           <li><div class="incl-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div><span data-i18n="incl2">Frischwasserversorgung</span></li>
           <li><div class="incl-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div><span data-i18n="incl3">Grau- &amp; Schwarzwasser-Entsorgung</span></li>
           <li><div class="incl-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div><span data-i18n="incl4">WC &amp; Duschen</span></li>
+          <li><div class="incl-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div><span data-i18n="incl5">Abfallentsorgung</span></li>
+          <li><div class="incl-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div><span data-i18n="incl6">Kurtaxe inbegriffen</span></li>
         </ul>
       </div>
 
@@ -746,14 +758,14 @@
 <!-- ─── 7. AKTIVITÄTEN ────────────────────────────────────────── -->
 <section class="sec sec--alt" id="aktivitaeten">
   <div class="wrap">
-    <span class="sec-tag" data-i18n="aktEy">Entdecke die Region</span>
+
+    <!-- ── Bereich 1: Entdecke die Region ── -->
+    <span class="sec-tag" data-i18n="akt1Ey">Direkt ab Gampel erreichbar</span>
     <h2 class="sec-title" data-i18n="aktTitle">Entdecke die Region</h2>
-    <p class="sec-lead" data-i18n="aktSub">Gampel ist dein Ausgangspunkt ins Wallis</p>
-    <div class="akt-grid">
+    <div class="akt-grid" style="grid-template-columns: repeat(2, 1fr);">
 
       <div class="akt-item">
         <div class="icon-box">
-          <!-- C) Seilbahn — nur die Gondel gross -->
           <svg viewBox="0 0 32 32">
             <line x1="2" y1="6" x2="30" y2="10" stroke-width="2"/>
             <line x1="16" y1="8" x2="16" y2="13"/>
@@ -768,7 +780,6 @@
 
       <div class="akt-item">
         <div class="icon-box">
-          <!-- D) Wasserfall — einfacher Wassertropfen -->
           <svg viewBox="0 0 32 32">
             <path d="M16 4 C16 4 6 16 6 21 a10 10 0 0 0 20 0 C26 16 16 4 16 4 Z"/>
           </svg>
@@ -779,7 +790,6 @@
 
       <div class="akt-item">
         <div class="icon-box">
-          <!-- E) Radweg — korrektes Fahrrad -->
           <svg viewBox="0 0 36 28" width="36" height="28"
             stroke="#8B2020" stroke-width="1.8" fill="none"
             stroke-linecap="round" stroke-linejoin="round">
@@ -807,7 +817,6 @@
 
       <div class="akt-item">
         <div class="icon-box">
-          <!-- F) Sonnenweg — einfache Sonne -->
           <svg viewBox="0 0 32 32">
             <circle cx="16" cy="16" r="6"/>
             <line x1="16" y1="2" x2="16" y2="6"/>
@@ -824,38 +833,89 @@
         <p data-i18n="akt4Desc">Etappenwanderung ab Gampel nach Ausserberg mit spektakulärer Aussicht auf die Lötschbergbahn.</p>
       </div>
 
-      <div class="akt-item">
-        <div class="icon-box">
-          <!-- G) Therme — Schwimmbad mit Dampf -->
-          <svg viewBox="0 0 32 32">
-            <path d="M10 6 Q11 3 10 1" stroke-width="1.5"/>
-            <path d="M16 6 Q17 3 16 1" stroke-width="1.5"/>
-            <path d="M22 6 Q23 3 22 1" stroke-width="1.5"/>
-            <rect x="2" y="10" width="28" height="16" rx="3"/>
-            <path d="M2 18 Q6 15 10 18 Q14 21 18 18 Q22 15 26 18 Q28 19 30 18"/>
-            <line x1="8" y1="26" x2="8" y2="30"/>
-            <line x1="24" y1="26" x2="24" y2="30"/>
-          </svg>
-        </div>
-        <h3 data-i18n="akt5Title">Leukerbad Therme</h3>
-        <p data-i18n="akt5Desc">30 Min. Fahrzeit. Europas grösste Alpentherme mit 30 Thermalbecken und 51°C Quellwasser.</p>
-      </div>
-
-      <div class="akt-item">
-        <div class="icon-box">
-          <!-- H) Lötschental — klare Bergkette -->
-          <svg viewBox="0 0 32 32">
-            <polyline points="1,28 9,8 17,28"/>
-            <polyline points="10,28 20,3 30,28"/>
-            <polyline points="20,28 27,12 32,28"/>
-            <polyline points="17,12 20,8 23,12" fill="#8B2020" stroke="#8B2020"/>
-          </svg>
-        </div>
-        <h3 data-i18n="akt6Title">Lötschental</h3>
-        <p data-i18n="akt6Desc">Das ursprünglichste Seitental des Wallis, 20 Min. Fahrzeit. Gletscher, Natur und Walliser Tradition pur.</p>
-      </div>
-
     </div>
+
+    <!-- ── Bereich 2: Entdecke das Wallis ── -->
+    <div style="margin-top:4rem;padding-top:3rem;border-top:1px solid var(--bg-hell);">
+      <span class="sec-tag" data-i18n="akt2Ey">30–60 Minuten rund um den Stellplatz</span>
+      <h2 class="sec-title" data-i18n="akt2SectionTitle">Entdecke das Wallis</h2>
+      <div class="akt-grid">
+
+        <div class="akt-item">
+          <div class="icon-box">
+            <svg viewBox="0 0 32 32">
+              <path d="M10 6 Q11 3 10 1" stroke-width="1.5"/>
+              <path d="M16 6 Q17 3 16 1" stroke-width="1.5"/>
+              <path d="M22 6 Q23 3 22 1" stroke-width="1.5"/>
+              <rect x="2" y="10" width="28" height="16" rx="3"/>
+              <path d="M2 18 Q6 15 10 18 Q14 21 18 18 Q22 15 26 18 Q28 19 30 18"/>
+              <line x1="8" y1="26" x2="8" y2="30"/>
+              <line x1="24" y1="26" x2="24" y2="30"/>
+            </svg>
+          </div>
+          <h3 data-i18n="akt5Title">Leukerbad Therme</h3>
+          <p data-i18n="akt5Desc">30 Min. Fahrzeit. Europas grösste Alpentherme mit 30 Thermalbecken und 51°C Quellwasser.</p>
+        </div>
+
+        <div class="akt-item">
+          <div class="icon-box">
+            <svg viewBox="0 0 32 32">
+              <polyline points="1,28 9,8 17,28"/>
+              <polyline points="10,28 20,3 30,28"/>
+              <polyline points="20,28 27,12 32,28"/>
+              <polyline points="17,12 20,8 23,12" fill="#8B2020" stroke="#8B2020"/>
+            </svg>
+          </div>
+          <h3 data-i18n="akt6Title">Lötschental</h3>
+          <p data-i18n="akt6Desc">Das ursprünglichste Seitental des Wallis, 20 Min. Fahrzeit. Gletscher, Natur und Walliser Tradition pur.</p>
+        </div>
+
+        <div class="akt-item">
+          <div class="icon-box">
+            <!-- Matterhorn — markante Spitze -->
+            <svg viewBox="0 0 32 32" fill="none" stroke="#8B2020" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="2,28 16,3 30,28"/>
+              <polyline points="8,18 16,3 24,18"/>
+            </svg>
+          </div>
+          <h3 data-i18n="akt7Title">Zermatt &amp; Matterhorn</h3>
+          <p data-i18n="akt7Desc">Das Matterhorn – Symbol der Schweiz. Bahnfahrt ab Gampel, ca. 60 Min. Einmaliges Bergpanorama.</p>
+        </div>
+
+        <div class="akt-item">
+          <div class="icon-box">
+            <!-- Aletschgletscher — Schneeflocke -->
+            <svg viewBox="0 0 32 32" fill="none" stroke="#8B2020" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="16" y1="3" x2="16" y2="29"/>
+              <line x1="3" y1="16" x2="29" y2="16"/>
+              <line x1="7" y1="7" x2="25" y2="25"/>
+              <line x1="25" y1="7" x2="7" y2="25"/>
+              <polyline points="12,6 16,3 20,6"/>
+              <polyline points="12,26 16,29 20,26"/>
+              <polyline points="6,12 3,16 6,20"/>
+              <polyline points="26,12 29,16 26,20"/>
+            </svg>
+          </div>
+          <h3 data-i18n="akt8Title">Aletschgletscher</h3>
+          <p data-i18n="akt8Desc">UNESCO-Welterbe – Europas grösster Gletscher. Ab Gampel ca. 50 Min., unvergessliches Naturwunder.</p>
+        </div>
+
+        <div class="akt-item">
+          <div class="icon-box">
+            <!-- Weinberge — Weinglas -->
+            <svg viewBox="0 0 32 32" fill="none" stroke="#8B2020" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10 4 L22 4 Q24 12 22 17 Q20 22 16 22 Q12 22 10 17 Q8 12 10 4Z"/>
+              <line x1="16" y1="22" x2="16" y2="28"/>
+              <line x1="10" y1="28" x2="22" y2="28"/>
+            </svg>
+          </div>
+          <h3 data-i18n="akt9Title">Walliser Weinberge</h3>
+          <p data-i18n="akt9Desc">Steile Rebberge entlang des Rhonetals. Weindegustation direkt beim Winzer – Walliser Wein pur.</p>
+        </div>
+
+      </div>
+    </div>
+
     <div class="akt-footer">
       <p data-i18n="aktOutro">Von Gampel nach Brig oder nach Sion — der schönen Rhone entlang, zwischen Bäumen und Wiesen.</p>
       <p class="akt-gruss" data-i18n="aktGfreidds">Lass dich einfach überraschen — Viel Gfreidds!</p>
@@ -1058,24 +1118,25 @@
       step3Title: "Geniessen",
       step3Desc: "Ruhe der Walliser Talsohle und Bergpanorama geniessen.",
       stat1: "Stellplätze",
-      stat2: "Pro Nacht",
-      stat3: "Mindestaufenthaltsdauer",
-      stat4: "Tage geöffnet",
+      stat2: "Jederzeit anreisen",
+      stat3Num: "Kurz & Lang",
+      stat3: "Aufenthalte willkommen",
+      stat4: "Pro Nacht",
       featEy: "Ausstattung",
       featTitle: "Was Sie erwartet",
       featSub: "Alles was Sie für einen komfortablen Aufenthalt im Wallis brauchen.",
-      feat1Title: "150+ Stellplätze",
-      feat1Desc: "11'000 m² Fläche, freie Platzwahl, Schatten & Sonne – für Wohnmobile jeder Grösse.",
-      feat2Title: "Moderne Sanitäranlagen",
-      feat2Desc: "3 Duschen, 3 WC, 3 Lavabos, Spülbecken – sauber und jederzeit zugänglich.",
+      feat1Title: "Ausreichend Stellplätze",
+      feat1Desc: "Für Wohnmobile, Wohnwagen, Zelter und alle anderen Camper.",
+      feat2Title: "Gepflegte Sanitäranlagen",
+      feat2Desc: "Duschen, WC, Lavabos – sauber und jederzeit zugänglich.",
       feat3Title: "Vollständige Infrastruktur",
-      feat3Desc: "48 CEE-Steckdosen (16A), Frischwasser, Grau- & Schwarzwasser-Entsorgung.",
+      feat3Desc: "48 CEE-Steckdosen (16A), Frischwasser, Grau- & Schwarzwasser-Entsorgung. 1 Tag, mehrere Tage und auch längere Aufenthalte möglich. Angebot für längere Aufenthalte auf Anfrage.",
       feat4Title: "Perfekte Lage",
-      feat4Desc: "Direkt an der Rhone, 10 Min. ins Dorf, Bergpanorama auf allen Seiten.",
+      feat4Desc: "Direkt an der Rhone, zentral im Wallis – Dorf und Einkauf zu Fuss erreichbar.",
       feat5Title: "Naturerlebnis",
       feat5Desc: "Rhone-Radweg, Mountainbike, Wasserfall Turtmann, Bähnli Jeizinen (1500 m).",
       feat6Title: "Club-freundlich",
-      feat6Desc: "Ideal für Wohnmobil-Clubs und Vereinsausflüge – grosszügig Platz für alle.",
+      feat6Desc: "Ideal für Clubs und Gruppen. Wir helfen bei der Organisation.",
       priceEy: "Preise",
       priceTitle: "Transparent & fair",
       priceSub: "Keine versteckten Kosten.",
@@ -1086,16 +1147,18 @@
       priceBtn: "Jetzt online bezahlen",
       price2Title: "Für Stellplatzgäste inklusive",
       incl1: "Strom CEE 16A (48 Steckdosen)",
+      incl1Note: "(bei Buchung mit Strom)",
       incl2: "Frischwasserversorgung",
       incl3: "Grau- & Schwarzwasser-Entsorgung",
       incl4: "WC & Duschen",
+      incl5: "Abfallentsorgung",
+      incl6: "Kurtaxe inbegriffen",
       galEy: "Galerie",
       galTitle: "Bilder vom Stellplatz",
       galSub: "Bilder sagen mehr als tausend Worte.",
       galMore: "Mehr sehen",
-      aktEy: "Entdecke die Region",
+      akt1Ey: "Direkt ab Gampel erreichbar",
       aktTitle: "Entdecke die Region",
-      aktSub: "Gampel ist dein Ausgangspunkt ins Wallis",
       akt1Title: "Seilbahn Jeizinen",
       akt1Desc: "Ab Gampel direkt auf 1500 m ü.M. Herrlicher Ausblick ins Rhonetal und auf die Walliser Alpen.",
       akt2Title: "Wasserfall Turtmann",
@@ -1104,10 +1167,18 @@
       akt3Desc: "Von Gampel nach Brig oder Sion entlang der Rhone. Flach, schattig, für alle Altersgruppen geeignet.",
       akt4Title: "Walliser Sonnenweg",
       akt4Desc: "Etappenwanderung ab Gampel nach Ausserberg mit spektakulärer Aussicht auf die Lötschbergbahn.",
+      akt2Ey: "30–60 Minuten rund um den Stellplatz",
+      akt2SectionTitle: "Entdecke das Wallis",
       akt5Title: "Leukerbad Therme",
       akt5Desc: "30 Min. Fahrzeit. Europas grösste Alpentherme mit 30 Thermalbecken und 51°C Quellwasser.",
       akt6Title: "Lötschental",
       akt6Desc: "Das ursprünglichste Seitental des Wallis, 20 Min. Fahrzeit. Gletscher, Natur und Walliser Tradition pur.",
+      akt7Title: "Zermatt & Matterhorn",
+      akt7Desc: "Das Matterhorn – Symbol der Schweiz. Bahnfahrt ab Gampel, ca. 60 Min. Einmaliges Bergpanorama.",
+      akt8Title: "Aletschgletscher",
+      akt8Desc: "UNESCO-Welterbe – Europas grösster Gletscher. Ab Gampel ca. 50 Min., unvergessliches Naturwunder.",
+      akt9Title: "Walliser Weinberge",
+      akt9Desc: "Steile Rebberge entlang des Rhonetals. Weindegustation direkt beim Winzer – Walliser Wein pur.",
       aktOutro: "Von Gampel nach Brig oder nach Sion — der schönen Rhone entlang, zwischen Bäumen und Wiesen.",
       aktGfreidds: "Lass dich einfach überraschen — Viel Gfreidds!",
       oaDate: "19.–23. August 2026",
@@ -1153,24 +1224,25 @@
       step3Title: "Profiter",
       step3Desc: "Savourez le calme de la plaine du Valais et le panorama montagnard.",
       stat1: "Emplacements",
-      stat2: "Par nuit",
-      stat3: "Durée minimale de séjour",
-      stat4: "Jours ouverts",
+      stat2: "Arrivée à toute heure",
+      stat3Num: "Court & Long",
+      stat3: "Séjours bienvenus",
+      stat4: "Par nuit",
       featEy: "Équipements",
       featTitle: "Ce qui vous attend",
       featSub: "Tout ce qu'il vous faut pour un séjour confortable en Valais.",
-      feat1Title: "150+ emplacements",
-      feat1Desc: "11'000 m² de surface, libre choix, ombre & soleil – pour camping-cars de toutes tailles.",
-      feat2Title: "Sanitaires modernes",
-      feat2Desc: "3 douches, 3 WC, 3 lavabos, évier – propres et accessibles à tout moment.",
+      feat1Title: "Emplacements suffisants",
+      feat1Desc: "Pour camping-cars, caravanes, tentes et tous les autres campeurs.",
+      feat2Title: "Sanitaires soignés",
+      feat2Desc: "Douches, WC, lavabos – propres et accessibles à tout moment.",
       feat3Title: "Infrastructure complète",
-      feat3Desc: "48 prises CEE (16A), eau potable, vidange eaux grises & eaux noires.",
+      feat3Desc: "48 prises CEE (16A), eau potable, vidange eaux grises & eaux noires. 1 nuit, plusieurs nuits ou longs séjours bienvenus. Offre pour longs séjours sur demande.",
       feat4Title: "Emplacement idéal",
-      feat4Desc: "Au bord du Rhône, à 10 min. du village, panorama montagnard tout autour.",
+      feat4Desc: "Au bord du Rhône, au centre du Valais – village et commerces accessibles à pied.",
       feat5Title: "Nature",
       feat5Desc: "Piste cyclable du Rhône, VTT, cascade de Tourtemagne, téléphérique de Jeizinen (1500 m).",
       feat6Title: "Groupes bienvenus",
-      feat6Desc: "Idéal pour les clubs de camping-cars et les sorties d'associations.",
+      feat6Desc: "Idéal pour les clubs et les groupes. Nous aidons à l'organisation.",
       priceEy: "Tarifs",
       priceTitle: "Transparent & équitable",
       priceSub: "Aucun frais caché.",
@@ -1181,16 +1253,18 @@
       priceBtn: "Payer en ligne maintenant",
       price2Title: "Inclus pour les campeurs",
       incl1: "Électricité CEE 16A (48 prises)",
+      incl1Note: "(lors d'une réservation avec électricité)",
       incl2: "Alimentation en eau potable",
       incl3: "Vidange eaux grises & eaux noires",
       incl4: "WC & douches",
+      incl5: "Élimination des déchets",
+      incl6: "Taxe de séjour incluse",
       galEy: "Galerie",
       galTitle: "Photos de l'aire",
       galSub: "Une image vaut mille mots.",
       galMore: "Voir plus",
-      aktEy: "Découvrez la région",
+      akt1Ey: "Accessible directement depuis Gampel",
       aktTitle: "Découvrez la région",
-      aktSub: "Gampel est votre point de départ vers le Valais",
       akt1Title: "Téléphérique de Jeizinen",
       akt1Desc: "Depuis Gampel directement à 1500 m d'altitude. Vue magnifique sur la vallée du Rhône et les Alpes valaisannes.",
       akt2Title: "Cascade de Tourtemagne",
@@ -1199,10 +1273,18 @@
       akt3Desc: "De Gampel à Brigue ou Sion le long du Rhône. Plat, ombragé, convient à tous les âges.",
       akt4Title: "Chemin du Soleil valaisan",
       akt4Desc: "Randonnée par étapes de Gampel à Ausserberg avec vue spectaculaire sur la ligne du Lötschberg.",
+      akt2Ey: "30 à 60 minutes autour de l'aire",
+      akt2SectionTitle: "Découvrez le Valais",
       akt5Title: "Thermes de Loèche",
       akt5Desc: "30 min. en voiture. Les plus grands thermes alpins d'Europe avec 30 bassins à 51°C.",
       akt6Title: "Lötschental",
       akt6Desc: "La vallée latérale la plus authentique du Valais, à 20 min. Glaciers, nature et traditions valaisannes.",
+      akt7Title: "Zermatt & Cervin",
+      akt7Desc: "Le Cervin – symbole de la Suisse. Trajet en train depuis Gampel, env. 60 min. Panorama exceptionnel.",
+      akt8Title: "Glacier d'Aletsch",
+      akt8Desc: "Patrimoine mondial UNESCO – le plus grand glacier d'Europe. Env. 50 min depuis Gampel.",
+      akt9Title: "Vignobles valaisans",
+      akt9Desc: "Vignes en terrasses le long du Rhône. Dégustations directement chez le vigneron – vin valaisan pur.",
       aktOutro: "De Gampel à Brigue ou à Sion — le long du beau Rhône, entre arbres et prairies.",
       aktGfreidds: "Laissez-vous surprendre — Profitez bien!",
       oaDate: "19–23 août 2026",
@@ -1248,24 +1330,25 @@
       step3Title: "Enjoy",
       step3Desc: "Relax in the peaceful Valais valley with mountain views all around.",
       stat1: "Pitches",
-      stat2: "Per night",
-      stat3: "Minimum stay",
-      stat4: "Days open",
+      stat2: "Arrive any time",
+      stat3Num: "Short & Long",
+      stat3: "Stays welcome",
+      stat4: "Per night",
       featEy: "Facilities",
       featTitle: "What awaits you",
       featSub: "Everything you need for a comfortable stay in the Valais.",
-      feat1Title: "150+ pitches",
-      feat1Desc: "11,000 m² of space, free pitch choice, shade & sun – for motorhomes of all sizes.",
-      feat2Title: "Modern sanitary facilities",
-      feat2Desc: "3 showers, 3 toilets, 3 washbasins, washing-up sink – clean and always accessible.",
+      feat1Title: "Ample pitches",
+      feat1Desc: "For motorhomes, caravans, tents and all other campers.",
+      feat2Title: "Well-maintained facilities",
+      feat2Desc: "Showers, WC, washbasins – clean and accessible at all times.",
       feat3Title: "Full infrastructure",
-      feat3Desc: "48 CEE sockets (16A), fresh water, grey & black water disposal.",
+      feat3Desc: "48 CEE sockets (16A), fresh water, grey & black water disposal. 1 night, several nights or longer stays all welcome. Longer-stay packages available on request.",
       feat4Title: "Perfect location",
-      feat4Desc: "Right on the Rhône, 10 min. from the village, mountain panorama on all sides.",
+      feat4Desc: "Right on the Rhône, central in the Valais – village and shops within walking distance.",
       feat5Title: "Nature",
       feat5Desc: "Rhône cycle path, mountain biking, Turtmann waterfall, Jeizinen cable car (1500 m).",
       feat6Title: "Club-friendly",
-      feat6Desc: "Perfect for motorhome clubs and group outings – plenty of space for everyone.",
+      feat6Desc: "Perfect for clubs and groups. We are happy to help with organisation.",
       priceEy: "Prices",
       priceTitle: "Transparent & fair",
       priceSub: "No hidden costs.",
@@ -1276,16 +1359,18 @@
       priceBtn: "Pay online now",
       price2Title: "Included for guests",
       incl1: "Electricity CEE 16A (48 sockets)",
+      incl1Note: "(when booked with electricity)",
       incl2: "Fresh water supply",
       incl3: "Grey & black water disposal",
       incl4: "Toilets & showers",
+      incl5: "Waste disposal",
+      incl6: "Tourist tax included",
       galEy: "Gallery",
       galTitle: "Photos of the site",
       galSub: "A picture is worth a thousand words.",
       galMore: "See more",
-      aktEy: "Explore the region",
+      akt1Ey: "Reachable directly from Gampel",
       aktTitle: "Explore the region",
-      aktSub: "Gampel is your gateway to the Valais",
       akt1Title: "Jeizinen cable car",
       akt1Desc: "From Gampel directly up to 1500 m above sea level. Stunning views over the Rhône valley and the Valais Alps.",
       akt2Title: "Turtmann waterfall",
@@ -1294,10 +1379,18 @@
       akt3Desc: "From Gampel to Brig or Sion along the Rhône. Flat, shaded, suitable for all ages.",
       akt4Title: "Valais Sunny Path",
       akt4Desc: "Stage hike from Gampel to Ausserberg with spectacular views of the Lötschberg railway.",
+      akt2Ey: "30–60 minutes around the site",
+      akt2SectionTitle: "Explore the Valais",
       akt5Title: "Leukerbad Therme",
       akt5Desc: "30 min. drive. Europe's largest alpine thermal baths with 30 pools at 51°C.",
       akt6Title: "Lötschental",
       akt6Desc: "The most unspoilt side valley in the Valais, 20 min. away. Glaciers, nature and Valaisian tradition.",
+      akt7Title: "Zermatt & Matterhorn",
+      akt7Desc: "The Matterhorn – symbol of Switzerland. Train from Gampel, approx. 60 min. Breathtaking mountain scenery.",
+      akt8Title: "Aletsch Glacier",
+      akt8Desc: "UNESCO World Heritage – Europe's largest glacier. About 50 min from Gampel. An unforgettable natural wonder.",
+      akt9Title: "Valais vineyards",
+      akt9Desc: "Terraced vineyards along the Rhône valley. Wine tasting directly from local growers – pure Valais wine.",
       aktOutro: "From Gampel to Brig or Sion — along the beautiful Rhône, between trees and meadows.",
       aktGfreidds: "Let yourself be surprised — Enjoy your stay!",
       oaDate: "19–23 August 2026",
