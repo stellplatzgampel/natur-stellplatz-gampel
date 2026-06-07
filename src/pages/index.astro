@@ -9,8 +9,63 @@
   <meta name="description" content="Naturnaher Wohnmobilstellplatz in Gampel, Wallis. Ohne Reservation, ab CHF 26 pro Nacht, ganzjährig geöffnet. Direkt an der Rhone." />
   <meta property="og:title" content="Natur Stellplatz Gampel – Wohnmobil Stellplatz Wallis" />
   <meta property="og:description" content="Ohne Reservation, freie Platzwahl, ganzjährig geöffnet. Ab CHF 26 pro Nacht." />
-  <meta property="og:image" content="/images/hero.jpg" />
+  <meta property="og:image" content="https://www.natur-stellplatz-gampel.ch/images/hero.jpg" />
+  <meta property="og:url" content="https://www.natur-stellplatz-gampel.ch/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="de_CH" />
+  <meta property="og:site_name" content="Natur Stellplatz Gampel" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Natur Stellplatz Gampel – Wohnmobil Stellplatz Wallis" />
+  <meta name="twitter:description" content="Ohne Reservation, freie Platzwahl, ganzjährig geöffnet. Ab CHF 26 pro Nacht." />
+  <meta name="twitter:image" content="https://www.natur-stellplatz-gampel.ch/images/hero.jpg" />
   <meta name="color-scheme" content="only light">
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#8B2020" />
+  <link rel="canonical" href="https://www.natur-stellplatz-gampel.ch/" />
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CampingPark",
+    "name": "Natur Stellplatz Gampel",
+    "url": "https://www.natur-stellplatz-gampel.ch",
+    "description": "Naturnaher Wohnmobilstellplatz in Gampel, Wallis. Ohne Reservation, ab CHF 26 pro Nacht, ganzjährig geöffnet. Direkt an der Rhone.",
+    "image": "https://www.natur-stellplatz-gampel.ch/images/hero.jpg",
+    "telephone": "+41788202352",
+    "email": "stellplatzgampel@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Lampertji 6",
+      "addressLocality": "Gampel",
+      "postalCode": "3945",
+      "addressRegion": "Wallis",
+      "addressCountry": "CH"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 46.3257,
+      "longitude": 7.7408
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+      "opens": "00:00",
+      "closes": "23:59"
+    },
+    "priceRange": "CHF 26–29",
+    "amenityFeature": [
+      {"@type": "LocationFeatureSpecification", "name": "Strom 16A CEE", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Duschen", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "WC", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Frischwasser", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Entsorgung", "value": true}
+    ],
+    "sameAs": [
+      "https://www.instagram.com/stellplatzgampel",
+      "https://www.facebook.com/stellplatzgampel"
+    ]
+  }
+  </script>
   <style>
     /* ── LIGHT MODE ──────────────────────────── */
     :root { color-scheme: only light; }
@@ -392,10 +447,100 @@
     .akt-grid--2 { grid-template-columns: repeat(2, 1fr); }
     @media (max-width: 560px) { .akt-grid--2 { grid-template-columns: 1fr; } }
 
+    /* ── OPEN AIR NEU ────────────────────────── */
+    .oa-highlight {
+      background: rgba(255,255,255,.07); border-radius: 12px;
+      padding: 1.4rem 1.75rem; display: flex; gap: 1.25rem;
+      align-items: flex-start; margin-bottom: 2.5rem;
+      border-left: 4px solid #9ecf50;
+    }
+    .oa-highlight-icon { font-size: 1.8rem; flex-shrink: 0; margin-top: .1rem; }
+    .oa-highlight strong { color: #fff; font-size: 1rem; display: block; margin-bottom: .3rem; }
+    .oa-highlight p { color: rgba(255,255,255,.72); font-size: .9rem !important; line-height: 1.65 !important; }
+    .oa-grid-3 {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem; margin-bottom: 2rem;
+    }
+    .oa-card {
+      background: rgba(255,255,255,.07); border-radius: 12px;
+      padding: 1.75rem; border: 1px solid rgba(255,255,255,.1);
+    }
+    .oa-card--price { background: rgba(255,255,255,.13); border-color: rgba(160,207,80,.35); }
+    .oa-card-label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .13em;
+      text-transform: uppercase; color: #9ecf50; display: block; margin-bottom: .8rem;
+    }
+    .oa-price-num {
+      font-family: var(--serif); font-size: 3rem; color: #fff;
+      font-weight: bold; line-height: 1; margin-bottom: .2rem;
+    }
+    .oa-price-sub { color: rgba(255,255,255,.5); font-size: .82rem; margin-bottom: 1.25rem; }
+    .oa-incl { list-style: none; border-top: 1px solid rgba(255,255,255,.1); padding-top: .75rem; margin-bottom: 1.5rem; }
+    .oa-incl li {
+      color: rgba(255,255,255,.85); font-size: .88rem !important;
+      padding: .28rem 0; display: flex; align-items: center; gap: .5rem;
+    }
+    .oa-incl li::before { content: "✓"; color: #9ecf50; font-weight: bold; flex-shrink: 0; }
+    .oa-book-btn {
+      display: block; text-align: center; background: #9ecf50; color: #112008;
+      padding: .85rem 1.5rem; border-radius: 4px; font-size: .95rem;
+      font-weight: 700; font-family: var(--sans); transition: background .2s;
+    }
+    .oa-book-btn:hover { background: #b0e060; }
+    .oa-rules-list { list-style: none; }
+    .oa-rules-list li {
+      display: flex; gap: .75rem; align-items: flex-start;
+      padding: .55rem 0; border-bottom: 1px solid rgba(255,255,255,.08);
+      font-size: .88rem !important; color: rgba(255,255,255,.8);
+    }
+    .oa-rules-list li:last-child { border-bottom: none; }
+    .oa-rule-em {
+      background: rgba(255,255,255,.09); border-radius: 8px;
+      padding: .8rem 1rem; margin-top: .85rem;
+      font-size: .85rem !important; color: rgba(255,255,255,.72);
+      line-height: 1.6 !important;
+    }
+    .oa-tl { position: relative; }
+    .oa-tl-item { display: flex; gap: 1rem; padding-bottom: 1.1rem; position: relative; }
+    .oa-tl-item:last-child { padding-bottom: 0; }
+    .oa-tl-dot {
+      width: 10px; height: 10px; border-radius: 50%; background: #9ecf50;
+      flex-shrink: 0; margin-top: .35rem; position: relative; z-index: 1;
+    }
+    .oa-tl-item:not(:last-child) .oa-tl-dot::after {
+      content: ''; position: absolute; left: 50%; top: 100%;
+      transform: translateX(-50%); width: 1px;
+      height: calc(100% + 1.1rem - 10px);
+      background: rgba(255,255,255,.18);
+    }
+    .oa-tl-strong { color: #fff; font-weight: 700; font-size: .88rem; display: block; margin-bottom: .18rem; }
+    .oa-tl-text { color: rgba(255,255,255,.65); font-size: .83rem !important; line-height: 1.55 !important; }
+    .oa-group-box {
+      background: rgba(255,255,255,.06); border-radius: 10px;
+      padding: 1.4rem 1.75rem; margin-bottom: 2.5rem;
+      display: flex; gap: 1.25rem; align-items: flex-start;
+      border: 1px solid rgba(255,255,255,.08);
+    }
+    .oa-group-box-icon { font-size: 1.7rem; flex-shrink: 0; }
+    .oa-group-box strong { color: #fff; display: block; margin-bottom: .35rem; font-size: 1rem; }
+    .oa-group-box p { color: rgba(255,255,255,.68); font-size: .9rem !important; line-height: 1.65 !important; }
+    .oa-cta-wrap {
+      text-align: center; padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,.1);
+    }
+    .oa-cta-btn {
+      display: inline-block; background: #fff; color: #112008;
+      padding: 1rem 3rem; border-radius: 4px; font-size: 1.05rem;
+      font-weight: 700; font-family: var(--sans);
+      transition: background .2s, transform .12s;
+    }
+    .oa-cta-btn:hover { background: #d4f0a0; transform: translateY(-2px); }
+    .oa-cta-note { color: rgba(255,255,255,.4); font-size: .82rem; margin-top: .65rem; }
+
     /* ── RESPONSIVE ──────────────────────────── */
     @media (max-width: 860px) {
       .kontakt-grid { grid-template-columns: 1fr; }
-      .openair-inner { flex-direction: column; text-align: center; }
+      .oa-grid-3 { grid-template-columns: 1fr; }
       .akt-grid { grid-template-columns: 1fr 1fr; }
       .hero-overlay { padding-top: 22vh; }
     }
@@ -955,20 +1100,130 @@
 </section>
 
 
-<!-- ─── 8. OPEN AIR BANNER ─────────────────────────────────────── -->
-<div class="openair" id="openair">
-  <div class="openair-inner">
-    <div class="openair-text">
-      <div class="openair-date-tag" data-i18n="oaDate">19.–23. August 2026</div>
-      <h2 class="openair-title" data-i18n="oaTitle">Open Air Gampel 2026</h2>
-      <p class="openair-details" data-i18n="oaSub">5-Tages-Stellplatz · max. 4 Personen · inkl. Strom, WC &amp; Duschen, Entsorgung</p>
+<!-- ─── 8. OPEN AIR ──────────────────────────────────────────────── -->
+<div class="openair" id="openair" style="padding:5rem 1.5rem">
+  <div style="max-width:1140px;margin:0 auto">
+
+    <!-- Header -->
+    <div style="text-align:center;margin-bottom:2.75rem">
+      <span style="font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#9ecf50;display:block;margin-bottom:.5rem">19.–23. August 2026</span>
+      <h2 style="font-family:var(--serif);font-size:clamp(28px,5vw,56px);color:#fff;margin-bottom:.75rem;font-weight:800;line-height:1.15">Open Air Gampel 2026</h2>
+      <p style="color:rgba(255,255,255,.7);font-size:1.05rem;max-width:560px;margin:0 auto;font-style:italic">Mitten im Festivalfeeling – und trotzdem gemütlich im eigenen Wohnmobil.</p>
     </div>
-    <div class="openair-cta">
-      <div class="openair-price">CHF 240.–</div>
-      <div class="openair-price-note" data-i18n="oaPrice">Stellplatz für 5 Nächte</div>
+
+    <!-- Lage-Highlight -->
+    <div class="oa-highlight">
+      <div class="oa-highlight-icon">🚶</div>
+      <div>
+        <strong>Nur 10 Gehminuten bis «IISCHÄR PARTY»</strong>
+        <p>Das Open Air Gelände liegt direkt neben unserem Stellplatz Lampertji 6. Brauchst du Erholung, spazierst du gemütlich zurück zu deinem Wohnmobil – und schon bald kann die Party wieder starten.</p>
+      </div>
+    </div>
+
+    <!-- 3 Karten -->
+    <div class="oa-grid-3">
+
+      <!-- Preis -->
+      <div class="oa-card oa-card--price">
+        <span class="oa-card-label">Preis</span>
+        <div class="oa-price-num">CHF 240.–</div>
+        <div class="oa-price-sub">5-Tages-Stellplatz · Mi bis Mo</div>
+        <ul class="oa-incl">
+          <li>Strom CEE 16A</li>
+          <li>WC &amp; Duschen</li>
+          <li>Frischwasser &amp; Entsorgung</li>
+          <li>Early Bird: Anreise ab Mittwoch</li>
+          <li>Nacht So → Mo inbegriffen</li>
+        </ul>
+        <a href="https://park4campers.payrexx.com/de/pay?tid=909479a2"
+           target="_blank" rel="noopener" class="oa-book-btn">
+          Stellplatz buchen →
+        </a>
+      </div>
+
+      <!-- Was gilt -->
+      <div class="oa-card">
+        <span class="oa-card-label">Was gilt pro Stellplatz</span>
+        <ul class="oa-rules-list">
+          <li>
+            <span style="font-size:1.1rem;flex-shrink:0">🚐</span>
+            <span>1 Reisemobil (Büssli, Van, Wohnmobil, Wohnwagen oder Auto mit Dachzelt/Zelt)</span>
+          </li>
+          <li>
+            <span style="font-size:1.1rem;flex-shrink:0">👥</span>
+            <span>Bis 4 Personen inklusive</span>
+          </li>
+          <li>
+            <span style="font-size:1.1rem;flex-shrink:0">⛺</span>
+            <span>1 kleines Zelt neben dem Reisemobil erlaubt</span>
+          </li>
+          <li>
+            <span style="font-size:1.1rem;flex-shrink:0">🎪</span>
+            <span>Festzelt / Pavillon innerhalb einer Gruppe möglich</span>
+          </li>
+        </ul>
+        <div class="oa-rule-em">
+          <strong style="color:#fff">Zusätzliche Personen:</strong><br>
+          +1 Person: <strong style="color:#9ecf50">CHF 60.–</strong> (max. 2 pro Stellplatz)<br>
+          Ab 6 Personen: weiterer Stellplatz nötig
+        </div>
+      </div>
+
+      <!-- Ablauf -->
+      <div class="oa-card">
+        <span class="oa-card-label">So läuft's ab</span>
+        <div class="oa-tl">
+          <div class="oa-tl-item">
+            <div class="oa-tl-dot"></div>
+            <div>
+              <span class="oa-tl-strong">Jetzt buchen</span>
+              <span class="oa-tl-text">Buchungslink freigeschaltet – äs het, solang's het!</span>
+            </div>
+          </div>
+          <div class="oa-tl-item">
+            <div class="oa-tl-dot"></div>
+            <div>
+              <span class="oa-tl-strong">Ende Juli 2026</span>
+              <span class="oa-tl-text">Platznummer per E-Mail erhalten – Stellplatz auf dem Plan einfach finden</span>
+            </div>
+          </div>
+          <div class="oa-tl-item">
+            <div class="oa-tl-dot"></div>
+            <div>
+              <span class="oa-tl-strong">Mi, 19. August – Early Bird 🎉</span>
+              <span class="oa-tl-text">Anreise jederzeit möglich, Platz selber befahren, Party starten!</span>
+            </div>
+          </div>
+          <div class="oa-tl-item">
+            <div class="oa-tl-dot"></div>
+            <div>
+              <span class="oa-tl-strong">Mo, 24. August</span>
+              <span class="oa-tl-text">Nacht So → Mo im Preis inklusive – kein Rückreisestress</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Gruppen-Info -->
+    <div class="oa-group-box">
+      <div class="oa-group-box-icon">👨‍👩‍👧‍👦</div>
+      <div>
+        <strong>Als Gruppe buchen?</strong>
+        <p>Gebt bei der Buchung einen gemeinsamen Gruppennamen an – so bekommt ihr Plätze direkt nebeneinander. Oder der Gruppenorganisator bucht gleich alle gewünschten Stellplätze auf einmal (Anzahl Personen bitte angeben).</p>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="oa-cta-wrap">
       <a href="https://park4campers.payrexx.com/de/pay?tid=909479a2"
-         target="_blank" rel="noopener" class="btn-openair" data-i18n="oaBtn">Jetzt buchen</a>
+         target="_blank" rel="noopener" class="oa-cta-btn">
+        Jetzt Stellplatz fürs Open Air buchen
+      </a>
+      <div class="oa-cta-note">Äs het, solang's het – rechtzeitig buchen empfohlen!</div>
     </div>
+
   </div>
 </div>
 
@@ -1107,9 +1362,9 @@
     </div>
     <nav aria-label="Footer Navigation">
       <ul class="footer-links">
-        <li><a href="#">Datenschutz</a></li>
-        <li><a href="#">Impressum</a></li>
-        <li><a href="#">Platzordnung</a></li>
+        <li><a href="/datenschutz">Datenschutz</a></li>
+        <li><a href="/impressum">Impressum</a></li>
+        <li><a href="#kontakt">Platzordnung</a></li>
         <li><a href="#kontakt">Kontakt</a></li>
       </ul>
     </nav>
