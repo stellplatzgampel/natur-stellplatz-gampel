@@ -36,10 +36,16 @@
   {
     "@context": "https://schema.org",
     "@type": "CampingPark",
+    "@id": "https://www.natur-stellplatz-gampel.ch/#stellplatz",
     "name": "Natur Stellplatz Gampel",
     "url": "https://www.natur-stellplatz-gampel.ch",
     "description": "Naturnaher Wohnmobilstellplatz in Gampel, Wallis. Ohne Reservation, ab CHF 26 pro Nacht, ganzjährig geöffnet. Direkt an der Rhone.",
-    "image": "https://www.natur-stellplatz-gampel.ch/images/hero.jpg",
+    "image": [
+      "https://www.natur-stellplatz-gampel.ch/og-image.jpg",
+      "https://www.natur-stellplatz-gampel.ch/images/galerie-5.jpg",
+      "https://www.natur-stellplatz-gampel.ch/images/galerie-1.jpg"
+    ],
+    "logo": "https://www.natur-stellplatz-gampel.ch/icon-512.png",
     "telephone": "+41788202352",
     "email": "stellplatzgampel@gmail.com",
     "address": {
@@ -62,12 +68,22 @@
       "closes": "23:59"
     },
     "priceRange": "CHF 26–29",
+    "currenciesAccepted": "CHF",
+    "paymentAccepted": "Kreditkarte, Debitkarte, TWINT, Bargeld",
+    "isAccessibleForFree": false,
+    "areaServed": {
+      "@type": "Place",
+      "name": "Oberwallis, Wallis, Schweiz"
+    },
     "amenityFeature": [
-      {"@type": "LocationFeatureSpecification", "name": "Strom 16A CEE", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Stromanschluss CEE 16A", "value": true},
       {"@type": "LocationFeatureSpecification", "name": "Duschen", "value": true},
       {"@type": "LocationFeatureSpecification", "name": "WC", "value": true},
       {"@type": "LocationFeatureSpecification", "name": "Frischwasser", "value": true},
-      {"@type": "LocationFeatureSpecification", "name": "Entsorgung", "value": true}
+      {"@type": "LocationFeatureSpecification", "name": "Grauwasser-Entsorgung", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Schwarzwasser-Entsorgung", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Ganzjährig geöffnet", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Ohne Reservation", "value": true}
     ],
     "sameAs": [
       "https://www.instagram.com/stellplatzgampel",
