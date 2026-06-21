@@ -365,6 +365,8 @@
     }
     .akt-item h3 { font-size: clamp(14px, 2.5vw, 16px); color: var(--gruen); margin-bottom: .45rem; }
     .akt-item p { font-size: clamp(12px, 2vw, 14px); color: var(--text-soft); line-height: 1.6; }
+    a.akt-item { display: block; text-decoration: none; color: inherit; transition: box-shadow .2s, transform .15s; }
+    a.akt-item:hover { box-shadow: 0 6px 24px rgba(0,0,0,.12); transform: translateY(-2px); }
     .akt-footer { text-align: center; margin-top: 2.5rem; }
     .akt-footer p { font-size: .95rem; color: var(--text-soft); margin-bottom: .5rem; }
     .akt-gruss { font-family: var(--serif); font-size: 1.25rem; font-style: italic; color: var(--rot); }
@@ -967,7 +969,7 @@
     <h2 class="sec-title" data-i18n="aktTitle">Entdecke die Region</h2>
     <div class="akt-grid akt-grid--2">
 
-      <div class="akt-item">
+      <a class="akt-item" href="https://www.gampel-bratsch-tourismus.ch/anlagen/luftseilbahn" target="_blank" rel="noopener noreferrer">
         <div class="icon-box">
           <svg viewBox="0 0 32 32">
             <line x1="2" y1="6" x2="30" y2="10" stroke-width="2"/>
@@ -979,9 +981,9 @@
         </div>
         <h3 data-i18n="akt1Title">Seilbahn Jeizinen</h3>
         <p data-i18n="akt1Desc">Ab Gampel direkt auf 1500 m ü.M. Herrlicher Ausblick ins Rhonetal und auf die Walliser Alpen.</p>
-      </div>
+      </a>
 
-      <div class="akt-item">
+      <a class="akt-item" href="https://www.turtmann-unterems.ch/sites/tourismus/108-wasserfall-und-vieles-mehr" target="_blank" rel="noopener noreferrer">
         <div class="icon-box">
           <svg viewBox="0 0 32 32">
             <path d="M16 4 C16 4 6 16 6 21 a10 10 0 0 0 20 0 C26 16 16 4 16 4 Z"/>
@@ -989,9 +991,9 @@
         </div>
         <h3 data-i18n="akt2Title">Wasserfall Turtmann</h3>
         <p data-i18n="akt2Desc">20 Min. mit dem Velo erreichbar. Einer der schönsten Wasserfälle des Wallis, ideal für einen Tagesausflug.</p>
-      </div>
+      </a>
 
-      <div class="akt-item">
+      <a class="akt-item" href="https://www.schweizmobil.ch/de/veloland/route-01.html" target="_blank" rel="noopener noreferrer">
         <div class="icon-box">
           <svg viewBox="0 0 36 28" width="36" height="28"
             stroke="#8B2020" stroke-width="1.8" fill="none"
@@ -1016,9 +1018,9 @@
         </div>
         <h3 data-i18n="akt3Title">Rhone-Radweg</h3>
         <p data-i18n="akt3Desc">Von Gampel nach Brig oder Sion entlang der Rhone. Flach, schattig, für alle Altersgruppen geeignet.</p>
-      </div>
+      </a>
 
-      <div class="akt-item">
+      <a class="akt-item" href="https://schweizmobil.ch/de/wanderland/route-61" target="_blank" rel="noopener noreferrer">
         <div class="icon-box">
           <svg viewBox="0 0 32 32">
             <circle cx="16" cy="16" r="6"/>
@@ -1034,7 +1036,7 @@
         </div>
         <h3 data-i18n="akt4Title">Walliser Sonnenweg</h3>
         <p data-i18n="akt4Desc">Etappenwanderung ab Gampel nach Ausserberg mit spektakulärer Aussicht auf die Lötschbergbahn.</p>
-      </div>
+      </a>
 
     </div>
 
@@ -1044,7 +1046,7 @@
       <h2 class="sec-title" data-i18n="akt2SectionTitle">Entdecke das Wallis</h2>
       <div class="akt-grid">
 
-        <div class="akt-item">
+        <a class="akt-item" href="https://leukerbad.ch/therme#informationen" target="_blank" rel="noopener noreferrer">
           <div class="icon-box">
             <svg viewBox="0 0 32 32">
               <path d="M10 6 Q11 3 10 1" stroke-width="1.5"/>
@@ -1058,9 +1060,9 @@
           </div>
           <h3 data-i18n="akt5Title">Leukerbad Therme</h3>
           <p data-i18n="akt5Desc">30 Min. Fahrzeit. Europas grösste Alpentherme mit 30 Thermalbecken und 51°C Quellwasser.</p>
-        </div>
+        </a>
 
-        <div class="akt-item">
+        <a class="akt-item" href="https://www.loetschental.ch/" target="_blank" rel="noopener noreferrer">
           <div class="icon-box">
             <svg viewBox="0 0 32 32">
               <polyline points="1,28 9,8 17,28"/>
@@ -1071,9 +1073,9 @@
           </div>
           <h3 data-i18n="akt6Title">Lötschental</h3>
           <p data-i18n="akt6Desc">Das ursprünglichste Seitental des Wallis, 20 Min. Fahrzeit. Gletscher, Natur und Walliser Tradition pur.</p>
-        </div>
+        </a>
 
-        <div class="akt-item">
+        <a class="akt-item" href="https://zermatt.swiss/" target="_blank" rel="noopener noreferrer">
           <div class="icon-box">
             <!-- Matterhorn — markante Spitze -->
             <svg viewBox="0 0 32 32" fill="none" stroke="#8B2020" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1083,9 +1085,9 @@
           </div>
           <h3 data-i18n="akt7Title">Zermatt &amp; Matterhorn</h3>
           <p data-i18n="akt7Desc">Das Matterhorn – Symbol der Schweiz. Bahnfahrt ab Gampel, ca. 60 Min. Einmaliges Bergpanorama.</p>
-        </div>
+        </a>
 
-        <div class="akt-item">
+        <a class="akt-item" href="https://jungfraualetsch.ch/" target="_blank" rel="noopener noreferrer">
           <div class="icon-box">
             <!-- Aletschgletscher — Schneeflocke -->
             <svg viewBox="0 0 32 32" fill="none" stroke="#8B2020" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1101,9 +1103,9 @@
           </div>
           <h3 data-i18n="akt8Title">Aletschgletscher</h3>
           <p data-i18n="akt8Desc">UNESCO-Welterbe – Europas grösster Gletscher. Ab Gampel ca. 50 Min., unvergessliches Naturwunder.</p>
-        </div>
+        </a>
 
-        <div class="akt-item">
+        <a class="akt-item" href="https://www.weinwanderungen.ch/" target="_blank" rel="noopener noreferrer">
           <div class="icon-box">
             <!-- Weinberge — Weinglas -->
             <svg viewBox="0 0 32 32" fill="none" stroke="#8B2020" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1114,9 +1116,9 @@
           </div>
           <h3 data-i18n="akt9Title">Walliser Weinberge</h3>
           <p data-i18n="akt9Desc">Steile Rebberge entlang des Rhonetals. Weindegustation direkt beim Winzer – Walliser Wein pur.</p>
-        </div>
+        </a>
 
-        <div class="akt-item">
+        <a class="akt-item" href="https://www.stockalperstiftung.ch/" target="_blank" rel="noopener noreferrer">
           <div class="icon-box">
             <!-- Stockalperpalast — Schloss/Gebäude -->
             <svg viewBox="0 0 32 32" fill="none" stroke="#8B2020" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1137,7 +1139,7 @@
           </div>
           <h3 data-i18n="akt10Title">Stockalperpalast Brig</h3>
           <p data-i18n="akt10Desc">Barocker Prachtbau direkt in Brig. Walliser Geschichte hautnah – ca. 20 Min. ab Gampel.</p>
-        </div>
+        </a>
 
       </div>
     </div>
@@ -1352,7 +1354,7 @@
           <div class="k-item-icon">
             <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
           </div>
-          <div class="k-item-text">Platzwärtin Myrtha Köppel</div>
+          <div class="k-item-text">Platzwartin Myrtha Köppel</div>
         </div>
 
         <div class="k-item">
