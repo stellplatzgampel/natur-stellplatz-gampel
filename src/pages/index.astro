@@ -367,8 +367,9 @@
     .akt-item p { font-size: clamp(12px, 2vw, 14px); color: var(--text-soft); line-height: 1.6; }
     a.akt-item { display: block; text-decoration: none; color: inherit; transition: box-shadow .2s, transform .15s; position: relative; }
     a.akt-item:hover { box-shadow: 0 6px 24px rgba(0,0,0,.12); transform: translateY(-2px); }
-    a.akt-item::after { content: '↗'; position: absolute; top: .9rem; right: 1rem; font-size: .8rem; color: var(--rot); opacity: .35; transition: opacity .2s; pointer-events: none; }
-    a.akt-item:hover::after { opacity: 1; }
+    @keyframes akt-glow { 0%,100% { opacity:.45; text-shadow:none; } 50% { opacity:1; text-shadow:0 0 8px rgba(139,32,32,.6); } }
+    a.akt-item::after { content: '↗'; position: absolute; top: .75rem; right: .9rem; font-size: 1.15rem; font-weight: 700; color: var(--rot); animation: akt-glow 1.8s ease-in-out infinite; transition: opacity .2s; pointer-events: none; }
+    a.akt-item:hover::after { opacity: 1; animation: none; text-shadow: 0 0 10px rgba(139,32,32,.5); }
     .akt-footer { text-align: center; margin-top: 2.5rem; }
     .akt-footer p { font-size: .95rem; color: var(--text-soft); margin-bottom: .5rem; }
     .akt-gruss { font-family: var(--serif); font-size: 1.25rem; font-style: italic; color: var(--rot); }
