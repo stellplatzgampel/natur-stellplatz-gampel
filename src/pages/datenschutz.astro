@@ -6,7 +6,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="google-site-verification" content="L_I8rjoq5KvYA5_mppiGdRdEHE1peI0jfhFloBzQ5a0" />
-  <title>Datenschutzerklärung – Natur Stellplatz Gampel</title>
+  <title data-i18n="metaTitle">Datenschutzerklärung – Natur Stellplatz Gampel</title>
   <meta name="description" content="Datenschutzerklärung des Natur Stellplatz Gampel gemäss Schweizer Datenschutzgesetz (DSG)." />
   <meta name="robots" content="noindex, follow" />
   <meta name="theme-color" content="#8B2020" />
@@ -32,10 +32,20 @@
     .topbar {
       background: #FAF8F4; border-bottom: 1px solid #e8e4dc;
       padding: 1rem 1.5rem;
-      display: flex; align-items: center; justify-content: space-between;
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
     }
     .topbar-logo { font-family: var(--serif); font-size: 1rem; color: var(--text); font-weight: 700; text-decoration: none; }
+    .topbar-right { display: flex; align-items: center; gap: 1rem; }
     .topbar-back { font-size: .85rem; color: var(--rot); font-weight: 600; }
+    .lang-switch { display: flex; gap: 6px; }
+    .lb {
+      border: 1px solid #ccc; background: none;
+      padding: .25rem .65rem; font-size: .75rem; font-weight: 600;
+      letter-spacing: .04em; cursor: pointer; border-radius: 3px;
+      color: #1A1A18; font-family: var(--sans); transition: all .18s;
+    }
+    .lb.on,
+    .lb:hover { background: var(--rot); color: #fff; border-color: var(--rot); }
 
     .page-wrap { max-width: 760px; margin: 0 auto; padding: 4rem 1.5rem 6rem; }
     .page-tag {
@@ -62,85 +72,299 @@
 
 <div class="topbar">
   <a href="/" class="topbar-logo">Natur Stellplatz Gampel</a>
-  <a href="/" class="topbar-back">← Zurück zur Startseite</a>
+  <div class="topbar-right">
+    <div class="lang-switch">
+      <button class="lb lang-btn" data-lang="de" onclick="setLang('de')">DE</button>
+      <button class="lb lang-btn" data-lang="fr" onclick="setLang('fr')">FR</button>
+      <button class="lb lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+    </div>
+    <a href="/" class="topbar-back" data-i18n="topbarBack">← Zurück zur Startseite</a>
+  </div>
 </div>
 
 <div class="page-wrap">
-  <span class="page-tag">Rechtliches</span>
-  <h1>Datenschutzerklärung</h1>
+  <span class="page-tag" data-i18n="pageTag">Rechtliches</span>
+  <h1 data-i18n="title">Datenschutzerklärung</h1>
 
   <div class="highlight-box">
-    Der Schutz Ihrer persönlichen Daten ist uns wichtig. Diese Erklärung informiert Sie darüber, welche Daten wir erheben, wie wir sie verwenden und welche Rechte Sie haben – gemäss dem Schweizer Datenschutzgesetz (DSG) und, soweit anwendbar, der europäischen Datenschutz-Grundverordnung (DSGVO).
+    <p data-i18n="introBox">Der Schutz Ihrer persönlichen Daten ist uns wichtig. Diese Erklärung informiert Sie darüber, welche Daten wir erheben, wie wir sie verwenden und welche Rechte Sie haben – gemäss dem Schweizer Datenschutzgesetz (DSG) und, soweit anwendbar, der europäischen Datenschutz-Grundverordnung (DSGVO).</p>
   </div>
 
-  <h2>1. Verantwortliche Person</h2>
-  <p>
-    Myrtha Köppel (Platzwärtin)<br />
-    Natur Stellplatz Gampel<br />
-    Lampertji 7, 3945 Gampel, Wallis, Schweiz<br />
-    E-Mail: <a href="mailto:stellplatzgampel@gmail.com">stellplatzgampel@gmail.com</a><br />
-    Telefon: <a href="tel:+41788202352">+41 78 820 23 52</a>
-  </p>
+  <h2 data-i18n="h2_1">1. Verantwortliche Stelle</h2>
+  <p data-i18n-html="s1Html">Stellplatz Gampel GmbH<br />Vertretung: Myrtha Köppel (Platzwärtin)<br />Sitz: Gewerbestrasse 13, 3945 Gampel, Wallis, Schweiz<br />Standort Stellplatz: Lampertji 7, 3945 Gampel, Wallis, Schweiz<br />E-Mail: <a href="mailto:stellplatzgampel@gmail.com">stellplatzgampel@gmail.com</a><br />Telefon: <a href="tel:+41788202352">+41 78 820 23 52</a></p>
 
-  <h2>2. Erhebung und Verarbeitung von Daten</h2>
-
-  <p><strong>Beim Besuch dieser Website</strong> werden durch unseren Hosting-Anbieter (Vercel Inc., 340 Pine Street, Suite 900, San Francisco, CA 94104, USA) automatisch Server-Logfiles gespeichert. Dazu gehören:</p>
+  <h2 data-i18n="h2_2">2. Erhebung und Verarbeitung von Daten</h2>
+  <p><strong data-i18n="s2P1Bold">Beim Besuch dieser Website</strong><span data-i18n="s2P1Text"> werden durch unseren Hosting-Anbieter (Vercel Inc., 340 Pine Street, Suite 900, San Francisco, CA 94104, USA) automatisch Server-Logfiles gespeichert. Dazu gehören:</span></p>
   <ul>
-    <li>IP-Adresse (anonymisiert)</li>
-    <li>Datum und Uhrzeit des Zugriffs</li>
-    <li>Aufgerufene Seite / URL</li>
-    <li>Browser und Betriebssystem</li>
-    <li>HTTP-Statuscode</li>
+    <li data-i18n="s2Li1">IP-Adresse (anonymisiert)</li>
+    <li data-i18n="s2Li2">Datum und Uhrzeit des Zugriffs</li>
+    <li data-i18n="s2Li3">Aufgerufene Seite / URL</li>
+    <li data-i18n="s2Li4">Browser und Betriebssystem</li>
+    <li data-i18n="s2Li5">HTTP-Statuscode</li>
   </ul>
-  <p>Diese Daten dienen ausschliesslich der technischen Sicherheit und Fehleranalyse. Sie werden nicht mit anderen Daten zusammengeführt und nach spätestens 30 Tagen gelöscht. Rechtsgrundlage: berechtigtes Interesse (Art. 6 Abs. 1 lit. f DSGVO / Art. 31 DSG).</p>
+  <p data-i18n="s2P2">Diese Daten dienen ausschliesslich der technischen Sicherheit und Fehleranalyse. Sie werden nicht mit anderen Daten zusammengeführt und nach spätestens 30 Tagen gelöscht. Rechtsgrundlage: berechtigtes Interesse (Art. 6 Abs. 1 lit. f DSGVO / Art. 31 DSG).</p>
+  <p><strong data-i18n="s2P3Bold">Spracheinstellung (LocalStorage):</strong><span data-i18n="s2P3Text"> Diese Website speichert Ihre gewählte Sprache (DE/FR/EN) lokal in Ihrem Browser (localStorage). Es werden dabei keine Daten an uns übertragen. Sie können diese Daten jederzeit über Ihren Browser löschen.</span></p>
 
-  <p><strong>Spracheinstellung (LocalStorage):</strong> Diese Website speichert Ihre gewählte Sprache (DE/FR/EN) lokal in Ihrem Browser (localStorage). Es werden dabei keine Daten an uns übertragen. Sie können diese Daten jederzeit über Ihren Browser löschen.</p>
+  <h2 data-i18n="h2_3">3. Kontaktaufnahme per E-Mail oder Telefon</h2>
+  <p data-i18n="s3Text">Wenn Sie uns per E-Mail oder Telefon kontaktieren, werden Ihre Angaben (Name, E-Mail-Adresse, Nachricht) zur Bearbeitung Ihrer Anfrage gespeichert. Diese Daten werden nicht an Dritte weitergegeben und nach Abschluss der Anfrage gelöscht, sofern keine gesetzliche Aufbewahrungspflicht besteht.</p>
 
-  <h2>3. Kontaktaufnahme per E-Mail oder Telefon</h2>
-  <p>Wenn Sie uns per E-Mail oder Telefon kontaktieren, werden Ihre Angaben (Name, E-Mail-Adresse, Nachricht) zur Bearbeitung Ihrer Anfrage gespeichert. Diese Daten werden nicht an Dritte weitergegeben und nach Abschluss der Anfrage gelöscht, sofern keine gesetzliche Aufbewahrungspflicht besteht.</p>
+  <h2 data-i18n="h2_4">4. Online-Buchung und Zahlung</h2>
+  <p data-i18n-html="s4Html">Die Online-Zahlung für Stellplätze erfolgt über den externen Anbieter <strong>Payrexx AG</strong> (Weinbergstrasse 31, 3952 Susten, Schweiz). Beim Bezahlvorgang werden Sie auf die Payrexx-Plattform weitergeleitet. Für die Verarbeitung der Zahlungsdaten gelten die Datenschutzbestimmungen von Payrexx: <a href="https://www.payrexx.com/de/datenschutz/" target="_blank" rel="noopener">www.payrexx.com/de/datenschutz</a>. Die Allgemeinen Geschäftsbedingungen für Buchungen finden Sie unter <a href="/agb">AGB</a>.</p>
 
-  <h2>4. Online-Buchung und Zahlung</h2>
-  <p>Die Online-Zahlung für Stellplätze erfolgt über den externen Anbieter <strong>Payrexx AG</strong> (Weinbergstrasse 31, 3952 Susten, Schweiz). Beim Bezahlvorgang werden Sie auf die Payrexx-Plattform weitergeleitet. Für die Verarbeitung der Zahlungsdaten gelten die Datenschutzbestimmungen von Payrexx: <a href="https://www.payrexx.com/de/datenschutz/" target="_blank" rel="noopener">www.payrexx.com/de/datenschutz</a>.</p>
+  <h2 data-i18n="h2_5">5. Externe Dienste und Links</h2>
+  <p><strong data-i18n="s5MapsBold">Google Maps:</strong><span data-i18n="s5MapsText"> Auf dieser Website ist ein Link zu Google Maps (Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA) enthalten. Beim Klick auf diesen Link verlassen Sie unsere Website. Für die dann geltenden Datenschutzbestimmungen ist Google verantwortlich.</span></p>
+  <p><strong data-i18n="s5SocialBold">Instagram / Facebook:</strong><span data-i18n="s5SocialText"> Wir verlinken auf unsere Profile bei Instagram und Facebook (Meta Platforms Ireland Ltd.). Diese Links führen zu externen Plattformen. Durch das blosse Verlinken werden keine Daten an Meta übertragen. Die Datenschutzbestimmungen von Meta gelten ab dem Moment, in dem Sie diese Seiten besuchen.</span></p>
+  <p><strong data-i18n="s5NotrackBold">Kein Tracking / keine Analyse-Tools:</strong><span data-i18n="s5NotrackText"> Diese Website verwendet keine Analyse- oder Tracking-Tools (kein Google Analytics, kein Facebook Pixel o. Ä.).</span></p>
 
-  <h2>5. Externe Dienste und Links</h2>
+  <h2 data-i18n="h2_6">6. Cookies</h2>
+  <p data-i18n="s6Text">Diese Website verwendet keine Cookies. Die Sprachpräferenz wird im localStorage des Browsers gespeichert (siehe Ziffer 2), was technisch kein Cookie ist und keine Tracking-Funktion hat.</p>
 
-  <p><strong>Google Maps:</strong> Auf dieser Website ist ein Link zu Google Maps (Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA) enthalten. Beim Klick auf diesen Link verlassen Sie unsere Website. Für die dann geltenden Datenschutzbestimmungen ist Google verantwortlich.</p>
+  <h2 data-i18n="h2_7">7. Aufbewahrungsdauer</h2>
+  <p data-i18n="s7Text">Wir bearbeiten Ihre Personendaten nur so lange, wie dies für die jeweiligen Zwecke oder zur Erfüllung gesetzlicher und vertraglicher Pflichten erforderlich ist. Sobald Personendaten für diese Zwecke nicht mehr benötigt werden, löschen oder anonymisieren wir sie, soweit keine gesetzlichen Aufbewahrungspflichten entgegenstehen.</p>
 
-  <p><strong>Instagram / Facebook:</strong> Wir verlinken auf unsere Profile bei Instagram und Facebook (Meta Platforms Ireland Ltd.). Diese Links führen zu externen Plattformen. Es werden durch das blosse Verlinken keine Daten an Meta übertragen. Die Datenschutzbestimmungen von Meta gelten ab dem Moment, in dem Sie diese Seiten besuchen.</p>
+  <h2 data-i18n="h2_8">8. Bekanntgabe und Übermittlung von Daten</h2>
+  <p data-i18n="s8Text">Wir geben Personendaten nur insoweit an Dritte weiter, als dies zur Erbringung unserer Leistungen notwendig ist (z. B. an unseren Hosting-Anbieter Vercel oder den Zahlungsdienstleister Payrexx, siehe Ziffer 2 und 4) oder wir gesetzlich dazu verpflichtet sind. Soweit dabei Daten ins Ausland (z. B. USA) übermittelt werden, stellen wir durch geeignete Massnahmen ein angemessenes Schutzniveau sicher.</p>
 
-  <p><strong>Kein Tracking / keine Analyse-Tools:</strong> Diese Website verwendet keine Analyse- oder Tracking-Tools (kein Google Analytics, kein Facebook Pixel o.ä.).</p>
-
-  <h2>6. Cookies</h2>
-  <p>Diese Website verwendet keine Cookies. Die Sprachpräferenz wird im localStorage des Browsers gespeichert (siehe Punkt 2), was technisch kein Cookie ist und keine Tracking-Funktion hat.</p>
-
-  <h2>7. Ihre Rechte</h2>
-  <p>Sie haben folgende Rechte bezüglich Ihrer personenbezogenen Daten:</p>
+  <h2 data-i18n="h2_9">9. Ihre Rechte</h2>
+  <p data-i18n="s9Text">Sie haben folgende Rechte bezüglich Ihrer personenbezogenen Daten:</p>
   <ul>
-    <li><strong>Auskunft:</strong> Sie können jederzeit Auskunft über die von uns gespeicherten Daten verlangen.</li>
-    <li><strong>Berichtigung:</strong> Sie können die Berichtigung unrichtiger Daten verlangen.</li>
-    <li><strong>Löschung:</strong> Sie können die Löschung Ihrer Daten verlangen, soweit keine gesetzliche Aufbewahrungspflicht entgegensteht.</li>
-    <li><strong>Einschränkung:</strong> Sie können die Einschränkung der Verarbeitung verlangen.</li>
-    <li><strong>Widerspruch:</strong> Sie können der Verarbeitung Ihrer Daten widersprechen.</li>
+    <li><strong data-i18n="s9Li1Bold">Auskunft:</strong><span data-i18n="s9Li1Text"> Sie können jederzeit Auskunft über die von uns gespeicherten Daten verlangen.</span></li>
+    <li><strong data-i18n="s9Li2Bold">Berichtigung:</strong><span data-i18n="s9Li2Text"> Sie können die Berichtigung unrichtiger Daten verlangen.</span></li>
+    <li><strong data-i18n="s9Li3Bold">Löschung:</strong><span data-i18n="s9Li3Text"> Sie können die Löschung Ihrer Daten verlangen, soweit keine gesetzliche Aufbewahrungspflicht entgegensteht.</span></li>
+    <li><strong data-i18n="s9Li4Bold">Einschränkung:</strong><span data-i18n="s9Li4Text"> Sie können die Einschränkung der Verarbeitung verlangen.</span></li>
+    <li><strong data-i18n="s9Li5Bold">Datenübertragbarkeit:</strong><span data-i18n="s9Li5Text"> Soweit gesetzlich vorgesehen, können Sie die Herausgabe Ihrer Daten in einem gängigen Format verlangen.</span></li>
+    <li><strong data-i18n="s9Li6Bold">Widerspruch:</strong><span data-i18n="s9Li6Text"> Sie können der Verarbeitung Ihrer Daten widersprechen.</span></li>
   </ul>
-  <p>Richten Sie entsprechende Anfragen an: <a href="mailto:stellplatzgampel@gmail.com">stellplatzgampel@gmail.com</a></p>
+  <p data-i18n-html="s9ContactHtml">Richten Sie entsprechende Anfragen an: <a href="mailto:stellplatzgampel@gmail.com">stellplatzgampel@gmail.com</a></p>
 
-  <h2>8. Beschwerderecht</h2>
-  <p>Sie haben das Recht, sich beim Eidgenössischen Datenschutz- und Öffentlichkeitsbeauftragten (EDÖB) zu beschweren: <a href="https://www.edoeb.admin.ch" target="_blank" rel="noopener">www.edoeb.admin.ch</a></p>
+  <h2 data-i18n="h2_10">10. Beschwerderecht</h2>
+  <p data-i18n-html="s10Html">Sie haben das Recht, sich bei der zuständigen Aufsichtsbehörde zu beschweren. In der Schweiz ist dies der Eidgenössische Datenschutz- und Öffentlichkeitsbeauftragte (EDÖB): <a href="https://www.edoeb.admin.ch" target="_blank" rel="noopener">www.edoeb.admin.ch</a></p>
 
-  <h2>9. Änderungen dieser Datenschutzerklärung</h2>
-  <p>Wir behalten uns vor, diese Datenschutzerklärung bei Bedarf anzupassen. Die jeweils aktuelle Version ist auf dieser Website verfügbar.</p>
+  <h2 data-i18n="h2_11">11. Änderungen dieser Datenschutzerklärung</h2>
+  <p data-i18n="s11Text">Wir behalten uns vor, diese Datenschutzerklärung jederzeit ohne Vorankündigung anzupassen. Es gilt die jeweils aktuelle, auf dieser Website publizierte Fassung.</p>
 
   <hr />
-  <p style="font-size:.85rem; color:var(--soft);">Stand: Juni 2026</p>
+  <p style="font-size:.85rem; color:var(--soft);" data-i18n="stand">Stand: Juli 2026</p>
 </div>
 
 <footer class="page-footer">
-  <a href="/">Startseite</a>
-  <a href="/impressum">Impressum</a>
-  <a href="/datenschutz">Datenschutz</a>
+  <a href="/" data-i18n="footerHome">Startseite</a>
+  <a href="/agb" data-i18n="footerAgb">AGB</a>
+  <a href="/datenschutz" data-i18n="footerPrivacy">Datenschutz</a>
+  <a href="/impressum" data-i18n="footerImprint">Impressum</a>
   <br/><br/>
   © 2026 Natur Stellplatz Gampel
 </footer>
+
+<script is:inline>
+  const translations = {
+    de: {
+      metaTitle: "Datenschutzerklärung – Natur Stellplatz Gampel",
+      pageTag: "Rechtliches",
+      topbarBack: "← Zurück zur Startseite",
+      title: "Datenschutzerklärung",
+      introBox: "Der Schutz Ihrer persönlichen Daten ist uns wichtig. Diese Erklärung informiert Sie darüber, welche Daten wir erheben, wie wir sie verwenden und welche Rechte Sie haben – gemäss dem Schweizer Datenschutzgesetz (DSG) und, soweit anwendbar, der europäischen Datenschutz-Grundverordnung (DSGVO).",
+      h2_1: "1. Verantwortliche Stelle",
+      s1Html: 'Stellplatz Gampel GmbH<br />Vertretung: Myrtha Köppel (Platzwärtin)<br />Sitz: Gewerbestrasse 13, 3945 Gampel, Wallis, Schweiz<br />Standort Stellplatz: Lampertji 7, 3945 Gampel, Wallis, Schweiz<br />E-Mail: <a href="mailto:stellplatzgampel@gmail.com">stellplatzgampel@gmail.com</a><br />Telefon: <a href="tel:+41788202352">+41 78 820 23 52</a>',
+      h2_2: "2. Erhebung und Verarbeitung von Daten",
+      s2P1Bold: "Beim Besuch dieser Website",
+      s2P1Text: " werden durch unseren Hosting-Anbieter (Vercel Inc., 340 Pine Street, Suite 900, San Francisco, CA 94104, USA) automatisch Server-Logfiles gespeichert. Dazu gehören:",
+      s2Li1: "IP-Adresse (anonymisiert)",
+      s2Li2: "Datum und Uhrzeit des Zugriffs",
+      s2Li3: "Aufgerufene Seite / URL",
+      s2Li4: "Browser und Betriebssystem",
+      s2Li5: "HTTP-Statuscode",
+      s2P2: "Diese Daten dienen ausschliesslich der technischen Sicherheit und Fehleranalyse. Sie werden nicht mit anderen Daten zusammengeführt und nach spätestens 30 Tagen gelöscht. Rechtsgrundlage: berechtigtes Interesse (Art. 6 Abs. 1 lit. f DSGVO / Art. 31 DSG).",
+      s2P3Bold: "Spracheinstellung (LocalStorage):",
+      s2P3Text: " Diese Website speichert Ihre gewählte Sprache (DE/FR/EN) lokal in Ihrem Browser (localStorage). Es werden dabei keine Daten an uns übertragen. Sie können diese Daten jederzeit über Ihren Browser löschen.",
+      h2_3: "3. Kontaktaufnahme per E-Mail oder Telefon",
+      s3Text: "Wenn Sie uns per E-Mail oder Telefon kontaktieren, werden Ihre Angaben (Name, E-Mail-Adresse, Nachricht) zur Bearbeitung Ihrer Anfrage gespeichert. Diese Daten werden nicht an Dritte weitergegeben und nach Abschluss der Anfrage gelöscht, sofern keine gesetzliche Aufbewahrungspflicht besteht.",
+      h2_4: "4. Online-Buchung und Zahlung",
+      s4Html: 'Die Online-Zahlung für Stellplätze erfolgt über den externen Anbieter <strong>Payrexx AG</strong> (Weinbergstrasse 31, 3952 Susten, Schweiz). Beim Bezahlvorgang werden Sie auf die Payrexx-Plattform weitergeleitet. Für die Verarbeitung der Zahlungsdaten gelten die Datenschutzbestimmungen von Payrexx: <a href="https://www.payrexx.com/de/datenschutz/" target="_blank" rel="noopener">www.payrexx.com/de/datenschutz</a>. Die Allgemeinen Geschäftsbedingungen für Buchungen finden Sie unter <a href="/agb">AGB</a>.',
+      h2_5: "5. Externe Dienste und Links",
+      s5MapsBold: "Google Maps:",
+      s5MapsText: " Auf dieser Website ist ein Link zu Google Maps (Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA) enthalten. Beim Klick auf diesen Link verlassen Sie unsere Website. Für die dann geltenden Datenschutzbestimmungen ist Google verantwortlich.",
+      s5SocialBold: "Instagram / Facebook:",
+      s5SocialText: " Wir verlinken auf unsere Profile bei Instagram und Facebook (Meta Platforms Ireland Ltd.). Diese Links führen zu externen Plattformen. Durch das blosse Verlinken werden keine Daten an Meta übertragen. Die Datenschutzbestimmungen von Meta gelten ab dem Moment, in dem Sie diese Seiten besuchen.",
+      s5NotrackBold: "Kein Tracking / keine Analyse-Tools:",
+      s5NotrackText: " Diese Website verwendet keine Analyse- oder Tracking-Tools (kein Google Analytics, kein Facebook Pixel o. Ä.).",
+      h2_6: "6. Cookies",
+      s6Text: "Diese Website verwendet keine Cookies. Die Sprachpräferenz wird im localStorage des Browsers gespeichert (siehe Ziffer 2), was technisch kein Cookie ist und keine Tracking-Funktion hat.",
+      h2_7: "7. Aufbewahrungsdauer",
+      s7Text: "Wir bearbeiten Ihre Personendaten nur so lange, wie dies für die jeweiligen Zwecke oder zur Erfüllung gesetzlicher und vertraglicher Pflichten erforderlich ist. Sobald Personendaten für diese Zwecke nicht mehr benötigt werden, löschen oder anonymisieren wir sie, soweit keine gesetzlichen Aufbewahrungspflichten entgegenstehen.",
+      h2_8: "8. Bekanntgabe und Übermittlung von Daten",
+      s8Text: "Wir geben Personendaten nur insoweit an Dritte weiter, als dies zur Erbringung unserer Leistungen notwendig ist (z. B. an unseren Hosting-Anbieter Vercel oder den Zahlungsdienstleister Payrexx, siehe Ziffer 2 und 4) oder wir gesetzlich dazu verpflichtet sind. Soweit dabei Daten ins Ausland (z. B. USA) übermittelt werden, stellen wir durch geeignete Massnahmen ein angemessenes Schutzniveau sicher.",
+      h2_9: "9. Ihre Rechte",
+      s9Text: "Sie haben folgende Rechte bezüglich Ihrer personenbezogenen Daten:",
+      s9Li1Bold: "Auskunft:",
+      s9Li1Text: " Sie können jederzeit Auskunft über die von uns gespeicherten Daten verlangen.",
+      s9Li2Bold: "Berichtigung:",
+      s9Li2Text: " Sie können die Berichtigung unrichtiger Daten verlangen.",
+      s9Li3Bold: "Löschung:",
+      s9Li3Text: " Sie können die Löschung Ihrer Daten verlangen, soweit keine gesetzliche Aufbewahrungspflicht entgegensteht.",
+      s9Li4Bold: "Einschränkung:",
+      s9Li4Text: " Sie können die Einschränkung der Verarbeitung verlangen.",
+      s9Li5Bold: "Datenübertragbarkeit:",
+      s9Li5Text: " Soweit gesetzlich vorgesehen, können Sie die Herausgabe Ihrer Daten in einem gängigen Format verlangen.",
+      s9Li6Bold: "Widerspruch:",
+      s9Li6Text: " Sie können der Verarbeitung Ihrer Daten widersprechen.",
+      s9ContactHtml: 'Richten Sie entsprechende Anfragen an: <a href="mailto:stellplatzgampel@gmail.com">stellplatzgampel@gmail.com</a>',
+      h2_10: "10. Beschwerderecht",
+      s10Html: 'Sie haben das Recht, sich bei der zuständigen Aufsichtsbehörde zu beschweren. In der Schweiz ist dies der Eidgenössische Datenschutz- und Öffentlichkeitsbeauftragte (EDÖB): <a href="https://www.edoeb.admin.ch" target="_blank" rel="noopener">www.edoeb.admin.ch</a>',
+      h2_11: "11. Änderungen dieser Datenschutzerklärung",
+      s11Text: "Wir behalten uns vor, diese Datenschutzerklärung jederzeit ohne Vorankündigung anzupassen. Es gilt die jeweils aktuelle, auf dieser Website publizierte Fassung.",
+      stand: "Stand: Juli 2026",
+      footerHome: "Startseite",
+      footerPrivacy: "Datenschutz",
+      footerImprint: "Impressum",
+      footerAgb: "AGB",
+    },
+    fr: {
+      metaTitle: "Politique de confidentialité – Natur Stellplatz Gampel",
+      pageTag: "Mentions légales",
+      topbarBack: "← Retour à la page d'accueil",
+      title: "Politique de confidentialité",
+      introBox: "La protection de vos données personnelles nous tient à cœur. Cette déclaration vous informe sur les données que nous collectons, la manière dont nous les utilisons et les droits dont vous disposez – conformément à la loi suisse sur la protection des données (LPD) et, dans la mesure applicable, au règlement général européen sur la protection des données (RGPD).",
+      h2_1: "1. Responsable du traitement",
+      s1Html: 'Stellplatz Gampel GmbH<br />Représentation : Myrtha Köppel (Gardienne du site)<br />Siège : Gewerbestrasse 13, 3945 Gampel, Valais, Suisse<br />Emplacement du site : Lampertji 7, 3945 Gampel, Valais, Suisse<br />E-mail : <a href="mailto:stellplatzgampel@gmail.com">stellplatzgampel@gmail.com</a><br />Téléphone : <a href="tel:+41788202352">+41 78 820 23 52</a>',
+      h2_2: "2. Collecte et traitement des données",
+      s2P1Bold: "Lors de la visite de ce site web",
+      s2P1Text: ", notre hébergeur (Vercel Inc., 340 Pine Street, Suite 900, San Francisco, CA 94104, États-Unis) enregistre automatiquement des fichiers journaux du serveur. Ceux-ci comprennent :",
+      s2Li1: "Adresse IP (anonymisée)",
+      s2Li2: "Date et heure de l'accès",
+      s2Li3: "Page / URL consultée",
+      s2Li4: "Navigateur et système d'exploitation",
+      s2Li5: "Code de statut HTTP",
+      s2P2: "Ces données servent exclusivement à la sécurité technique et à l'analyse des erreurs. Elles ne sont pas combinées avec d'autres données et sont supprimées au plus tard après 30 jours. Base légale : intérêt légitime (art. 6 al. 1 let. f RGPD / art. 31 LPD).",
+      s2P3Bold: "Préférence linguistique (LocalStorage) :",
+      s2P3Text: " Ce site enregistre la langue que vous avez choisie (DE/FR/EN) localement dans votre navigateur (localStorage). Aucune donnée ne nous est transmise à cette occasion. Vous pouvez supprimer ces données à tout moment via votre navigateur.",
+      h2_3: "3. Prise de contact par e-mail ou par téléphone",
+      s3Text: "Lorsque vous nous contactez par e-mail ou par téléphone, vos informations (nom, adresse e-mail, message) sont enregistrées afin de traiter votre demande. Ces données ne sont pas transmises à des tiers et sont supprimées une fois la demande traitée, sauf obligation légale de conservation.",
+      h2_4: "4. Réservation en ligne et paiement",
+      s4Html: 'Le paiement en ligne des places de camping-car s\'effectue via le prestataire externe <strong>Payrexx AG</strong> (Weinbergstrasse 31, 3952 Susten, Suisse). Lors du processus de paiement, vous êtes redirigé vers la plateforme Payrexx. Le traitement des données de paiement est régi par la politique de confidentialité de Payrexx : <a href="https://www.payrexx.com/de/datenschutz/" target="_blank" rel="noopener">www.payrexx.com/de/datenschutz</a>. Les conditions générales de vente applicables aux réservations sont disponibles sous <a href="/agb">CGV</a>.',
+      h2_5: "5. Services externes et liens",
+      s5MapsBold: "Google Maps :",
+      s5MapsText: " Ce site contient un lien vers Google Maps (Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, États-Unis). En cliquant sur ce lien, vous quittez notre site. Google est responsable des dispositions de protection des données applicables par la suite.",
+      s5SocialBold: "Instagram / Facebook :",
+      s5SocialText: " Nous renvoyons vers nos profils Instagram et Facebook (Meta Platforms Ireland Ltd.). Ces liens mènent vers des plateformes externes. Le simple fait de proposer ces liens ne transmet aucune donnée à Meta. Les dispositions de protection des données de Meta s'appliquent dès le moment où vous visitez ces pages.",
+      s5NotrackBold: "Aucun suivi / aucun outil d'analyse :",
+      s5NotrackText: " Ce site n'utilise aucun outil d'analyse ou de suivi (pas de Google Analytics, pas de Facebook Pixel ou similaire).",
+      h2_6: "6. Cookies",
+      s6Text: "Ce site n'utilise pas de cookies. La préférence linguistique est enregistrée dans le localStorage du navigateur (voir point 2), ce qui ne constitue techniquement pas un cookie et n'a aucune fonction de suivi.",
+      h2_7: "7. Durée de conservation",
+      s7Text: "Nous traitons vos données personnelles uniquement aussi longtemps que cela est nécessaire pour les finalités respectives ou pour remplir des obligations légales et contractuelles. Dès que les données personnelles ne sont plus nécessaires à ces fins, nous les supprimons ou les anonymisons, sauf si des obligations légales de conservation s'y opposent.",
+      h2_8: "8. Communication et transmission de données",
+      s8Text: "Nous ne transmettons des données personnelles à des tiers que dans la mesure où cela est nécessaire à la fourniture de nos prestations (par exemple à notre hébergeur Vercel ou au prestataire de paiement Payrexx, voir points 2 et 4) ou lorsque nous y sommes légalement tenus. Dans la mesure où des données sont ainsi transmises à l'étranger (par exemple aux États-Unis), nous garantissons un niveau de protection adéquat par des mesures appropriées.",
+      h2_9: "9. Vos droits",
+      s9Text: "Vous disposez des droits suivants concernant vos données personnelles :",
+      s9Li1Bold: "Droit d'accès :",
+      s9Li1Text: " Vous pouvez à tout moment demander des informations sur les données que nous avons enregistrées.",
+      s9Li2Bold: "Droit de rectification :",
+      s9Li2Text: " Vous pouvez demander la rectification de données inexactes.",
+      s9Li3Bold: "Droit à l'effacement :",
+      s9Li3Text: " Vous pouvez demander la suppression de vos données, dans la mesure où aucune obligation légale de conservation ne s'y oppose.",
+      s9Li4Bold: "Limitation :",
+      s9Li4Text: " Vous pouvez demander la limitation du traitement.",
+      s9Li5Bold: "Portabilité des données :",
+      s9Li5Text: " Dans la mesure prévue par la loi, vous pouvez demander la remise de vos données dans un format courant.",
+      s9Li6Bold: "Opposition :",
+      s9Li6Text: " Vous pouvez vous opposer au traitement de vos données.",
+      s9ContactHtml: 'Adressez vos demandes correspondantes à : <a href="mailto:stellplatzgampel@gmail.com">stellplatzgampel@gmail.com</a>',
+      h2_10: "10. Droit de réclamation",
+      s10Html: 'Vous avez le droit de déposer une réclamation auprès de l\'autorité de surveillance compétente. En Suisse, il s\'agit du Préposé fédéral à la protection des données et à la transparence (PFPDT) : <a href="https://www.edoeb.admin.ch" target="_blank" rel="noopener">www.edoeb.admin.ch</a>',
+      h2_11: "11. Modifications de cette politique de confidentialité",
+      s11Text: "Nous nous réservons le droit de modifier cette politique de confidentialité à tout moment et sans préavis. La version actuelle publiée sur ce site fait foi.",
+      stand: "Mise à jour : juillet 2026",
+      footerHome: "Accueil",
+      footerPrivacy: "Vie privée",
+      footerImprint: "Mentions légales",
+      footerAgb: "CGV",
+    },
+    en: {
+      metaTitle: "Privacy Policy – Natur Stellplatz Gampel",
+      pageTag: "Legal",
+      topbarBack: "← Back to homepage",
+      title: "Privacy Policy",
+      introBox: "The protection of your personal data is important to us. This statement informs you about which data we collect, how we use it, and what rights you have – in accordance with the Swiss Federal Act on Data Protection (FADP) and, where applicable, the European General Data Protection Regulation (GDPR).",
+      h2_1: "1. Controller",
+      s1Html: 'Stellplatz Gampel GmbH<br />Represented by: Myrtha Köppel (Site warden)<br />Registered office: Gewerbestrasse 13, 3945 Gampel, Valais, Switzerland<br />Pitch location: Lampertji 7, 3945 Gampel, Valais, Switzerland<br />E-mail: <a href="mailto:stellplatzgampel@gmail.com">stellplatzgampel@gmail.com</a><br />Phone: <a href="tel:+41788202352">+41 78 820 23 52</a>',
+      h2_2: "2. Collection and processing of data",
+      s2P1Bold: "When visiting this website,",
+      s2P1Text: " server log files are automatically stored by our hosting provider (Vercel Inc., 340 Pine Street, Suite 900, San Francisco, CA 94104, USA). These include:",
+      s2Li1: "IP address (anonymised)",
+      s2Li2: "Date and time of access",
+      s2Li3: "Page / URL accessed",
+      s2Li4: "Browser and operating system",
+      s2Li5: "HTTP status code",
+      s2P2: "This data is used exclusively for technical security and error analysis. It is not combined with other data and is deleted after 30 days at the latest. Legal basis: legitimate interest (Art. 6(1)(f) GDPR / Art. 31 FADP).",
+      s2P3Bold: "Language setting (LocalStorage):",
+      s2P3Text: " This website stores your selected language (DE/FR/EN) locally in your browser (localStorage). No data is transmitted to us in this process. You may delete this data at any time via your browser.",
+      h2_3: "3. Contact by e-mail or telephone",
+      s3Text: "If you contact us by e-mail or telephone, your details (name, e-mail address, message) will be stored in order to process your enquiry. This data will not be shared with third parties and will be deleted once your enquiry has been resolved, unless a statutory retention obligation applies.",
+      h2_4: "4. Online booking and payment",
+      s4Html: 'Online payment for pitches is processed via the external provider <strong>Payrexx AG</strong> (Weinbergstrasse 31, 3952 Susten, Switzerland). During the payment process you will be redirected to the Payrexx platform. The processing of payment data is governed by Payrexx\'s privacy policy: <a href="https://www.payrexx.com/de/datenschutz/" target="_blank" rel="noopener">www.payrexx.com/de/datenschutz</a>. The General Terms and Conditions for bookings can be found under <a href="/agb">GTC</a>.',
+      h2_5: "5. External services and links",
+      s5MapsBold: "Google Maps:",
+      s5MapsText: " This website contains a link to Google Maps (Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA). By clicking this link, you leave our website. Google is responsible for the privacy provisions applicable thereafter.",
+      s5SocialBold: "Instagram / Facebook:",
+      s5SocialText: " We link to our profiles on Instagram and Facebook (Meta Platforms Ireland Ltd.). These links lead to external platforms. Merely providing the link does not transmit any data to Meta. Meta's privacy provisions apply from the moment you visit these pages.",
+      s5NotrackBold: "No tracking / no analytics tools:",
+      s5NotrackText: " This website does not use any analytics or tracking tools (no Google Analytics, no Facebook Pixel, or similar).",
+      h2_6: "6. Cookies",
+      s6Text: "This website does not use cookies. The language preference is stored in the browser's localStorage (see section 2), which is technically not a cookie and has no tracking function.",
+      h2_7: "7. Retention period",
+      s7Text: "We process your personal data only for as long as is necessary for the respective purposes or to fulfil statutory and contractual obligations. Once personal data is no longer required for these purposes, we delete or anonymise it, unless statutory retention obligations preclude this.",
+      h2_8: "8. Disclosure and transfer of data",
+      s8Text: "We disclose personal data to third parties only to the extent necessary to provide our services (e.g. to our hosting provider Vercel or the payment service provider Payrexx, see sections 2 and 4) or where we are legally obliged to do so. Where data is transferred abroad as a result (e.g. to the USA), we ensure an adequate level of protection through appropriate measures.",
+      h2_9: "9. Your rights",
+      s9Text: "You have the following rights regarding your personal data:",
+      s9Li1Bold: "Access:",
+      s9Li1Text: " You may request information about the data we have stored about you at any time.",
+      s9Li2Bold: "Rectification:",
+      s9Li2Text: " You may request the correction of inaccurate data.",
+      s9Li3Bold: "Erasure:",
+      s9Li3Text: " You may request the deletion of your data, provided no statutory retention obligation precludes this.",
+      s9Li4Bold: "Restriction:",
+      s9Li4Text: " You may request the restriction of processing.",
+      s9Li5Bold: "Data portability:",
+      s9Li5Text: " Where legally provided for, you may request that your data be provided to you in a commonly used format.",
+      s9Li6Bold: "Objection:",
+      s9Li6Text: " You may object to the processing of your data.",
+      s9ContactHtml: 'Please direct any such requests to: <a href="mailto:stellplatzgampel@gmail.com">stellplatzgampel@gmail.com</a>',
+      h2_10: "10. Right to lodge a complaint",
+      s10Html: 'You have the right to lodge a complaint with the competent supervisory authority. In Switzerland, this is the Federal Data Protection and Information Commissioner (FDPIC): <a href="https://www.edoeb.admin.ch" target="_blank" rel="noopener">www.edoeb.admin.ch</a>',
+      h2_11: "11. Amendments to this Privacy Policy",
+      s11Text: "We reserve the right to amend this Privacy Policy at any time without prior notice. The version published on this website at any given time shall apply.",
+      stand: "Last updated: July 2026",
+      footerHome: "Home",
+      footerPrivacy: "Privacy Policy",
+      footerImprint: "Legal Notice",
+      footerAgb: "GTC",
+    },
+  };
+
+  function setLang(lang) {
+    document.documentElement.lang = lang;
+    localStorage.setItem('lang', lang);
+    const t = translations[lang];
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (t[key] !== undefined) el.textContent = t[key];
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(el => {
+      const key = el.getAttribute('data-i18n-html');
+      if (t[key] !== undefined) el.innerHTML = t[key];
+    });
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.classList.toggle('on', btn.dataset.lang === lang);
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const saved = localStorage.getItem('lang') || 'de';
+    setLang(saved);
+  });
+</script>
 
 </body>
 </html>
