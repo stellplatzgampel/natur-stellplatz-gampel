@@ -50,7 +50,7 @@
       "https://www.natur-stellplatz-gampel.ch/images/galerie-1.jpg"
     ],
     "logo": "https://www.natur-stellplatz-gampel.ch/icon-512.png",
-    "telephone": "+41788202352",
+    "telephone": "+41775275874",
     "email": "stellplatzgampel@gmail.com",
     "address": {
       "@type": "PostalAddress",
@@ -449,12 +449,10 @@
     }
     .map-box {
       background: var(--bg-alt); border-radius: 10px; height: 360px;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      gap: .75rem; border: 2px dashed #ccc; color: var(--text-soft);
+      overflow: hidden; border: 1px solid #e8e4dc;
     }
-    .map-box svg { width: 48px; height: 48px; stroke: #bbb; fill: none; stroke-width: 1.3; stroke-linecap: round; }
-    .map-box p { font-size: .875rem; }
-    .map-link { color: var(--rot); font-size: .85rem; font-weight: 600; }
+    .map-box iframe { display: block; width: 100%; height: 100%; border: 0; }
+    .map-link { display: block; text-align: center; margin-top: .85rem; color: var(--rot); font-size: .85rem; font-weight: 600; }
     .map-link:hover { text-decoration: underline; }
 
     /* ── FOOTER ──────────────────────────────── */
@@ -1348,7 +1346,7 @@
           <div class="k-item-icon">
             <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.24h3a2 2 0 0 1 2 1.72c.13.96.35 1.9.65 2.81a2 2 0 0 1-.45 2.11L7.09 9.1a16 16 0 0 0 7.86 7.86l1.21-1.21a2 2 0 0 1 2.11-.45c.91.3 1.85.52 2.81.65A2 2 0 0 1 22 17.92Z"/></svg>
           </div>
-          <div class="k-item-text"><a href="tel:+41788202352">+41 78 820 23 52</a></div>
+          <div class="k-item-text"><a href="tel:+41775275874">+41 77 527 58 74</a></div>
         </div>
 
         <div class="k-item">
@@ -1386,15 +1384,19 @@
 
       <div>
         <div class="map-box">
-          <svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Z"/><circle cx="12" cy="9" r="2.5"/></svg>
-          <p>Lampertji 7, 3945 Gampel</p>
-          <a class="map-link"
-             href="https://www.google.com/maps/search/Lampertji+7+Gampel+Stellplatz"
-             target="_blank" rel="noopener"
-             data-i18n="contMaps">
-            In Google Maps öffnen →
-          </a>
+          <iframe
+            src="https://www.google.com/maps/embed?origin=mfe&pb=!1m2!2m1!1sLampertji+7+Gampel+Stellplatz"
+            width="100%" height="100%" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Natur Stellplatz Gampel – Standort auf Google Maps"
+          ></iframe>
         </div>
+        <a class="map-link"
+           href="https://www.google.com/maps/search/Lampertji+7+Gampel+Stellplatz"
+           target="_blank" rel="noopener"
+           data-i18n="contMaps">
+          In Google Maps öffnen →
+        </a>
       </div>
 
     </div>
