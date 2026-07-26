@@ -241,6 +241,16 @@
     .step .icon-box { margin: 0 auto .9rem; }
     .step h3 { font-size: clamp(14px, 2.5vw, 16px); margin-bottom: .45rem; color: var(--text); }
     .step p { font-size: clamp(12px, 2vw, 14px); color: var(--text-soft); line-height: 1.6; }
+    .step-pay-btn {
+      display: inline-flex; align-items: center; gap: .4rem;
+      background: var(--rot); color: #fff; text-decoration: none;
+      padding: .7rem 1.4rem; border-radius: 999px; margin-top: 1.1rem;
+      font-size: .85rem; font-weight: 700; font-family: var(--sans);
+      box-shadow: 0 4px 14px rgba(139,32,32,.28);
+      transition: background .2s, transform .15s;
+    }
+    .step-pay-btn:hover { background: #a52626; transform: translateY(-1px); }
+    .step-pay-btn svg { width: 15px; height: 15px; stroke: #fff; fill: none; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
 
     /* ── STATS ───────────────────────────────── */
     .stats { background: var(--rot); padding: 2.75rem 1.5rem; }
@@ -720,6 +730,11 @@
         </div>
         <h3 data-i18n="step2Title">Bezahlen</h3>
         <p data-i18n="step2Desc">Kartenzahlungen (Webshop), Twint oder Bar. Im Voraus oder vor Ort.</p>
+        <a href="https://park4campers.payrexx.com/de/pay?tid=c86b941c"
+           target="_blank" rel="noopener" class="step-pay-btn">
+          <span data-i18n="priceBtn">Jetzt online bezahlen</span>
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
       </div>
 
       <div class="step">
