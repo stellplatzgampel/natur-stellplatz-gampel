@@ -187,6 +187,21 @@
       transition: background .2s, transform .12s;
     }
     .btn-primary:hover { background: #a52626; transform: translateY(-2px); }
+    .hero-btns {
+      display: flex; flex-wrap: wrap; justify-content: center;
+      gap: .9rem; margin-top: 60px;
+    }
+    .hero-btns .btn-primary { margin-top: 0; }
+    .btn-secondary {
+      display: inline-block;
+      background: rgba(255,255,255,.12); color: #fff;
+      padding: .9rem 2.6rem; border-radius: 4px;
+      font-size: 1rem; font-weight: 700; font-family: var(--sans);
+      border: 1.5px solid #fff; cursor: pointer;
+      backdrop-filter: blur(2px);
+      transition: background .2s, color .2s, transform .12s;
+    }
+    .btn-secondary:hover { background: #fff; color: var(--rot); transform: translateY(-2px); }
 
     /* ── SECTIONS SHARED ─────────────────────── */
     .sec { padding: 5rem 1.5rem; background: #FAF8F4; }
@@ -700,7 +715,10 @@
     <!-- ── Haupt-Content zentriert ~30% von oben ── -->
     <h1 data-i18n="heroTitle">Natur-Stellplatz Gampel</h1>
     <p class="hero-sub" data-i18n="heroSub">Ihr Stellplatz im Grünen – ideal zum Übernachten, Verweilen und das Wallis entdecken.</p>
-    <a href="#features" class="btn-primary" style="margin-top:60px" data-i18n="heroBtn">Stellplatz entdecken ↓</a>
+    <div class="hero-btns">
+      <a href="#features" class="btn-primary" data-i18n="heroBtn">Stellplatz entdecken ↓</a>
+      <a href="#preise" class="btn-secondary" data-i18n="heroBtnPay">Jetzt bezahlen</a>
+    </div>
 
   </div>
 </section>
@@ -1461,6 +1479,7 @@
       heroTitle: "Natur-Stellplatz Gampel",
       heroSub: "Ihr Stellplatz im Grünen – ideal zum Übernachten, Verweilen und das Wallis entdecken.",
       heroBtn: "Stellplatz entdecken ↓",
+      heroBtnPay: "Jetzt bezahlen",
       stepsEy: "So einfach geht's",
       stepsTitle: "In 3 Schritten zum Stellplatz",
       stepsSub: "Kein Stress, keine Reservation – einfach ankommen und geniessen.",
@@ -1609,6 +1628,7 @@
       heroTitle: "Natur-Stellplatz Gampel",
       heroSub: "Votre aire au vert – idéal pour dormir, se détendre et découvrir le Valais.",
       heroBtn: "Découvrir l'aire ↓",
+      heroBtnPay: "Payer maintenant",
       stepsEy: "Simple et rapide",
       stepsTitle: "En 3 étapes vers l'aire",
       stepsSub: "Pas de stress, pas de réservation – arrivez et profitez.",
@@ -1757,6 +1777,7 @@
       heroTitle: "Natur-Stellplatz Gampel",
       heroSub: "Your pitch in the countryside – ideal for overnight stays, relaxing and exploring the Valais.",
       heroBtn: "Discover the site ↓",
+      heroBtnPay: "Pay now",
       stepsEy: "Quick & easy",
       stepsTitle: "3 steps to your pitch",
       stepsSub: "No stress, no reservation – just arrive and enjoy.",
