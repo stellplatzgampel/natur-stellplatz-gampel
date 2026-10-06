@@ -1,4 +1,5 @@
 ---
+import { news, newsTranslations } from "../data/news";
 ---
 <!DOCTYPE html>
 <html lang="de">
@@ -144,7 +145,7 @@
     }
     .lb.on,
     .lb:hover { background: var(--rot); color: #fff; border-color: var(--rot); }
-    #markise.open { max-height: 320px !important; opacity: 1 !important; }
+    #markise.open { max-height: 380px !important; opacity: 1 !important; }
 
     /* ── HERO ────────────────────────────────── */
     .hero {
@@ -301,15 +302,40 @@
     .stats { background: var(--rot); padding: 2.75rem 1.5rem; }
     .stats-grid {
       max-width: 1140px; margin: 0 auto;
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: .5rem; text-align: center;
     }
     .stat { padding: .75rem 1rem; }
     .stat-num {
-      font-family: var(--serif); font-size: 2.6rem;
-      font-weight: bold; color: #fff; line-height: 1;
+      font-family: var(--serif); font-size: clamp(1.5rem, 3.1vw, 2.6rem);
+      font-weight: bold; color: #fff; line-height: 1.2; white-space: nowrap;
     }
     .stat-label { color: rgba(255,255,255,.78); font-size: .85rem; margin-top: .35rem; }
+
+    /* ── AKTUELLES ───────────────────────────── */
+    [hidden] { display: none !important; }
+    .news-list { display: grid; gap: 1.5rem; }
+    .news-card {
+      display: grid; grid-template-columns: 42% minmax(0, 1fr);
+      background: #fff; border: 1px solid rgba(45,80,22,.12);
+      border-radius: 12px; overflow: hidden;
+      box-shadow: 0 3px 20px rgba(0,0,0,.05);
+    }
+    .news-media { position: relative; min-height: 340px; }
+    .news-image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 72%; }
+    .news-image-note { position: absolute; right: .7rem; bottom: .7rem; background: rgba(26,26,24,.7); color: #fff; padding: .2rem .55rem; border-radius: 4px; font-size: 12px; }
+    .news-content { padding: 2rem 2.25rem; }
+    .news-meta { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem 1rem; margin-bottom: .9rem; }
+    .news-badge { background: #eef2e8; color: var(--gruen); border-radius: 999px; padding: .2rem .7rem; font-size: 13px; font-weight: 700; }
+    .news-period { color: var(--text-soft); font-size: 14px; }
+    .news-content h3 { font-size: clamp(26px, 3vw, 34px); margin-bottom: .75rem; }
+    .news-content p { color: var(--text-soft); line-height: 1.7; }
+    .news-price { display: flex; align-items: baseline; gap: .6rem; margin: 1rem 0; color: var(--gruen); }
+    .news-price strong { font-family: var(--serif); font-size: 30px; line-height: 1.2; }
+    .news-price span { font-size: 16px; }
+    .news-action { display: inline-block; background: var(--rot); color: #fff; border-radius: 999px; padding: .7rem 1.3rem; font-weight: 700; font-size: 16px; }
+    .news-action:hover { background: #a52626; }
+    .news-action:focus-visible { outline: 3px solid var(--gruen); outline-offset: 4px; }
 
     /* ── FEATURES ────────────────────────────── */
     .feat-grid {
@@ -633,6 +659,9 @@
 
     /* ── RESPONSIVE ──────────────────────────── */
     @media (max-width: 860px) {
+      .stats-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .news-card { grid-template-columns: 1fr; }
+      .news-media { height: 240px; min-height: 0; }
       .kontakt-grid { grid-template-columns: 1fr; }
       .oa-grid-3 { grid-template-columns: 1fr; }
       .akt-grid { grid-template-columns: 1fr 1fr; }
@@ -647,6 +676,9 @@
       .akt-grid { grid-template-columns: 1fr; }
       .sec { padding: 3.5rem 1.1rem; }
       .stats { padding: 2rem 1.1rem; }
+      .stat { padding: .75rem .25rem; }
+      .news-content { padding: 1.5rem; }
+      .news-media { height: 220px; }
       .openair { padding: 3rem 1.1rem; }
       .galerie-grid { grid-template-columns: 1fr; }
       .gal-plus { grid-column: 1; }
@@ -726,6 +758,7 @@
               margin:-16px -24px 12px -24px"></div>
             <nav style="display:flex;flex-direction:column">
               <a href="#how" class="mlink" data-i18n="navHow">So geht's</a>
+              <a href="#aktuelles" class="mlink" data-news-nav data-i18n="navNews">Aktuelles</a>
               <a href="#preise" class="mlink" data-i18n="navPrices">Preise</a>
               <a href="#galerie" class="mlink" data-i18n="navGallery">Galerie</a>
               <a href="#openair" class="mlink" data-i18n="navOpenAir">Open Air</a>
@@ -733,9 +766,9 @@
             </nav>
             <div style="display:flex;gap:6px;margin-top:14px;
               padding-top:12px;border-top:1px solid rgba(0,0,0,0.08)">
-              <button class="lb lang-btn" data-lang="de" onclick="setLang('de')">DE</button>
-              <button class="lb lang-btn" data-lang="fr" onclick="setLang('fr')">FR</button>
-              <button class="lb lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+              <button class="lb lang-btn" data-lang="de">DE</button>
+              <button class="lb lang-btn" data-lang="fr">FR</button>
+              <button class="lb lang-btn" data-lang="en">EN</button>
             </div>
           </div>
         </div>
@@ -807,10 +840,37 @@
   <div class="stats-grid">
     <div class="stat"><div class="stat-num">150+</div><div class="stat-label" data-i18n="stat1">Stellplätze</div></div>
     <div class="stat"><div class="stat-num">24h · 365</div><div class="stat-label" data-i18n="stat2">Jederzeit anreisen</div></div>
-    <div class="stat"><div class="stat-num" style="font-size:1.6rem" data-i18n="stat3Num">Kurz &amp; Lang</div><div class="stat-label" data-i18n="stat3">Aufenthalte willkommen</div></div>
+    <div class="stat"><div class="stat-num" data-i18n="stat3Num">Kurz &amp; Lang</div><div class="stat-label" data-i18n="stat3">Aufenthalte willkommen</div></div>
     <div class="stat"><div class="stat-num">Ab CHF 26</div><div class="stat-label" data-i18n="stat4">Pro Nacht</div></div>
   </div>
 </div>
+
+
+<!-- ─── AKTUELLES ─────────────────────────────────────────────── -->
+<section class="sec" id="aktuelles">
+  <div class="wrap">
+    <span class="sec-tag" data-i18n="newsEy">Aktuelles</span>
+    <h2 class="sec-title" data-i18n="newsTitle">Aktuelles rund um den Stellplatz</h2>
+    <p class="sec-lead" data-i18n="newsSub">Neuigkeiten, Angebote und Veranstaltungen bei uns und in der Region.</p>
+    <div class="news-list">
+      {news.map((item, index) => (
+        <article class="news-card" data-news-item data-expires-on={item.expiresOn ?? ''} hidden={index >= 3}>
+          <div class="news-media"><img class="news-image" src={item.image} alt={item.copy.de.imageAlt} data-i18n-alt={`news_${item.id}_imageAlt`} width={item.imageWidth} height={item.imageHeight} loading="lazy" decoding="async" />{item.copy.de.imageNote && <span class="news-image-note" data-i18n={`news_${item.id}_imageNote`}>{item.copy.de.imageNote}</span>}</div>
+          <div class="news-content">
+            <div class="news-meta">
+              <span class="news-badge" data-i18n={`news_${item.id}_category`}>{item.copy.de.category}</span>
+              <span class="news-period" data-i18n={`news_${item.id}_period`}>{item.copy.de.period}</span>
+            </div>
+            <h3 data-i18n={`news_${item.id}_title`}>{item.copy.de.title}</h3>
+            <p data-i18n={`news_${item.id}_summary`}>{item.copy.de.summary}</p>
+            {item.price && <div class="news-price"><strong>{item.price}</strong><span data-i18n={`news_${item.id}_priceUnit`}>{item.copy.de.priceUnit}</span></div>}
+            <a href={item.href} class="news-action" data-i18n={`news_${item.id}_action`}>{item.copy.de.action}</a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
 
 
 <!-- ─── 4. FEATURES ───────────────────────────────────────────── -->
@@ -1498,10 +1558,11 @@
 </footer>
 
 
-<script is:inline>
+<script is:inline define:vars={{ newsTranslations }}>
   // ── ÜBERSETZUNGEN ────────────────────────────
   const translations = {
     de: {
+      ...newsTranslations.de,
       metaTitle: "Natur Stellplatz Gampel – Wohnmobilstellplatz im Wallis",
       metaDesc: "Natur-Stellplatz in Gampel, Wallis – mehr als ein Stellplatz: mit Duschen, WC, Strom & Entsorgung. Ohne Reservation, ganzjährig geöffnet, ab CHF 26/Nacht.",
       navHow: "So geht's",
@@ -1651,6 +1712,7 @@
     },
 
     fr: {
+      ...newsTranslations.fr,
       metaTitle: "Natur Stellplatz Gampel – Aire de camping-car au Valais",
       metaDesc: "Aire de camping-car à Gampel, Valais – plus qu'une simple aire : douches, WC, électricité & vidange. Sans réservation, ouvert toute l'année, dès CHF 26/nuit.",
       navHow: "Comment ça marche",
@@ -1800,6 +1862,7 @@
     },
 
     en: {
+      ...newsTranslations.en,
       metaTitle: "Natur Stellplatz Gampel – Motorhome Pitch, Valais",
       metaDesc: "Motorhome pitch in Gampel, Valais – more than a basic stopover: showers, WC, electricity & disposal. No reservation, open all year, from CHF 26/night.",
       navHow: "How it works",
@@ -1966,10 +2029,36 @@
       const key = el.getAttribute('data-i18n-aria-label');
       if (t[key] !== undefined) el.setAttribute('aria-label', t[key]);
     });
+    document.querySelectorAll('[data-i18n-alt]').forEach(el => {
+      const key = el.getAttribute('data-i18n-alt');
+      if (t[key] !== undefined) el.setAttribute('alt', t[key]);
+    });
     document.querySelectorAll('.lang-btn').forEach(btn => {
       btn.classList.toggle('on', btn.dataset.lang === lang);
     });
   }
+
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => setLang(btn.dataset.lang));
+  });
+
+  // Abgelaufene Meldungen auch zwischen zwei Veröffentlichungen ausblenden.
+  function refreshNews() {
+    const today = new Intl.DateTimeFormat('en-CA', {
+      timeZone: 'Europe/Zurich', year: 'numeric', month: '2-digit', day: '2-digit',
+    }).format(new Date());
+    let visible = 0;
+    document.querySelectorAll('[data-news-item]').forEach(el => {
+      const expiresOn = el.getAttribute('data-expires-on');
+      const active = !expiresOn || today <= expiresOn;
+      el.hidden = !active || visible >= 3;
+      if (!el.hidden) visible++;
+    });
+    document.getElementById('aktuelles').hidden = visible === 0;
+    document.querySelectorAll('[data-news-nav]').forEach(el => { el.hidden = visible === 0; });
+  }
+  refreshNews();
+  document.addEventListener('visibilitychange', () => { if (!document.hidden) refreshNews(); });
 
   // ── CAMPER MARKISE ────────────────────────────
   const btn = document.getElementById('camper-menu-btn');
