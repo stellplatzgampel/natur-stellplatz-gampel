@@ -1,5 +1,7 @@
 ---
-import { news, newsTranslations } from "../data/news";
+import { news, newsTranslations, winterBookingClosed, winterOffer } from "../data/news";
+const winterCopy = winterOffer.copy.de;
+const winterKey = `news_${winterOffer.id}_`;
 ---
 <!DOCTYPE html>
 <html lang="de">
@@ -330,9 +332,10 @@ import { news, newsTranslations } from "../data/news";
     .news-period { color: var(--text-soft); font-size: 14px; }
     .news-content h3 { font-size: clamp(26px, 3vw, 34px); margin-bottom: .75rem; }
     .news-content p { color: var(--text-soft); line-height: 1.7; }
-    .news-price { display: flex; align-items: baseline; gap: .6rem; margin: 1rem 0; color: var(--gruen); }
+    .news-price { display: flex; flex-wrap: wrap; align-items: baseline; column-gap: .6rem; margin: 1rem 0; color: var(--gruen); }
     .news-price strong { font-family: var(--serif); font-size: 30px; line-height: 1.2; }
     .news-price span { font-size: 16px; }
+    .news-details { margin-bottom: 1rem; }
     .news-action { display: inline-block; background: var(--rot); color: #fff; border-radius: 999px; padding: .7rem 1.3rem; font-weight: 700; font-size: 16px; }
     .news-action:hover { background: #a52626; }
     .news-action:focus-visible { outline: 3px solid var(--gruen); outline-offset: 4px; }
@@ -388,6 +391,14 @@ import { news, newsTranslations } from "../data/news";
       transition: background .2s; margin-top: 1.5rem;
     }
     .btn-book:hover { background: #a52626; }
+    .winter-price { margin-top: 1.25rem; padding: 1.25rem 1.5rem; }
+    .winter-price .preis-col-title { margin-bottom: .4rem; }
+    .winter-price p { color: var(--text-soft); font-size: .9rem; }
+    .winter-price .winter-rate { margin: .45rem 0; color: var(--gruen); }
+    .winter-price .winter-action {
+      display: inline-block; margin-top: .65rem; color: var(--gruen);
+      font-size: .9rem; font-weight: 700; text-decoration: underline; text-underline-offset: .2em;
+    }
     .incl-list { list-style: none; }
     .incl-list li {
       display: flex; align-items: flex-start; gap: .65rem;
@@ -758,7 +769,7 @@ import { news, newsTranslations } from "../data/news";
               margin:-16px -24px 12px -24px"></div>
             <nav style="display:flex;flex-direction:column">
               <a href="#how" class="mlink" data-i18n="navHow">So geht's</a>
-              <a href="#aktuelles" class="mlink" data-news-nav data-i18n="navNews">Aktuelles</a>
+              <a href="#aktuelles" class="mlink" data-news-nav data-i18n="navNews" hidden>Aktuelles</a>
               <a href="#preise" class="mlink" data-i18n="navPrices">Preise</a>
               <a href="#galerie" class="mlink" data-i18n="navGallery">Galerie</a>
               <a href="#openair" class="mlink" data-i18n="navOpenAir">Open Air</a>
@@ -847,14 +858,14 @@ import { news, newsTranslations } from "../data/news";
 
 
 <!-- ─── AKTUELLES ─────────────────────────────────────────────── -->
-<section class="sec" id="aktuelles">
+<section class="sec" id="aktuelles" hidden>
   <div class="wrap">
     <span class="sec-tag" data-i18n="newsEy">Aktuelles</span>
     <h2 class="sec-title" data-i18n="newsTitle">Aktuelles rund um den Stellplatz</h2>
     <p class="sec-lead" data-i18n="newsSub">Neuigkeiten, Angebote und Veranstaltungen bei uns und in der Region.</p>
     <div class="news-list">
-      {news.map((item, index) => (
-        <article class="news-card" data-news-item data-expires-on={item.expiresOn ?? ''} hidden={index >= 3}>
+      {news.map((item) => (
+        <article class="news-card" data-news-item data-starts-on={item.startsOn} data-expires-on={item.expiresOn} hidden>
           <div class="news-media"><img class="news-image" src={item.image} alt={item.copy.de.imageAlt} data-i18n-alt={`news_${item.id}_imageAlt`} width={item.imageWidth} height={item.imageHeight} loading="lazy" decoding="async" />{item.copy.de.imageNote && <span class="news-image-note" data-i18n={`news_${item.id}_imageNote`}>{item.copy.de.imageNote}</span>}</div>
           <div class="news-content">
             <div class="news-meta">
@@ -864,6 +875,7 @@ import { news, newsTranslations } from "../data/news";
             <h3 data-i18n={`news_${item.id}_title`}>{item.copy.de.title}</h3>
             <p data-i18n={`news_${item.id}_summary`}>{item.copy.de.summary}</p>
             {item.price && <div class="news-price"><strong>{item.price}</strong><span data-i18n={`news_${item.id}_priceUnit`}>{item.copy.de.priceUnit}</span></div>}
+            {item.copy.de.details && <p class="news-details" data-i18n={`news_${item.id}_details`}>{item.copy.de.details}</p>}
             <a href={item.href} class="news-action" data-i18n={`news_${item.id}_action`}>{item.copy.de.action}</a>
           </div>
         </article>
@@ -1024,6 +1036,16 @@ import { news, newsTranslations } from "../data/news";
         </ul>
       </div>
 
+    </div>
+    <div class="preis-col winter-price" id="winter-abstellplaetze">
+      <h3 class="preis-col-title" data-i18n={winterKey + 'title'}>{winterCopy.title}</h3>
+      <p data-i18n={winterKey + 'summary'}>{winterCopy.summary}</p>
+      <div data-winter-booking data-starts-on={winterOffer.startsOn} data-expires-on={winterOffer.expiresOn} hidden>
+        <p class="winter-rate"><strong>{winterOffer.price}</strong> <span data-i18n={winterKey + 'priceUnit'}>{winterCopy.priceUnit}</span></p>
+        <p data-i18n={winterKey + 'details'}>{winterCopy.details}</p>
+        <a href={winterOffer.href} class="winter-action" data-i18n={winterKey + 'action'}>{winterCopy.action}</a>
+      </div>
+      <p data-winter-closed data-i18n="winterBookingClosed">{winterBookingClosed.de}</p>
     </div>
   </div>
 </section>
@@ -2042,23 +2064,28 @@ import { news, newsTranslations } from "../data/news";
     btn.addEventListener('click', () => setLang(btn.dataset.lang));
   });
 
-  // Abgelaufene Meldungen auch zwischen zwei Veröffentlichungen ausblenden.
-  function refreshNews() {
-    const today = new Intl.DateTimeFormat('en-CA', {
+  // Buchungsstatus und Meldungen auch zwischen Veröffentlichungen aktualisieren.
+  function refreshSeasonalContent() {
+    const today = new Intl.DateTimeFormat('sv-SE', {
       timeZone: 'Europe/Zurich', year: 'numeric', month: '2-digit', day: '2-digit',
     }).format(new Date());
+    const isActive = ({ dataset: { startsOn, expiresOn } }) =>
+      (!startsOn || startsOn <= today) && (!expiresOn || today <= expiresOn);
     let visible = 0;
     document.querySelectorAll('[data-news-item]').forEach(el => {
-      const expiresOn = el.getAttribute('data-expires-on');
-      const active = !expiresOn || today <= expiresOn;
-      el.hidden = !active || visible >= 3;
+      el.hidden = !isActive(el) || visible >= 3;
       if (!el.hidden) visible++;
     });
     document.getElementById('aktuelles').hidden = visible === 0;
     document.querySelectorAll('[data-news-nav]').forEach(el => { el.hidden = visible === 0; });
+
+    const winterBooking = document.querySelector('[data-winter-booking]');
+    const bookingOpen = isActive(winterBooking);
+    winterBooking.hidden = !bookingOpen;
+    document.querySelector('[data-winter-closed]').hidden = bookingOpen;
   }
-  refreshNews();
-  document.addEventListener('visibilitychange', () => { if (!document.hidden) refreshNews(); });
+  refreshSeasonalContent();
+  document.addEventListener('visibilitychange', () => { if (!document.hidden) refreshSeasonalContent(); });
 
   // ── CAMPER MARKISE ────────────────────────────
   const btn = document.getElementById('camper-menu-btn');
