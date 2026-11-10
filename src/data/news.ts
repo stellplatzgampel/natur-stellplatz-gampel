@@ -5,7 +5,10 @@ type NewsCopy = {
   title: string;
   summary: string;
   priceUnit?: string;
-  details?: string;
+  vehicles?: string;
+  storagePeriod?: string;
+  flexibleStart?: string;
+  extraMonths?: string;
   action: string;
   imageAlt: string;
   imageNote?: string;
@@ -38,9 +41,12 @@ export const winterOffer = {
     de: {
       category: 'Winterangebot', period: 'Wintersaison 2026/27',
       title: 'Winter-Abstellplätze',
-      summary: 'Ein zugewiesener Abstellplatz für dein Wohnmobil oder deinen Wohnwagen.',
-      priceUnit: 'für 1. November bis 31. März',
-      details: 'Auch bei späterem Einstieg gilt der volle Paketpreis. Oktober und April kannst du für je CHF 50.– dazubuchen.',
+      summary: 'Bei uns in Gampel kannst du dein Wohnmobil oder deinen Wohnwagen über den Winter abstellen. Du buchst den Platz für die ganze Wintersaison.',
+      priceUnit: 'für die Wintersaison',
+      vehicles: 'Für Wohnmobile und Wohnwagen',
+      storagePeriod: '1. November bis 31. März',
+      flexibleStart: 'Du kannst auch später starten. Der Preis bleibt gleich.',
+      extraMonths: 'Oktober und April kannst du dazubuchen.',
       action: 'Winter-Abstellplatz buchen',
       imageAlt: 'Symbolbild: Wohnmobil und Wohnwagen im Winter neben geräumter Zufahrt',
       imageNote: 'Symbolbild',
@@ -48,9 +54,12 @@ export const winterOffer = {
     fr: {
       category: 'Offre hivernale', period: 'Saison d’hiver 2026/27',
       title: 'Stationnement pour l’hiver',
-      summary: 'Une place de stationnement attribuée à ton camping-car ou à ta caravane.',
-      priceUnit: 'du 1er novembre au 31 mars',
-      details: 'Le plein tarif s’applique aussi si tu arrives plus tard. Octobre et avril peuvent être réservés en supplément pour CHF 50.– chacun.',
+      summary: 'À Gampel, tu peux stationner ton camping-car ou ta caravane pendant l’hiver. Tu réserves la place pour toute la saison.',
+      priceUnit: 'pour la saison d’hiver',
+      vehicles: 'Pour les camping-cars et les caravanes',
+      storagePeriod: 'Du 1er novembre au 31 mars',
+      flexibleStart: 'Tu peux aussi arriver plus tard. Le prix reste le même.',
+      extraMonths: 'Tu peux ajouter les mois d’octobre et d’avril.',
       action: 'Réserver une place pour l’hiver',
       imageAlt: 'Image d’illustration : camping-car et caravane près d’un accès déneigé en hiver',
       imageNote: 'Image d’illustration',
@@ -58,9 +67,12 @@ export const winterOffer = {
     en: {
       category: 'Winter offer', period: '2026/27 winter season',
       title: 'Winter vehicle storage',
-      summary: 'An allocated storage space for your motorhome or caravan.',
-      priceUnit: 'for 1 November to 31 March',
-      details: 'The full package price applies even if you arrive later. October and April can be added for CHF 50.– each.',
+      summary: 'Store your motorhome or caravan with us in Gampel over the winter. Your booking covers the entire winter season.',
+      priceUnit: 'for the winter season',
+      vehicles: 'For motorhomes and caravans',
+      storagePeriod: '1 November to 31 March',
+      flexibleStart: 'You can start later. The price stays the same.',
+      extraMonths: 'You can add October and April to your booking.',
       action: 'Book winter vehicle storage',
       imageAlt: 'Illustrative image: motorhome and caravan beside a cleared winter access road',
       imageNote: 'Illustrative image',
@@ -71,10 +83,27 @@ export const winterOffer = {
 // expiresOn ist der letzte sichtbare Tag, null lässt die Meldung offen.
 export const news: NewsItem[] = [winterOffer];
 
-export const winterBookingClosed = {
-  de: 'Die Buchung für den nächsten Winter ist ab September geplant.',
-  fr: 'L’ouverture des réservations pour l’hiver prochain est prévue en septembre.',
-  en: 'Bookings for next winter are expected to open in September.',
+export const winterHighlights = ['storagePeriod', 'flexibleStart', 'extraMonths'] as const;
+
+export const winterSectionCopy = {
+  de: {
+    winterStoragePeriodLabel: 'Abstellzeitraum',
+    winterFlexibleStartLabel: 'Flexibler Start',
+    winterExtraMonthsLabel: 'Zusatzmonate',
+    winterBookingClosed: 'Die Buchung für den nächsten Winter ist ab September geplant.',
+  },
+  fr: {
+    winterStoragePeriodLabel: 'Période de stationnement',
+    winterFlexibleStartLabel: 'Arrivée flexible',
+    winterExtraMonthsLabel: 'Mois supplémentaires',
+    winterBookingClosed: 'L’ouverture des réservations pour l’hiver prochain est prévue en septembre.',
+  },
+  en: {
+    winterStoragePeriodLabel: 'Storage period',
+    winterFlexibleStartLabel: 'Flexible start',
+    winterExtraMonthsLabel: 'Extra months',
+    winterBookingClosed: 'Bookings for next winter are expected to open in September.',
+  },
 };
 
 const sectionCopy = {
@@ -86,7 +115,7 @@ const sectionCopy = {
 export const newsTranslations = Object.fromEntries(
   (['de', 'fr', 'en'] as const).map((lang) => [lang, {
     ...sectionCopy[lang],
-    winterBookingClosed: winterBookingClosed[lang],
+    ...winterSectionCopy[lang],
     ...Object.fromEntries(news.flatMap((item) => Object.entries(item.copy[lang])
       .map(([key, value]) => [`news_${item.id}_${key}`, value]))),
   }]),

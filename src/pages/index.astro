@@ -1,7 +1,12 @@
 ---
-import { news, newsTranslations, winterBookingClosed, winterOffer } from "../data/news";
+import { news, newsTranslations, winterHighlights, winterOffer, winterSectionCopy } from "../data/news";
 const winterCopy = winterOffer.copy.de;
 const winterKey = `news_${winterOffer.id}_`;
+const winterLabels = {
+  storagePeriod: 'winterStoragePeriodLabel',
+  flexibleStart: 'winterFlexibleStartLabel',
+  extraMonths: 'winterExtraMonthsLabel',
+} as const;
 ---
 <!DOCTYPE html>
 <html lang="de">
@@ -335,7 +340,15 @@ const winterKey = `news_${winterOffer.id}_`;
     .news-price { display: flex; flex-wrap: wrap; align-items: baseline; column-gap: .6rem; margin: 1rem 0; color: var(--gruen); }
     .news-price strong { font-family: var(--serif); font-size: 30px; line-height: 1.2; }
     .news-price span { font-size: 16px; }
-    .news-details { margin-bottom: 1rem; }
+    .news-highlights {
+      display: grid; gap: .55rem; list-style: none; margin: .9rem 0 1.1rem;
+      color: var(--text-soft); line-height: 1.5;
+    }
+    .news-highlights li { display: flex; align-items: baseline; gap: .65rem; }
+    .news-highlights li::before {
+      content: ''; flex: 0 0 .43rem; height: .43rem;
+      border-radius: 50%; background: var(--gruen);
+    }
     .news-action { display: inline-block; background: var(--rot); color: #fff; border-radius: 999px; padding: .7rem 1.3rem; font-weight: 700; font-size: 16px; }
     .news-action:hover { background: #a52626; }
     .news-action:focus-visible { outline: 3px solid var(--gruen); outline-offset: 4px; }
@@ -391,13 +404,44 @@ const winterKey = `news_${winterOffer.id}_`;
       transition: background .2s; margin-top: 1.5rem;
     }
     .btn-book:hover { background: #a52626; }
-    .winter-price { margin-top: 1.25rem; padding: 1.25rem 1.5rem; }
-    .winter-price .preis-col-title { margin-bottom: .4rem; }
-    .winter-price p { color: var(--text-soft); font-size: .9rem; }
-    .winter-price .winter-rate { margin: .45rem 0; color: var(--gruen); }
-    .winter-price .winter-action {
-      display: inline-block; margin-top: .65rem; color: var(--gruen);
-      font-size: .9rem; font-weight: 700; text-decoration: underline; text-underline-offset: .2em;
+    .winter-price {
+      display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 20rem);
+      align-items: center; gap: clamp(1.5rem, 4vw, 3.5rem); margin-top: 2rem;
+      padding: clamp(1.25rem, 4vw, 3rem); border-radius: 16px;
+      border: 1px solid rgba(45,80,22,.13);
+    }
+    .winter-title {
+      font-size: clamp(28px, 4vw, 46px); line-height: 1.1;
+      margin: .65rem 0 .85rem;
+    }
+    .winter-intro { max-width: 54ch; color: var(--text-soft); line-height: 1.65; }
+    .winter-facts { display: grid; gap: .75rem; margin-top: 1.25rem; }
+    .winter-fact {
+      display: grid; grid-template-columns: minmax(0, 10rem) minmax(0, 1fr);
+      align-items: baseline; column-gap: .75rem; row-gap: .2rem;
+      padding: .65rem .85rem; border-radius: 9px; background: #f6f5f0;
+      font-size: .95rem; line-height: 1.45;
+    }
+    .winter-fact dt { color: var(--gruen); font-weight: 700; }
+    .winter-fact dd { color: var(--text-soft); }
+    .winter-booking {
+      padding: clamp(1.15rem, 2.4vw, 1.5rem); border-radius: 14px; text-align: center;
+      background: radial-gradient(circle at 105% -20%, #e0e9d8 0 36%, transparent 36%), #eef2e8;
+      color: var(--gruen);
+    }
+    .winter-booking .winter-rate {
+      display: block; font-family: var(--serif); font-size: clamp(36px, 5vw, 54px);
+      line-height: 1.05; white-space: nowrap;
+    }
+    .winter-price-unit { margin-top: .45rem; color: var(--text-soft); }
+    .winter-action { margin-top: 1.2rem; line-height: 1.4; }
+    .winter-action svg { display: inline-block; margin-left: .2em; vertical-align: -.13em; }
+    .winter-booking [data-winter-closed] { font-weight: 700; }
+    @media (max-width: 880px) {
+      .winter-price { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 530px) {
+      .winter-fact { grid-template-columns: 1fr; }
     }
     .incl-list { list-style: none; }
     .incl-list li {
@@ -873,9 +917,16 @@ const winterKey = `news_${winterOffer.id}_`;
               <span class="news-period" data-i18n={`news_${item.id}_period`}>{item.copy.de.period}</span>
             </div>
             <h3 data-i18n={`news_${item.id}_title`}>{item.copy.de.title}</h3>
-            <p data-i18n={`news_${item.id}_summary`}>{item.copy.de.summary}</p>
             {item.price && <div class="news-price"><strong>{item.price}</strong><span data-i18n={`news_${item.id}_priceUnit`}>{item.copy.de.priceUnit}</span></div>}
-            {item.copy.de.details && <p class="news-details" data-i18n={`news_${item.id}_details`}>{item.copy.de.details}</p>}
+            {item.copy.de.storagePeriod ? (
+              <ul class="news-highlights">
+                {(['vehicles', ...winterHighlights] as const).filter(key => item.copy.de[key]).map(key => (
+                  <li><span data-i18n={`news_${item.id}_${key}`}>{item.copy.de[key]}</span></li>
+                ))}
+              </ul>
+            ) : (
+              <p data-i18n={`news_${item.id}_summary`}>{item.copy.de.summary}</p>
+            )}
             <a href={item.href} class="news-action" data-i18n={`news_${item.id}_action`}>{item.copy.de.action}</a>
           </div>
         </article>
@@ -1038,14 +1089,30 @@ const winterKey = `news_${winterOffer.id}_`;
 
     </div>
     <div class="preis-col winter-price" id="winter-abstellplaetze">
-      <h3 class="preis-col-title" data-i18n={winterKey + 'title'}>{winterCopy.title}</h3>
-      <p data-i18n={winterKey + 'summary'}>{winterCopy.summary}</p>
-      <div data-winter-booking data-starts-on={winterOffer.startsOn} data-expires-on={winterOffer.expiresOn} hidden>
-        <p class="winter-rate"><strong>{winterOffer.price}</strong> <span data-i18n={winterKey + 'priceUnit'}>{winterCopy.priceUnit}</span></p>
-        <p data-i18n={winterKey + 'details'}>{winterCopy.details}</p>
-        <a href={winterOffer.href} class="winter-action" data-i18n={winterKey + 'action'}>{winterCopy.action}</a>
+      <div>
+        <span class="news-badge" data-i18n={winterKey + 'category'}>{winterCopy.category}</span>
+        <h3 class="winter-title" data-i18n={winterKey + 'title'}>{winterCopy.title}</h3>
+        <p class="winter-intro" data-i18n={winterKey + 'summary'}>{winterCopy.summary}</p>
+        <dl class="winter-facts">
+          {winterHighlights.map(key => (
+            <div class="winter-fact">
+              <dt data-i18n={winterLabels[key]}>{winterSectionCopy.de[winterLabels[key]]}</dt>
+              <dd data-i18n={winterKey + key}>{winterCopy[key]}</dd>
+            </div>
+          ))}
+        </dl>
       </div>
-      <p data-winter-closed data-i18n="winterBookingClosed">{winterBookingClosed.de}</p>
+      <div class="winter-booking">
+        <div data-winter-booking data-starts-on={winterOffer.startsOn} data-expires-on={winterOffer.expiresOn} hidden>
+          <strong class="winter-rate">{winterOffer.price}</strong>
+          <p class="winter-price-unit" data-i18n={winterKey + 'priceUnit'}>{winterCopy.priceUnit}</p>
+          <a href={winterOffer.href} class="news-action winter-action">
+            <span data-i18n={winterKey + 'action'}>{winterCopy.action}</span>
+            <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11m-4-4 4 4-4 4"/></svg>
+          </a>
+        </div>
+        <p data-winter-closed data-i18n="winterBookingClosed">{winterSectionCopy.de.winterBookingClosed}</p>
+      </div>
     </div>
   </div>
 </section>
