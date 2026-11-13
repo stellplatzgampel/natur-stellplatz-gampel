@@ -13,6 +13,12 @@ const winterLabels = {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <script is:inline>
+    const safariVersion = navigator.userAgent.match(/iPhone.*Version\/(\d+).*Safari\//);
+    if (safariVersion && Number(safariVersion[1]) >= 26) {
+      document.documentElement.classList.add('iphone-safari');
+    }
+  </script>
   <meta name="google-site-verification" content="L_I8rjoq5KvYA5_mppiGdRdEHE1peI0jfhFloBzQ5a0" />
   <title data-i18n="metaTitle">Natur Stellplatz Gampel – Wohnmobilstellplatz im Wallis</title>
   <meta name="description" content="Natur-Stellplatz in Gampel, Wallis – mehr als ein Stellplatz: mit Duschen, WC, Strom &amp; Entsorgung. Ohne Reservation, ganzjährig geöffnet, ab CHF 26/Nacht." />
@@ -160,12 +166,16 @@ const winterLabels = {
 
     /* ── HERO ────────────────────────────────── */
     .hero {
-      position: relative; height: 100vh; min-height: 600px;
+      --hero-top-offset: 0px;
+      position: relative;
+      height: calc(100vh + var(--hero-top-offset));
+      min-height: calc(600px + var(--hero-top-offset));
       overflow: hidden;
       margin-left: calc(-1 * env(safe-area-inset-left));
       margin-right: calc(-1 * env(safe-area-inset-right));
     }
-    .hero-logo, .hero-camper { top: calc(20px + env(safe-area-inset-top)); }
+    .hero-start { position: absolute; top: var(--hero-top-offset); }
+    .hero-logo, .hero-camper { top: calc(20px + env(safe-area-inset-top) + var(--hero-top-offset)); }
     .hero-logo { left: calc(24px + env(safe-area-inset-left)); }
     .hero-camper { right: calc(24px + env(safe-area-inset-right)); }
     .hero-img {
@@ -744,8 +754,10 @@ const winterLabels = {
       .hero-overlay { padding-top: 15vh; }
     }
     @media (max-width: 768px) {
-      html, body { background-color: #26351d; }
-      .hero-logo, .hero-camper { top: calc(16px + env(safe-area-inset-top)); }
+      /* Safari reveals page content behind the status bar below the scroll origin. */
+      .iphone-safari .hero { --hero-top-offset: max(64px, env(safe-area-inset-top)); }
+      .iphone-safari .hero-overlay { padding-top: calc(15vh + var(--hero-top-offset)); }
+      .hero-logo, .hero-camper { top: calc(16px + env(safe-area-inset-top) + var(--hero-top-offset)); }
       .hero-logo { left: calc(16px + env(safe-area-inset-left)); }
       .hero-camper { right: calc(16px + env(safe-area-inset-right)); }
     }
@@ -760,6 +772,7 @@ const winterLabels = {
       .galerie-grid { grid-template-columns: 1fr; }
       .gal-plus { grid-column: 1; }
       .hero-overlay { padding-top: 18vh; }
+      .iphone-safari .hero-overlay { padding-top: calc(18vh + var(--hero-top-offset) + 14px); }
     }
   </style>
 </head>
@@ -767,7 +780,8 @@ const winterLabels = {
 
 
 <!-- ─── 1. HERO ────────────────────────────────────────────────── -->
-<section class="hero" id="top">
+<section class="hero">
+  <span class="hero-start" id="top" aria-hidden="true"></span>
   <img class="hero-img" src="/images/hero.jpg"
        alt="Natur Stellplatz Gampel – Drohnenaufnahme des Wohnmobilstellplatzes an der Rhone im Wallis"
        width="1600" height="1200" fetchpriority="high" />
@@ -778,7 +792,7 @@ const winterLabels = {
     <div style="position:absolute;inset:0;z-index:10;pointer-events:none">
 
       <!-- Logo links -->
-      <a href="#" class="hero-logo" style="
+      <a href="#top" class="hero-logo" style="
         position:absolute;
         z-index:100;
         display:block;
@@ -2277,7 +2291,7 @@ const winterLabels = {
 
 
 <button id="scrolltop"
-  onclick="window.scrollTo({top:0,behavior:'smooth'})"
+  onclick="document.getElementById('top').scrollIntoView({behavior:'smooth'})"
   style="position:fixed;bottom:calc(28px + env(safe-area-inset-bottom));right:calc(24px + env(safe-area-inset-right));z-index:999;
     width:52px;height:52px;border-radius:50%;
     background:#8B2020;color:#fff;border:none;cursor:pointer;
@@ -2288,6 +2302,15 @@ const st = document.getElementById('scrolltop');
 window.addEventListener('scroll',()=>{
   st.style.display = window.scrollY > 400 ? 'flex' : 'none';
 });
+</script>
+
+<script is:inline>
+  window.addEventListener('pageshow', (event) => {
+    if (event.persisted || location.hash || window.scrollY !== 0) return;
+    if (document.documentElement.classList.contains('iphone-safari')) {
+      document.getElementById('top').scrollIntoView({ behavior: 'instant' });
+    }
+  });
 </script>
 
 </body>
