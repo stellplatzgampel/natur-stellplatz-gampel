@@ -337,6 +337,11 @@ const winterLabels = {
     .news-period { color: var(--text-soft); font-size: 14px; }
     .news-content h3 { font-size: clamp(26px, 3vw, 34px); margin-bottom: .75rem; }
     .news-content p { color: var(--text-soft); line-height: 1.7; }
+    .news-content .news-notice {
+      margin-top: 1rem; padding: .85rem 1rem; border-left: 3px solid var(--gruen);
+      border-radius: 0 8px 8px 0; background: #f6f5f0;
+    }
+    .news-card--notice .news-image { object-position: left 65%; }
     .news-price { display: flex; flex-wrap: wrap; align-items: baseline; column-gap: .6rem; margin: 1rem 0; color: var(--gruen); }
     .news-price strong { font-family: var(--serif); font-size: 30px; line-height: 1.2; }
     .news-price span { font-size: 16px; }
@@ -450,6 +455,7 @@ const winterLabels = {
       font-size: .875rem; color: var(--text);
     }
     .incl-list li:last-child { border-bottom: none; }
+    .price-winter-note { margin-top: .75rem; color: var(--text-soft); font-size: .85rem; }
     .incl-check {
       width: 18px; height: 18px; border-radius: 50%;
       background: var(--gruen); flex-shrink: 0; margin-top: .1rem;
@@ -909,7 +915,7 @@ const winterLabels = {
     <p class="sec-lead" data-i18n="newsSub">Neuigkeiten, Angebote und Veranstaltungen bei uns und in der Region.</p>
     <div class="news-list">
       {news.map((item) => (
-        <article class="news-card" data-news-item data-starts-on={item.startsOn} data-expires-on={item.expiresOn} hidden>
+        <article class:list={['news-card', { 'news-card--notice': item.copy.de.notice }]} data-news-item data-starts-on={item.startsOn} data-expires-on={item.expiresOn} hidden>
           <div class="news-media"><img class="news-image" src={item.image} alt={item.copy.de.imageAlt} data-i18n-alt={`news_${item.id}_imageAlt`} width={item.imageWidth} height={item.imageHeight} loading="lazy" decoding="async" />{item.copy.de.imageNote && <span class="news-image-note" data-i18n={`news_${item.id}_imageNote`}>{item.copy.de.imageNote}</span>}</div>
           <div class="news-content">
             <div class="news-meta">
@@ -930,7 +936,8 @@ const winterLabels = {
             ) : (
               <p data-i18n={`news_${item.id}_summary`}>{item.copy.de.summary}</p>
             )}
-            <a href={item.href} class="news-action" data-i18n={`news_${item.id}_action`}>{item.copy.de.action}</a>
+            {item.copy.de.notice && <p class="news-notice" data-i18n={`news_${item.id}_notice`}>{item.copy.de.notice}</p>}
+            {item.href && item.copy.de.action && <a href={item.href} class="news-action" data-i18n={`news_${item.id}_action`}>{item.copy.de.action}</a>}
           </div>
         </article>
       ))}
@@ -1010,7 +1017,8 @@ const winterLabels = {
         </div>
         <h3 data-i18n="feat3Title">Vollständige Infrastruktur</h3>
         <p data-i18n="feat3Desc">48 CEE-Steckdosen (16A), Frischwasser, Grau- &amp; Schwarzwasser-Entsorgung.</p>
-        <p data-i18n="feat3Desc2" style="margin-top:.75rem">Duschen, WC, Lavabos – sauber und jederzeit zugänglich.</p>
+        <p data-i18n="feat3Desc2" style="margin-top:.75rem">Duschen, WC und Lavabos.</p>
+        <p data-i18n="winterFacilities" style="margin-top:.75rem">Von November bis Ende März sind die Sanitäranlagen sowie die Frischwasser- und Abwasserstation geschlossen.</p>
       </div>
 
       <!-- 5. Perfekte Lage -->
@@ -1088,6 +1096,7 @@ const winterLabels = {
           <li><div class="incl-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div><span data-i18n="incl5">Abfallentsorgung</span></li>
           <li><div class="incl-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div><span data-i18n="incl6">Kurtaxe inbegriffen</span></li>
         </ul>
+        <p class="price-winter-note" data-i18n="winterFacilities">Von November bis Ende März sind die Sanitäranlagen sowie die Frischwasser- und Abwasserstation geschlossen.</p>
       </div>
 
     </div>
@@ -1686,7 +1695,7 @@ const winterLabels = {
       feat2Desc: "1 Tag, mehrere Tage und auch längere Aufenthalte möglich. Angebot für längere Aufenthalte auf Anfrage.",
       feat3Title: "Vollständige Infrastruktur",
       feat3Desc: "48 CEE-Steckdosen (16A), Frischwasser, Grau- & Schwarzwasser-Entsorgung.",
-      feat3Desc2: "Duschen, WC, Lavabos – sauber und jederzeit zugänglich.",
+      feat3Desc2: "Duschen, WC und Lavabos.",
       feat4Title: "Perfekte Lage",
       feat4Desc: "Direkt an der Rhone, zentral im Wallis – Dorf und Einkauf zu Fuss erreichbar.",
       feat5Title: "Naturerlebnis",
@@ -1836,7 +1845,7 @@ const winterLabels = {
       feat2Desc: "1 nuit, plusieurs nuits ou séjours prolongés possibles. Offre pour longs séjours sur demande.",
       feat3Title: "Infrastructure complète",
       feat3Desc: "48 prises CEE (16A), eau potable, vidange eaux grises & eaux noires.",
-      feat3Desc2: "Douches, WC, lavabos – propres et accessibles à tout moment.",
+      feat3Desc2: "Douches, WC et lavabos.",
       feat4Title: "Emplacement idéal",
       feat4Desc: "Au bord du Rhône, au centre du Valais – village et commerces accessibles à pied.",
       feat5Title: "Nature",
@@ -1986,7 +1995,7 @@ const winterLabels = {
       feat2Desc: "1 night, several nights or extended stays possible. Longer-stay offer available on request.",
       feat3Title: "Full infrastructure",
       feat3Desc: "48 CEE sockets (16A), fresh water, grey & black water disposal.",
-      feat3Desc2: "Showers, WC, washbasins – clean and accessible at all times.",
+      feat3Desc2: "Showers, toilets and washbasins.",
       feat4Title: "Perfect location",
       feat4Desc: "Right on the Rhône, central in the Valais – village and shops within walking distance.",
       feat5Title: "Nature",

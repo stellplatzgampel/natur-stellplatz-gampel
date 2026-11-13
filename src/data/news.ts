@@ -9,7 +9,8 @@ type NewsCopy = {
   storagePeriod?: string;
   flexibleStart?: string;
   extraMonths?: string;
-  action: string;
+  action?: string;
+  notice?: string;
   imageAlt: string;
   imageNote?: string;
 };
@@ -20,7 +21,7 @@ type NewsItem = {
   imageWidth: number;
   imageHeight: number;
   price?: string;
-  href: string;
+  href?: string;
   startsOn?: string;
   expiresOn: string | null;
   copy: Record<Language, NewsCopy>;
@@ -81,7 +82,40 @@ export const winterOffer = {
 } satisfies NewsItem;
 
 // expiresOn ist der letzte sichtbare Tag, null lässt die Meldung offen.
-export const news: NewsItem[] = [winterOffer];
+export const news: NewsItem[] = [{
+  id: 'winterbetrieb',
+  image: '/images/winterbetrieb-gampel.webp',
+  imageWidth: 1448,
+  imageHeight: 1086,
+  startsOn: '2026-11-01',
+  expiresOn: '2027-03-31',
+  copy: {
+    de: {
+      category: 'Winterbetrieb',
+      period: '1. November bis 31. März',
+      title: 'Übernachten auf dem Stellplatz im Winter',
+      summary: 'Unser Stellplatz bleibt auch im Winter für Übernachtungen geöffnet. Strom ist verfügbar.',
+      notice: 'Duschen, Toiletten und die übrigen Sanitäranlagen bleiben geschlossen. Auch die Station für Frischwasser und Abwasserentsorgung ist in dieser Zeit geschlossen.',
+      imageAlt: 'Wohnmobil auf dem verschneiten Stellplatz zwischen schneebedeckten Bäumen',
+    },
+    fr: {
+      category: 'Horaires d’hiver',
+      period: 'Du 1er novembre au 31 mars',
+      title: 'Passer la nuit sur l’aire en hiver',
+      summary: 'Notre aire reste ouverte pour les nuitées en hiver. L’électricité est disponible.',
+      notice: 'Les douches, les toilettes et les autres sanitaires sont fermés. La borne de remplissage d’eau et de vidange des eaux usées est également fermée pendant cette période.',
+      imageAlt: 'Camping-car sur l’aire enneigée, au milieu d’arbres couverts de neige',
+    },
+    en: {
+      category: 'Winter opening',
+      period: '1 November to 31 March',
+      title: 'Overnight stays in winter',
+      summary: 'Our site stays open for overnight stays in winter. Electricity is available.',
+      notice: 'Showers, toilets and other washroom facilities are closed. The fresh water and wastewater disposal station is also closed during this period.',
+      imageAlt: 'Motorhome on the snowy site among snow-covered trees',
+    },
+  },
+}, winterOffer];
 
 export const winterHighlights = ['storagePeriod', 'flexibleStart', 'extraMonths'] as const;
 
@@ -107,9 +141,9 @@ export const winterSectionCopy = {
 };
 
 const sectionCopy = {
-  de: { navNews: 'Aktuelles', newsEy: 'Aktuelles', newsTitle: 'Aktuelles rund um den Stellplatz', newsSub: 'Neuigkeiten, Angebote und Veranstaltungen bei uns und in der Region.' },
-  fr: { navNews: 'Actualités', newsEy: 'Actualités', newsTitle: 'Les nouvelles de notre aire', newsSub: 'Nouveautés, offres et événements chez nous et dans la région.' },
-  en: { navNews: 'News', newsEy: 'News', newsTitle: 'The latest from our site', newsSub: 'News, offers and events at our site and in the region.' },
+  de: { navNews: 'Aktuelles', newsEy: 'Aktuelles', newsTitle: 'Aktuelles rund um den Stellplatz', newsSub: 'Neuigkeiten, Angebote und Veranstaltungen bei uns und in der Region.', winterFacilities: 'Von November bis Ende März sind die Sanitäranlagen sowie die Frischwasser- und Abwasserstation geschlossen.' },
+  fr: { navNews: 'Actualités', newsEy: 'Actualités', newsTitle: 'Les nouvelles de notre aire', newsSub: 'Nouveautés, offres et événements chez nous et dans la région.', winterFacilities: 'De novembre à fin mars, les sanitaires et la borne de remplissage d’eau et de vidange sont fermés.' },
+  en: { navNews: 'News', newsEy: 'News', newsTitle: 'The latest from our site', newsSub: 'News, offers and events at our site and in the region.', winterFacilities: 'From November to the end of March, the washrooms and the fresh water and wastewater disposal station are closed.' },
 };
 
 export const newsTranslations = Object.fromEntries(
