@@ -701,6 +701,7 @@ const winterLabels = {
     }
     .oa-book-btn:hover { background: #b0e060; }
     .oa-book-btn:focus-visible { outline: 2px solid #e0f7ad; outline-offset: 4px; }
+    .oa-book-status { color: #c9e7a0; font-size: .95rem; font-weight: 700; }
     .oa-rules-list {
       display: flex; flex: 1; flex-direction: column; justify-content: center;
       list-style: none;
@@ -1449,8 +1450,10 @@ const winterLabels = {
           <li><span data-i18n="oaInclEarlyBird">Early Bird: Anreise ab Mittwoch</span></li>
           <li><span data-i18n="oaInclSunMon">Nacht So → Mo inbegriffen</span></li>
         </ul>
-        {openairBookingOpen && (
+        {openairBookingOpen ? (
           <a href={openairBookingUrl} target="_blank" rel="noopener" class="oa-book-btn" data-i18n="oaBookBtn">Stellplatz buchen →</a>
+        ) : (
+          <p class="oa-book-status" data-i18n="oaBookingSoon">Buchung bald möglich</p>
         )}
       </div>
 
@@ -1801,6 +1804,7 @@ const winterLabels = {
       oaInclEarlyBird: "Early Bird: Anreise ab Mittwoch",
       oaInclSunMon: "Nacht So → Mo inbegriffen",
       oaBookBtn: "Stellplatz buchen →",
+      oaBookingSoon: "Buchung bald möglich",
       oaCardRulesLabel: "Was gilt pro Stellplatz",
       oaRule1: "1 Reisemobil (Büssli, Van, Wohnmobil, Wohnwagen oder Auto mit Dachzelt/Zelt)",
       oaRule2: "Bis 3 Personen inklusive",
@@ -1946,6 +1950,7 @@ const winterLabels = {
       oaInclEarlyBird: "Early Bird : arrivée dès mercredi",
       oaInclSunMon: "Nuit dim. → lun. incluse",
       oaBookBtn: "Réserver l'emplacement →",
+      oaBookingSoon: "Réservations bientôt ouvertes",
       oaCardRulesLabel: "Ce qui s'applique par emplacement",
       oaRule1: "1 camping-car (fourgon, van, motorhome, caravane ou voiture avec tente de toit/tente)",
       oaRule2: "Jusqu’à 3 personnes incluses",
@@ -2091,6 +2096,7 @@ const winterLabels = {
       oaInclEarlyBird: "Early Bird: arrival from Wednesday",
       oaInclSunMon: "Night Sun → Mon included",
       oaBookBtn: "Book your pitch →",
+      oaBookingSoon: "Booking opens soon",
       oaCardRulesLabel: "What applies per pitch",
       oaRule1: "1 motorhome (camper van, van, motorhome, caravan or car with roof tent/tent)",
       oaRule2: "Up to 3 people included",
